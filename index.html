@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ref is Human FC ⚽</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --green: #228B22;
+            --dark-green: #1a6d1a;
+            --yellow: #FFD700;
+            --black: #0a0a0a;
+            --gray: #f8f9fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #ffffff 100%);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(34,139,34,0.92), rgba(26,109,26,0.95)),
+                        url('https://images.unsplash.com/photo-1624880357913-a8539238245b?w=1600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><rect width="100" height="20" fill="white" opacity="0.07"/></svg>') repeat;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(255,215,0,0.5); }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--dark-green);
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 100px;
+            height: 6px;
+            background: var(--yellow);
+            display: block;
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(34,139,34,0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+        .card h3 { margin: 15px 0 10px; color: var(--green); }
+        .coming-soon {
+            background: linear-gradient(45deg, #ff9d00, #ff0080);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        .socials a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+        .socials a:hover { color: var(--yellow); transform: translateY(-5px); }
+        .footer-text { margin-top: 30px; opacity: 0.7; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero { padding: 120px 20px 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Ref is Human FC</h1>
+            <p>Stopping referee abuse with education, humor, and a whole lot of heart.</p>
+            <p>Referee abuse hurts everyone on the pitch. We're here to turn “offside fans” into true champions of respect and fair play.</p>
+            <a href="#cartoons-videos" class="btn">Explore the Movement</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="cartoons-videos">
+            <h2>Cartoons & Videos</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/600x400/228B22/white?text=Cartoon+1" alt="Cartoon">
+                    <div class="card-body">
+                        <h3>That Time the Ref Got Carded</h3>
+                        <p>Hilarious take on the daily life of a referee.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/600x400/FFD700/black?text=Video+Series" alt="Video">
+                    <div class="card-body">
+                        <h3>Respect Starts Here – Ep.1</h3>
+                        <p>Short, funny, and eye-opening.</p>
+                    </div>
+                </div>
+                <!-- Add more cards easily here -->
+            </div>
+        </section>
+
+        <section id="podcast" style="background: #f0f8f0;">
+            <h2>Podcast – "Offside Banter"</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/600x400/111111/white?text=Mic+Icon" alt="Podcast">
+                    <div class="card-body">
+                        <h3>Episode 12: "The Yellow Card Monologues"</h3>
+                        <p>Real refs, real stories, zero filter.</p>
+                        <a href="#" class="btn" style="margin-top:15px; font-size:0.9rem; padding:10px 20px;">Listen Now</a>
+                    </div>
+                </div>
+                <!-- Add more episodes -->
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2>Online Training Courses <span class="coming-soon">Coming 2026</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/600x400/333333/white?text=Course+Preview" alt="Course">
+                    <div class="card-body">
+                        <h3>Respect 101 for Parents & Coaches</h3>
+                        <p>Interactive modules that actually work.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="regulations" style="background: #f0f8f0;">
+            <h2>Official Regulations & Guidelines</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>FIFA, USSF & IFAB</h3>
+                        <p>Zero-tolerance policies, disciplinary codes, and respect campaigns.</p>
+                        <a href="#" class="btn" style="margin-top:15px;">Download PDF Pack</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="merch">
+            <h2>Merchandise – Wear the Message</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/600x400/000000/white?text=T-Shirt" alt="T-Shirt">
+                    <div class="card-body">
+                        <h3>"Ref is Human" Classic Tee</h3>
+                        <p>$25 – 100% of profit supports referee retention programs</p>
+                        <a href="#" class="btn" style="background:#000; color:white;">Shop Now</a>
+                    </div>
+                </div>
+                <!-- Add hoodies, mugs, stickers, etc. -->
+            </div>
+        </section>
+
+        <section id="community">
+            <h2>Community Feed</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>@CoachMike</strong>: "Showed the latest cartoon at practice – kids were dying laughing and actually listened for once!"</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>@RefereeSarah</strong>: "Thank you for giving us a voice. Episode 9 had me in tears."</p>
+                    </div>
+                </div>
+                <!-- Easy to add more posts -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="https://instagram.com/refishumanfc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/refishumanfc" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://youtube.com/@refishumanfc" aria-label="YouTube"><i><i class="fab fa-youtube"></i></a>
+                <a href="https://tiktok.com/@refishumanfc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="footer-text">© 2025 Ref is Human FC – Property of Olinda Labs LLC</p>
+        </div>
+    </footer>
+</body>
+</html>
