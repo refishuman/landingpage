@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referee Associations Directory | Ref is Human FC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9fafb; /* Soft white background */
+            --card-bg: #ffffff;
+            --accent-yellow: #facc15; /* Bright Yellow */
+            --accent-dark: #854d0e; /* Darker Gold for text contrast on light bg */
+            --text-main: #111827; /* Near black */
+            --text-muted: #6b7280; /* Grey */
+            --border-color: #e5e7eb; /* Light border */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Clean Light Hero Section */
+        header {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000') no-repeat center center/cover;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 6px solid var(--accent-yellow);
+        }
+
+        header h1 {
+            font-family: 'Inter', sans-serif;
+            /* Use Bootstrap classes for size/weight, color inherited from .hero-section */
+        }
+
+        header p {
+            font-family: 'Inter', sans-serif;
+            /* Use Bootstrap classes for size/weight, color inherited from .hero-section */
+        }
+
+
+        @media (max-width: 800px) {
+            .hide-mobile { display: none; }
+            /* Removed header padding override to keep .hero-section consistent */
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(20, 50, 30, 0.85), rgba(20, 50, 30, 0.85)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center; color: white; padding: 60px 0; margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        #searchInput {
+            width: 100%;
+            box-sizing: border-box;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 18px 25px;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.1);
+        }
+
+        /* Table Styling */
+        .directory-wrapper {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f3f4f6;
+            padding: 18px 20px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #374151;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        tr:hover { background: #fffbeb; }
+
+        .continent-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: #e5e7eb;
+            color: #374151;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .btn-visit {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            background: var(--accent-yellow);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.2s;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .btn-visit:hover {
+            background: #eab308;
+            transform: translateY(-1px);
+        }
+
+        .obs-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- <header>
+    <h2>Official Referee Associations Worldwide</h2>
+    <h3>Referee Associations Directory </h3>
+</header> -->
+<header class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Referee Associations Worldwide</h1>
+        <h4 class="display-8 fw-bold">Directory Search for Official Soccer Referee Associations</h4>
+        <p class="mb-1"><a href="https://refishumanfc.com/" target="_blank" class="fw-bold">Ref is Human FC</a></p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by Country, Association, or Continent...">
+    </div>
+
+    <div class="directory-wrapper">
+        <table id="assocTable">
+            <thead>
+                <tr>
+                    <th>Association Name</th>
+                    <th>Region</th>
+                    <th class="hide-mobile">Continent</th>
+                    <th class="hide-mobile">Special Note</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>FIFA Refereeing</td><td>Switzerland</td><td><span class="continent-tag">Global</span></td><td class="obs-text">The world's ultimate governing body for match officials.</td><td><a href="https://inside.fifa.com/refereeing" class="btn-visit">Visit</a></td></tr>
+                <tr><td>UEFA Referees</td><td>Switzerland</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Manages UCL and Euro Championship officials.</td><td><a href="https://www.uefa.com/development/referees/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>CONMEBOL Arbitraje</td><td>Paraguay</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Oversees high-tension Copa Libertadores officiating.</td><td><a href="https://www.conmebol.com/comision-de-arbitros/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>CONCACAF Refereeing</td><td>USA</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">Home to the Center of Refereeing Excellence (CORE).</td><td><a href="https://www.concacaf.com/inside-concacaf/refereeing/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>AFC Referees</td><td>Malaysia</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Covering the world's largest geographical area.</td><td><a href="https://www.the-afc.com/en/about_afc/referees.html" class="btn-visit">Visit</a></td></tr>
+                <tr><td>CAF Refereeing</td><td>Egypt</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Leading the professionalization of refs across Africa.</td><td><a href="https://www.cafonline.com/inside-caf/development/refereeing/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>OFC Refereeing</td><td>New Zealand</td><td><span class="continent-tag">Oceania</span></td><td class="obs-text">Supporting development for island nation officials.</td><td><a href="https://www.oceaniafootball.com/technical/refeering/" class="btn-visit">Visit</a></td></tr>
+                
+                <tr><td>PGMOL</td><td>England</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">The premier body for professional English officials.</td><td><a href="https://www.premierleague.com/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>AIA Italy</td><td>Italy</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">One of the most prestigious academies in history.</td><td><a href="https://www.aia-figc.it" class="btn-visit">Visit</a></td></tr>
+                <tr><td>CTA Spain</td><td>Spain</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Technical committee for La Liga match officials.</td><td><a href="https://rfef.es/en/federation/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>DFB-Schiedsrichter</td><td>Germany</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Includes a database of over 50,000 registered refs.</td><td><a href="https://www.dfb.de/schiedsrichter/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>KNVB Dutch Referees</td><td>Netherlands</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">The pioneers behind original VAR testing protocols.</td><td><a href="https://www.knvb.nl/scheidsrechters" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FFF Arbitrage</td><td>France</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Focused on integrating VAR across all elite tiers.</td><td><a href="https://www.fff.fr/arbitrage" class="btn-visit">Visit</a></td></tr>
+                <tr><td>PZPN Sędziowie</td><td>Poland</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Produced 2022 World Cup Final ref Szymon Marciniak.</td><td><a href="https://pzpn.pl/en/association/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>APAF Portugal</td><td>Portugal</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Professional protection body for Portuguese refs.</td><td><a href="https://www.apaf.pt/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>HNS Referees</td><td>Croatia</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Developing talent to match the national team's success.</td><td><a href="https://hns.family/en/hns/referees/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>Scottish FA Referees</td><td>Scotland</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Maintains high-level independence from league teams.</td><td><a href="https://www.scottishfa.co.uk/referees/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FAW Referees</td><td>Wales</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Covers development from grassoots to international.</td><td><a href="https://www.faw.cymru/en/referees/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>SFV/ASF Referees</td><td>Switzerland</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Swiss-led training programs at the heart of Europe.</td><td><a href="https://www.football.ch/sfv/schiedsrichter.aspx" class="btn-visit">Visit</a></td></tr>
+                <tr><td>TFF MHK</td><td>Turkey</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Known for rigorous central refereeing board oversight.</td><td><a href="https://www.tff.org/default.aspx?pageID=163" class="btn-visit">Visit</a></td></tr>
+                <tr><td>SvFF Domare</td><td>Sweden</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Features transparent referee grading and reports.</td><td><a href="https://www.svenskfotboll.se/domare/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>DBU Dommere</td><td>Denmark</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Innovative focus on youth referee mentorship programs.</td><td><a href="https://www.dbu.dk/dommere/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>ÖFB Schiedsrichter</td><td>Austria</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Rich history of technical training in Central Europe.</td><td><a href="https://www.oefb.at/oefb/Schiedsrichter" class="btn-visit">Visit</a></td></tr>
+                <tr><td>IFA Referees</td><td>N. Ireland</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Historical pioneer in officiating standardizations.</td><td><a href="https://www.irishfa.com/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>NFF Dommere</td><td>Norway</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Top-tier development for female international officials.</td><td><a href="https://www.fotball.no/dommere/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FRF Arbitri</td><td>Romania</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">The CCA Commission oversees all national growth.</td><td><a href="https://www.frf-cca.ro/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>BFS Referees</td><td>Bulgaria</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Specialized clinics for high-pressure match scenarios.</td><td><a href="https://bfunion.bg/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FACR Rozhodčí</td><td>Czechia</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Strong lineage of elite Champions League officials.</td><td><a href="https://rozhodci.fotbal.cz/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>MLSZ Játékvezetők</td><td>Hungary</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Famous for producing Viktor Kassai.</td><td><a href="https://focibiro.hu/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>EPO Referees</td><td>Greece</td><td><span class="continent-tag">Europe</span></td><td class="obs-text">Focuses on elite training for professional tiers.</td><td><a href="https://www.epo.gr/referees" class="btn-visit">Visit</a></td></tr>
+
+                <tr><td>PRO (MLS/NWSL)</td><td>USA</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">The professional standard for North American leagues.</td><td><a href="https://proreferees.com" class="btn-visit">Visit</a></td></tr>
+                <tr><td>US Soccer Referees</td><td>USA</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">The governing body for the official referee pathway.</td><td><a href="https://www.ussoccer.com/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FMF Arbitraje</td><td>Mexico</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">The massive technical committee of the Mexican FA.</td><td><a href="https://fmf.mx/arbitraje" class="btn-visit">Visit</a></td></tr>
+                <tr><td>Canada Soccer</td><td>Canada</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">Oversees refereeing for the Canadian Premier League.</td><td><a href="https://canadasoccer.com/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FCRF Arbitraje</td><td>Costa Rica</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">Regional leader in VAR education for Central America.</td><td><a href="https://www.fedefutbol.com/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FEPAFUT</td><td>Panama</td><td><span class="continent-tag">N. America</span></td><td class="obs-text">Expanding referee academy for youth officials.</td><td><a href="https://fepafut.com/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>CBF Arbitragem</td><td>Brazil</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Managing match officials across the massive Brazilian tiers.</td><td><a href="https://www.cbf.com.br/arbitragem" class="btn-visit">Visit</a></td></tr>
+                <tr><td>AFA Arbitraje</td><td>Argentina</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Historical power producing multiple WC Final refs.</td><td><a href="https://www.afa.org.ar/es/posts/arbitros" class="btn-visit">Visit</a></td></tr>
+                <tr><td>AUF Arbitraje</td><td>Uruguay</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">A small nation with a huge global officiating footprint.</td><td><a href="https://auf.org.uy/arbitraje" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FCF Arbitraje</td><td>Colombia</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Rigorous standards for physically elite officials.</td><td><a href="https://fcf.com.co/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>ANFP Arbitraje</td><td>Chile</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Known for modernized electronic tracking of refs.</td><td><a href="https://www.anfp.cl/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FEF Arbitraje</td><td>Ecuador</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">High-altitude training specialists.</td><td><a href="https://fef.ec/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FPF Arbitraje</td><td>Peru</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Direct oversight of Liga 1 officials.</td><td><a href="https://www.fpf.org.pe/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FBF Arbitraje</td><td>Bolivia</td><td><span class="continent-tag">S. America</span></td><td class="obs-text">Officiating specialists for unique environmental conditions.</td><td><a href="https://fbf.com.bo/" class="btn-visit">Visit</a></td></tr>
+
+                <tr><td>JFA Referees</td><td>Japan</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">World-class technical discipline and training methods.</td><td><a href="https://www.jfa.jp/eng/referee/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>KFA Referees</td><td>South Korea</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Top Asian nation for elite referee academy growth.</td><td><a href="https://www.kfa.or.kr/referee" class="btn-visit">Visit</a></td></tr>
+                <tr><td>Football Australia</td><td>Australia</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Home to a world-leading centralized VAR bunker.</td><td><a href="https://www.footballaustralia.com.au/referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>SAFF Referees</td><td>Saudi Arabia</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Significant investment in professionalizing the local core.</td><td><a href="https://www.saff.com.sa/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>QFA Referees</td><td>Qatar</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">High-tech infrastructure from the 2022 World Cup.</td><td><a href="https://www.qfa.qa/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>UAEFA Referees</td><td>UAE</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Hosts major international refereeing seminars.</td><td><a href="https://www.uaefa.ae/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FFIRI Referees</td><td>Iran</td><td><span class="continent-tag">Asia</span></td><td class="obs-text">Rich history of technical excellence in match control.</td><td><a href="http://www.ffiri.ir/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>NZF Referees</td><td>New Zealand</td><td><span class="continent-tag">Oceania</span></td><td class="obs-text">Leading development in the Oceania region.</td><td><a href="https://www.nzfootball.co.nz/GET-INVOLVED/Referees" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FRMF Morocco</td><td>Morocco</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">African leader in VAR facility development.</td><td><a href="https://frmf.ma/arbitrage" class="btn-visit">Visit</a></td></tr>
+                <tr><td>SAFA Referees</td><td>South Africa</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Governing body for Southern Africa's pro officials.</td><td><a href="https://www.safa.net/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>EFA Egypt</td><td>Egypt</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Oversees officials for the historic Egyptian Premier League.</td><td><a href="https://www.efa.eg" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FECAFOOT</td><td>Cameroon</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Traditional power in elite physical training for CAF.</td><td><a href="https://fecafoot-officiel.com/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>NFF Nigeria</td><td>Nigeria</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Managing development in a massive domestic market.</td><td><a href="https://thenff.com/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>GFA Ghana</td><td>Ghana</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Recently implemented strict ethics and integrity modules.</td><td><a href="https://www.ghanafa.org/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FSF Senegal</td><td>Senegal</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">Focuses on talent scouting for the next CAF elite cycle.</td><td><a href="https://fsfoot.sn/" class="btn-visit">Visit</a></td></tr>
+                <tr><td>FTF Tunisia</td><td>Tunisia</td><td><span class="continent-tag">Africa</span></td><td class="obs-text">High-level technical training for North African tiers.</td><td><a href="http://www.ftf.org.tn/fr/" class="btn-visit">Visit</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer>
+    <p class="mb-1 fw-bold"><a href="https://refishumanfc.com/" target="_blank" class="fw-bold">Ref is Human FC</a>
+    </p><br> Helping players, parents, and referees master the beautiful game.</p>
+</footer>
+
+<script>
+    // Real-time filtering
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#assocTable tbody tr');
+        
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
