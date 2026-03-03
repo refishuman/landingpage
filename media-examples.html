@@ -128,6 +128,60 @@
     }
     .watch-link:hover { text-decoration: underline; }
 
+    .link-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    }
+    .link-card-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      font-size: 3rem;
+    }
+    .link-card-banner.wikipedia { background: #f8f9fa; color: #333; }
+    .link-card-banner.reddit    { background: #ff4500; color: white; }
+    .link-card-info {
+      padding: 1rem 1.1rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .link-card-info h3 {
+      margin: 0;
+      font-size: 0.97rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+    .link-card-source {
+      font-size: 0.78rem;
+      color: #888;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .link-card-link {
+      margin-top: auto;
+      padding-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #dc2626;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .link-card-link:hover { text-decoration: underline; }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -187,6 +241,28 @@
       <h3>Ref Throws Parent Out of Game!</h3>
       <p style="font-size:0.85rem;color:#666;margin:0;">A referee stands their ground and removes an abusive parent from the sidelines.</p>
       <a class="watch-link" href="https://youtu.be/2dB0iMy4KAI?si=FAqK9xWBphTqJCLJ" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="link-card">
+    <div class="link-card-banner wikipedia">📖</div>
+    <div class="link-card-info">
+      <span class="video-tag tag-incident">Murder</span>
+      <span class="link-card-source">Wikipedia</span>
+      <h3>Murder of Otávio Jordão da Silva</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">A Brazilian referee was killed during a match in 2013 after sending off a player — a tragic extreme of referee abuse.</p>
+      <a class="link-card-link" href="https://en.wikipedia.org/wiki/Murder_of_Ot%C3%A1vio_Jord%C3%A3o_da_Silva" target="_blank">Read on Wikipedia ↗</a>
+    </div>
+  </div>
+
+  <div class="link-card">
+    <div class="link-card-banner reddit">🤜</div>
+    <div class="link-card-info">
+      <span class="video-tag tag-incident">Physical Assault</span>
+      <span class="link-card-source">Reddit</span>
+      <h3>Physical Assaulting the Ref</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">Video footage of a player physically attacking a referee, shared on r/therewasanattempt.</p>
+      <a class="link-card-link" href="https://www.reddit.com/r/therewasanattempt/s/LmgVh1ev0n" target="_blank">View on Reddit ↗</a>
     </div>
   </div>
 
