@@ -803,8 +803,21 @@ const tiers = [
 let currentIndex = 0;
 const answers = {}; // { questionIndex: pts }
 
+// ─── SHUFFLE OPTIONS (once, at load time) ───────────────────
+const LETTERS = ['A', 'B', 'C', 'D'];
+function shuffleOptions() {
+  questions.forEach(q => {
+    for (let i = q.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    }
+    q.options.forEach((opt, i) => { opt.letter = LETTERS[i]; });
+  });
+}
+
 // ─── INIT ───────────────────────────────────────────────────
 function init() {
+  shuffleOptions();
   buildStepDots();
   showQuestion(0, 'none');
   updateProgress();
