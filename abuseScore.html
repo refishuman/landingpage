@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* ── Noise texture overlay ── */
         body::before {
             content: '';
             position: fixed;
@@ -44,7 +43,7 @@
             z-index: 0;
         }
 
-        /* ── Header / Nav ── */
+        /* ── Nav ── */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             display: flex; align-items: center; justify-content: space-between;
@@ -75,7 +74,7 @@
         /* ── Hero ── */
         .hero {
             position: relative;
-            padding: 8rem 2rem 4rem;
+            padding: 7rem 2rem 3rem;
             text-align: center;
             overflow: hidden;
         }
@@ -83,7 +82,7 @@
             content: '';
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 120px;
+            height: 80px;
             background: linear-gradient(to top, var(--dark), transparent);
         }
         .hero-bg {
@@ -99,37 +98,21 @@
             0% { transform: translate(0, 0) rotate(0deg); }
             100% { transform: translate(-2%, 1%) rotate(1deg); }
         }
-        .hero-badge {
-            display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--yellow);
-            border: 1px solid var(--yellow);
-            padding: 0.4rem 1.2rem;
-            border-radius: 2px;
-            margin-bottom: 1.5rem;
-        }
         .hero h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
             font-weight: 700;
             line-height: 1.05;
             text-transform: uppercase;
             letter-spacing: -1px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
-        .hero h1 .highlight {
-            color: var(--yellow);
-            position: relative;
-        }
+        .hero h1 .highlight { color: var(--yellow); }
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            max-width: 560px;
+            margin: 0 auto 1.2rem;
             line-height: 1.7;
         }
         .hero-stat {
@@ -140,39 +123,36 @@
             color: var(--red);
             font-weight: 600;
         }
-        .hero-stat::before {
-            content: '⚠';
-            font-size: 1rem;
-        }
+        .hero-stat::before { content: '⚠'; font-size: 1rem; }
 
-        /* ── Quiz Container ── */
-        .quiz-wrap {
+        /* ── Quiz Shell ── */
+        .quiz-shell {
             position: relative;
             z-index: 1;
-            max-width: 780px;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 0 1.5rem 4rem;
+            padding: 0 1.5rem 5rem;
         }
 
-        /* ── Progress Bar ── */
-        .progress-bar-wrap {
+        /* ── Progress ── */
+        .progress-wrap {
             position: sticky;
             top: 60px;
             z-index: 50;
             background: rgba(13,17,23,0.95);
             backdrop-filter: blur(8px);
-            padding: 0.8rem 0;
+            padding: 1rem 0 0.8rem;
             margin-bottom: 2rem;
         }
         .progress-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
         .progress-label {
             font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -197,37 +177,77 @@
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
+        /* Step dots */
+        .step-dots {
+            display: flex;
+            gap: 5px;
+            margin-top: 0.6rem;
+        }
+        .step-dot {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--dark-border);
+            transition: background 0.4s;
+        }
+        .step-dot.done { background: var(--green-dark); }
+        .step-dot.active { background: var(--yellow); }
+
+        /* ── Question Stage ── */
+        .question-stage {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden; /* clips slide animations */
+        }
 
         /* ── Question Card ── */
         .question-card {
             background: var(--dark-card);
             border: 1px solid var(--dark-border);
             border-radius: 8px;
-            padding: 2.5rem 2rem;
-            margin-bottom: 1.5rem;
+            padding: 2.5rem 2rem 2rem;
+            position: absolute;
+            width: 100%;
+            top: 0; left: 0;
+        }
+
+        /* Entry animations */
+        .question-card.enter-from-right {
+            animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .question-card.enter-from-left {
+            animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .question-card.exit-to-left {
+            animation: slideOutLeft 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .question-card.exit-to-right {
+            animation: slideOutRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        /* Static visible state (after animation, or initial) */
+        .question-card.visible {
             position: relative;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: cardIn 0.6s ease forwards;
+            animation: none;
+            opacity: 1;
+            transform: translateX(0);
         }
-        .question-card.answered {
-            border-color: var(--green-dark);
-            box-shadow: 0 0 0 1px var(--green-dark);
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
-        @keyframes cardIn {
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
-        .question-card:nth-child(1) { animation-delay: 0.05s; }
-        .question-card:nth-child(2) { animation-delay: 0.1s; }
-        .question-card:nth-child(3) { animation-delay: 0.15s; }
-        .question-card:nth-child(4) { animation-delay: 0.2s; }
-        .question-card:nth-child(5) { animation-delay: 0.25s; }
-        .question-card:nth-child(6) { animation-delay: 0.3s; }
-        .question-card:nth-child(7) { animation-delay: 0.35s; }
-        .question-card:nth-child(8) { animation-delay: 0.4s; }
-        .question-card:nth-child(9) { animation-delay: 0.45s; }
-        .question-card:nth-child(10) { animation-delay: 0.5s; }
+        @keyframes slideOutLeft {
+            from { opacity: 1; transform: translateX(0); }
+            to   { opacity: 0; transform: translateX(-60px); }
+        }
+        @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to   { opacity: 0; transform: translateX(60px); }
+        }
 
         .q-number {
             font-family: 'Oswald', sans-serif;
@@ -236,7 +256,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--yellow);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
         .q-tag {
             display: inline-block;
@@ -249,27 +269,29 @@
             border: 1px solid var(--dark-border);
             padding: 0.2rem 0.6rem;
             border-radius: 3px;
-            margin-left: 0.75rem;
+            margin-left: 0.6rem;
             vertical-align: middle;
         }
-        .q-text {
-            font-size: 1.2rem;
+        .q-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
             font-weight: 600;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.6rem;
             color: #fff;
         }
         .q-scenario {
             font-style: italic;
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            line-height: 1.65;
             padding-left: 1rem;
             border-left: 2px solid var(--dark-border);
+            margin-bottom: 1.8rem;
         }
 
-        /* ── Answer Options ── */
+        /* ── Options ── */
         .options { display: flex; flex-direction: column; gap: 0.6rem; }
         .option {
             display: flex;
@@ -279,28 +301,27 @@
             border: 1px solid var(--dark-border);
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
             background: transparent;
             position: relative;
             overflow: hidden;
-        }
-        .option::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 0; height: 100%;
-            background: rgba(255,215,0,0.04);
-            transition: width 0.3s;
+            user-select: none;
         }
         .option:hover {
             border-color: var(--yellow);
             background: rgba(255,215,0,0.03);
         }
-        .option:hover::before { width: 100%; }
         .option.selected {
             border-color: var(--yellow);
             background: rgba(255,215,0,0.08);
             box-shadow: inset 3px 0 0 var(--yellow);
+            cursor: default;
+        }
+        /* Lock other options once one is selected */
+        .options.locked .option:not(.selected) {
+            opacity: 0.45;
+            cursor: default;
+            pointer-events: none;
         }
         .option-letter {
             font-family: 'Oswald', sans-serif;
@@ -316,7 +337,7 @@
             border-radius: 3px;
             flex-shrink: 0;
             margin-top: 1px;
-            transition: all 0.25s;
+            transition: all 0.2s;
         }
         .option.selected .option-letter {
             background: var(--yellow);
@@ -329,9 +350,9 @@
             color: var(--text);
         }
 
-        /* ── Reveal Box (shown after answer) ── */
+        /* ── Reveal Box ── */
         .reveal-box {
-            margin-top: 1.2rem;
+            margin-top: 1.4rem;
             padding: 1rem 1.2rem;
             background: rgba(230,57,70,0.06);
             border: 1px solid rgba(230,57,70,0.2);
@@ -341,15 +362,15 @@
             color: var(--text-muted);
             display: none;
         }
-        .reveal-box.show { display: block; animation: fadeUp 0.4s ease; }
+        .reveal-box.show {
+            display: block;
+            animation: fadeUp 0.35s ease;
+        }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        .reveal-box strong {
-            color: var(--red);
-            font-weight: 700;
-        }
+        .reveal-box strong { color: var(--red); font-weight: 700; }
         .reveal-box .rap-tag {
             display: inline-block;
             font-family: 'Oswald', sans-serif;
@@ -364,64 +385,71 @@
             margin-right: 0.4rem;
         }
 
-        /* ── Submit Button ── */
-        .submit-wrap {
-            text-align: center;
-            margin: 3rem 0;
+        /* ── Navigation Buttons ── */
+        .nav-buttons {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            gap: 0.8rem;
         }
-        .btn-submit {
+        .nav-buttons.show { display: flex; animation: fadeUp 0.3s ease; }
+
+        .btn-back {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--dark-border);
+            padding: 0.75rem 1.4rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-back:hover { color: var(--text); border-color: var(--text-muted); }
+        .btn-back:disabled { opacity: 0.2; cursor: default; }
+
+        .btn-next {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             background: var(--yellow);
             color: var(--dark);
             border: none;
-            padding: 1rem 3rem;
+            padding: 0.85rem 2.5rem;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            flex: 1;
         }
-        .btn-submit:hover {
+        .btn-next:hover {
             background: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,215,0,0.25);
-        }
-        .btn-submit:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        .btn-submit:disabled:hover { background: var(--yellow); }
-        .submit-hint {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.6rem;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(255,215,0,0.2);
         }
 
-        /* ── Results Panel ── */
+        /* ── Results ── */
         .results {
             display: none;
             text-align: center;
-            padding: 3rem 2rem;
-            margin-bottom: 3rem;
-            position: relative;
+            padding: 2rem 1.5rem 3rem;
         }
         .results.show { display: block; animation: fadeUp 0.6s ease; }
 
         .score-ring-wrap {
             position: relative;
-            width: 260px;
-            height: 260px;
+            width: 240px;
+            height: 240px;
             margin: 0 auto 2rem;
         }
         .score-ring-wrap svg {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             transform: rotate(-90deg);
         }
         .score-ring-bg {
@@ -434,8 +462,8 @@
             stroke: var(--yellow);
             stroke-width: 8;
             stroke-linecap: round;
-            stroke-dasharray: 753;
-            stroke-dashoffset: 753;
+            stroke-dasharray: 690;
+            stroke-dashoffset: 690;
             transition: stroke-dashoffset 2s cubic-bezier(0.22, 1, 0.36, 1),
                         stroke 0.5s;
         }
@@ -447,29 +475,27 @@
         }
         .score-number {
             font-family: 'Oswald', sans-serif;
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 700;
             line-height: 1;
             color: var(--yellow);
         }
         .score-percent {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--yellow);
-            font-weight: 400;
         }
         .score-label {
             font-family: 'Oswald', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
         }
-
         .result-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 700;
             text-transform: uppercase;
             line-height: 1.1;
@@ -478,7 +504,7 @@
         .result-desc {
             font-size: 1.05rem;
             color: var(--text-muted);
-            max-width: 550px;
+            max-width: 520px;
             margin: 0 auto 2rem;
             line-height: 1.7;
         }
@@ -486,7 +512,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            max-width: 500px;
+            max-width: 460px;
             margin: 0 auto 2rem;
             text-align: left;
         }
@@ -508,7 +534,7 @@
             line-height: 1.4;
             margin-top: 0.2rem;
         }
-
+        .result-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
         .btn-retake {
             font-family: 'Oswald', sans-serif;
             font-size: 0.9rem;
@@ -521,13 +547,9 @@
             padding: 0.8rem 2rem;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-right: 0.8rem;
+            transition: all 0.2s;
         }
-        .btn-retake:hover {
-            background: var(--yellow);
-            color: var(--dark);
-        }
+        .btn-retake:hover { background: var(--yellow); color: var(--dark); }
         .btn-share {
             font-family: 'Oswald', sans-serif;
             font-size: 0.9rem;
@@ -540,12 +562,9 @@
             padding: 0.8rem 2rem;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
-        .btn-share:hover {
-            background: #fff;
-            transform: translateY(-1px);
-        }
+        .btn-share:hover { background: #fff; transform: translateY(-1px); }
 
         /* ── Footer ── */
         .footer {
@@ -560,9 +579,9 @@
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
-            .hero { padding: 7rem 1.2rem 3rem; }
-            .quiz-wrap { padding: 0 1rem 3rem; }
-            .question-card { padding: 1.8rem 1.4rem; }
+            .hero { padding: 6rem 1.2rem 2.5rem; }
+            .quiz-shell { padding: 0 1rem 4rem; }
+            .question-card { padding: 1.8rem 1.4rem 1.6rem; }
             .result-card-row { grid-template-columns: 1fr; }
             .nav { padding: 0.8rem 1.2rem; }
         }
@@ -570,52 +589,41 @@
 </head>
 <body>
 
-<!-- Nav -->
 <nav class="nav">
     <a href="https://www.refishumanfc.com" class="nav-brand">Ref is Human <span>FC ⚽</span></a>
     <a href="https://www.refishumanfc.com" class="nav-link">← Back to Home</a>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
     <div class="hero-bg"></div>
-    <!--- div class="hero-badge">Powered by U.S. Soccer RAP Data</div-->
-    <h1>What's Your<br><span class="highlight">Ref-Abuse-Score</span>?</h1>
-    <p>10 questions. Brutally honest answers. Find out where you land on the referee abuse spectrum — from model citizen to parking-lot menace.</p>
+    <h1>What's Your<br><span class="highlight">Ref-Abuse-Score </span>?</h1>
+    <p>10 questions to find out where you land on the referee abuse spectrum <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 58" width="26" height="15" style="vertical-align:middle;margin-right:4px;"><path d="M10,50 A40,40 0 0,1 50,10" fill="none" stroke="#22c55e" stroke-width="11" stroke-linecap="butt"/><path d="M50,10 A40,40 0 0,1 84,30" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt"/><path d="M84,30 A40,40 0 0,1 90,50" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt"/><line x1="50" y1="50" x2="73" y2="27" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#1f2937"/></svg></p>
     <div class="hero-stat">80% of new referees quit within 2 years because of people like… well, let's find out.</div>
 </section>
 
-<!-- Quiz -->
-<div class="quiz-wrap">
+<div class="quiz-shell">
 
     <!-- Progress -->
-    <div class="progress-bar-wrap">
+    <div class="progress-wrap" id="progressWrap">
         <div class="progress-meta">
-            <span class="progress-label">Your Progress</span>
-            <span class="progress-count" id="progressCount">0 / 10</span>
+            <span class="progress-label">Question</span>
+            <span class="progress-count" id="progressCount">1 / 10</span>
         </div>
         <div class="progress-track">
             <div class="progress-fill" id="progressFill"></div>
         </div>
+        <div class="step-dots" id="stepDots"></div>
     </div>
 
-    <!-- Questions injected by JS -->
-    <div id="questionsContainer"></div>
-
-    <!-- Submit -->
-    <div class="submit-wrap">
-        <button class="btn-submit" id="btnSubmit" disabled onclick="calculateScore()">
-            Calculate My Ref-Abuse-Score
-        </button>
-        <div class="submit-hint" id="submitHint">Answer all 10 questions to unlock your score</div>
-    </div>
+    <!-- One question at a time -->
+    <div class="question-stage" id="questionStage"></div>
 
     <!-- Results -->
     <div class="results" id="resultsPanel">
         <div class="score-ring-wrap">
-            <svg viewBox="0 0 260 260">
-                <circle class="score-ring-bg" cx="130" cy="130" r="120" />
-                <circle class="score-ring-fill" id="scoreRing" cx="130" cy="130" r="120" />
+            <svg viewBox="0 0 240 240">
+                <circle class="score-ring-bg" cx="120" cy="120" r="110" />
+                <circle class="score-ring-fill" id="scoreRing" cx="120" cy="120" r="110" />
             </svg>
             <div class="score-center">
                 <div class="score-number" id="scoreNumber">0</div>
@@ -625,7 +633,7 @@
         </div>
         <div class="result-title" id="resultTitle"></div>
         <div class="result-desc" id="resultDesc"></div>
-        <div class="result-card-row">
+        <!--div class="result-card-row">
             <div class="result-stat-card">
                 <div class="stat-num">72%</div>
                 <div class="stat-label">of youth soccer referees are under 19 years old</div>
@@ -634,20 +642,21 @@
                 <div class="stat-num">80%</div>
                 <div class="stat-label">of new referees quit within their first two years</div>
             </div>
+        </div-->
+        <div class="result-actions">
+            <button class="btn-retake" onclick="retake()">Retake Quiz</button>
+            <button class="btn-share" onclick="shareResult()">Share My Score</button>
         </div>
-        <button class="btn-retake" onclick="retake()">Retake Quiz</button>
-        <button class="btn-share" onclick="shareResult()">Share My Score</button>
     </div>
 </div>
 
-<!-- Footer -->
 <footer class="footer">
-    <p>Based on the <a href="https://www.ussoccer.com/rap" target="_blank">U.S. Soccer Referee Abuse Prevention (RAP) Policy 531-9</a> &amp; the "Respect the Call" initiative.</p>
+    <p>Inspired by the <a href="https://www.ussoccer.com/rap" target="_blank">U.S. Soccer Referee Abuse Prevention (RAP) Policy 531-9</a> &amp; the "Respect the Call" initiative.</p>
     <p style="margin-top:0.4rem;">© 2025 <a href="https://www.refishumanfc.com">Ref is Human FC</a> — Education, Humor &amp; Heart.</p>
 </footer>
 
 <script>
-// ─── QUIZ DATA ─────────────────────────────────────────────
+// ─── DATA ───────────────────────────────────────────────────
 const questions = [
   {
     id: 1,
@@ -781,180 +790,232 @@ const questions = [
   }
 ];
 
-// ─── RESULT TIERS ──────────────────────────────────────────
 const tiers = [
-  {
-    max: 10,
-    color: "#2DC653",
-    title: "🟢 The Referee's Dream",
-    desc: "You're the rarest species in youth soccer: a supportive, respectful sideline presence. Referees don't know your name — and that's the highest compliment. Keep being the example everyone else needs."
-  },
-  {
-    max: 25,
-    color: "#7EC850",
-    title: "🟡 Mostly Harmless",
-    desc: "You have your moments — an eye-roll here, a dramatic sigh there — but you catch yourself before crossing the line. The ref might notice you, but they're not worried about you. Room for improvement, but you're not the problem."
-  },
-  {
-    max: 45,
-    color: "#FFD700",
-    title: "🟡 Yellow Card Territory",
-    desc: "You're edging into dissent. Your sideline behavior is noticeable and occasionally disruptive. The ref is aware of your presence — and not in a good way. Under the RAP policy, some of your habits would trigger formal warnings. Time to recalibrate."
-  },
-  {
-    max: 65,
-    color: "#FF8C00",
-    title: "🟠 Red Card Energy",
-    desc: "You're in official abuse territory under U.S. Soccer's Referee Abuse Prevention policy. Your behavior would earn game suspensions. The ref remembers your face — and tells other refs about you. You're part of the reason 80% of new refs quit."
-  },
-  {
-    max: 85,
-    color: "#E63946",
-    title: "🔴 Parking Lot Problems",
-    desc: "You ARE the referee crisis. Your behavior falls into Level 2–3 of the RAP framework — the kind that causes refs to walk away from the sport permanently. Games get canceled because of people with your score. This is your wake-up call."
-  },
-  {
-    max: 100,
-    color: "#8B0000",
-    title: "⛔ Lifetime Ban Loading…",
-    desc: "Under the RAP policy, you'd face 6–24 month suspensions or a lifetime ban. You represent the extreme end of the abuse spectrum. You are actively making youth soccer worse for every child, referee, and family. Seriously — get help, attend a referee game, and start over."
-  }
+  { max: 10,  color: "#2DC653", title: "🟢 The Referee's Dream",      desc: "You're the rarest species in youth soccer: a supportive, respectful sideline presence. Referees don't know your name — and that's the highest compliment. Keep being the example everyone else needs." },
+  { max: 25,  color: "#7EC850", title: "🟡 Mostly Harmless",           desc: "You have your moments — an eye-roll here, a dramatic sigh there — but you catch yourself before crossing the line. The ref might notice you, but they're not worried about you. Room for improvement, but you're not the problem." },
+  { max: 45,  color: "#FFD700", title: "🟡 Yellow Card Territory",      desc: "You're edging into dissent. Your sideline behavior is noticeable and occasionally disruptive. The ref is aware of your presence — and not in a good way. Under the RAP policy, some of your habits would trigger formal warnings. Time to recalibrate." },
+  { max: 65,  color: "#FF8C00", title: "🟠 Red Card Energy",            desc: "You're in official abuse territory under U.S. Soccer's Referee Abuse Prevention policy. Your behavior would earn game suspensions. The ref remembers your face — and tells other refs about you. You're part of the reason 80% of new refs quit." },
+  { max: 85,  color: "#E63946", title: "🔴 Parking Lot Problems",       desc: "You ARE the referee crisis. Your behavior falls into Level 2–3 of the RAP framework — the kind that causes refs to walk away from the sport permanently. Games get canceled because of people with your score. This is your wake-up call." },
+  { max: 100, color: "#8B0000", title: "⛔ Lifetime Ban Loading…",      desc: "Under the RAP policy, you'd face 6–24 month suspensions or a lifetime ban. You represent the extreme end of the abuse spectrum. You are actively making youth soccer worse for every child, referee, and family. Seriously — get help, attend a referee game, and start over." }
 ];
 
-// ─── STATE ─────────────────────────────────────────────────
-const answers = {};
-let totalQuestions = questions.length;
+// ─── STATE ──────────────────────────────────────────────────
+let currentIndex = 0;
+const answers = {}; // { questionIndex: pts }
 
-// ─── RENDER QUESTIONS ──────────────────────────────────────
-function renderQuestions() {
-  const container = document.getElementById('questionsContainer');
-  container.innerHTML = questions.map(q => `
-    <div class="question-card" id="card-${q.id}">
-      <div class="q-number">Question ${q.id} — ${q.title} <span class="q-tag">${q.tag}</span></div>
-      <div class="q-text">${q.scenario}</div>
-      <div class="options">
+// ─── INIT ───────────────────────────────────────────────────
+function init() {
+  buildStepDots();
+  showQuestion(0, 'none');
+  updateProgress();
+}
+
+// ─── STEP DOTS ──────────────────────────────────────────────
+function buildStepDots() {
+  const container = document.getElementById('stepDots');
+  container.innerHTML = questions.map((_, i) =>
+    `<div class="step-dot" id="dot-${i}"></div>`
+  ).join('');
+}
+
+function updateStepDots() {
+  questions.forEach((_, i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    if (i < currentIndex) dot.className = 'step-dot done';
+    else if (i === currentIndex) dot.className = 'step-dot active';
+    else dot.className = 'step-dot';
+  });
+}
+
+// ─── PROGRESS ───────────────────────────────────────────────
+function updateProgress() {
+  const answered = Object.keys(answers).length;
+  const display  = Math.min(currentIndex + 1, questions.length);
+  document.getElementById('progressCount').textContent = `${display} / ${questions.length}`;
+  document.getElementById('progressFill').style.width  = `${(answered / questions.length) * 100}%`;
+  updateStepDots();
+}
+
+// ─── RENDER ONE QUESTION ────────────────────────────────────
+function showQuestion(index, direction) {
+  const stage = document.getElementById('questionStage');
+  const q = questions[index];
+  const isAnswered = answers[index] !== undefined;
+
+  // Build card HTML
+  const cardHTML = `
+    <div class="question-card" id="qcard">
+      <div class="q-number">Question ${q.id} <span class="q-tag">${q.tag}</span></div>
+      <div class="q-title">${q.title}</div>
+      <div class="q-scenario">${q.scenario}</div>
+      <div class="options${isAnswered ? ' locked' : ''}" id="optionsGroup">
         ${q.options.map((opt, i) => `
-          <div class="option" data-qid="${q.id}" data-idx="${i}" data-pts="${opt.pts}" onclick="selectOption(this)">
+          <div class="option${isAnswered && answers[index] === opt.pts ? ' selected' : ''}"
+               data-pts="${opt.pts}"
+               data-idx="${i}"
+               onclick="selectOption(this, ${index})">
             <div class="option-letter">${opt.letter}</div>
             <div class="option-text">${opt.text}</div>
           </div>
         `).join('')}
       </div>
-      <div class="reveal-box" id="reveal-${q.id}">${q.reveal}</div>
+      <div class="reveal-box${isAnswered ? ' show' : ''}" id="revealBox">${q.reveal}</div>
+      <div class="nav-buttons${isAnswered ? ' show' : ''}" id="navButtons">
+        <button class="btn-back" onclick="goBack()" ${index === 0 ? 'disabled' : ''}>← Back</button>
+        <button class="btn-next" onclick="goNext()">
+          ${index === questions.length - 1 ? 'See My Score →' : 'Next Question →'}
+        </button>
+      </div>
     </div>
-  `).join('');
+  `;
+
+  if (direction === 'none') {
+    // Initial render — no animation
+    stage.innerHTML = cardHTML;
+    document.getElementById('qcard').classList.add('visible');
+    return;
+  }
+
+  // Animate out existing card
+  const existing = stage.querySelector('.question-card');
+  if (existing) {
+    existing.classList.remove('visible');
+    existing.classList.add(direction === 'next' ? 'exit-to-left' : 'exit-to-right');
+    existing.addEventListener('animationend', () => existing.remove(), { once: true });
+  }
+
+  // Inject and animate in new card
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = cardHTML;
+  const newCard = wrapper.firstElementChild;
+  newCard.classList.add(direction === 'next' ? 'enter-from-right' : 'enter-from-left');
+  stage.appendChild(newCard);
+
+  // After entry animation ends, switch to static visible class
+  newCard.addEventListener('animationend', () => {
+    newCard.classList.remove('enter-from-right', 'enter-from-left');
+    newCard.classList.add('visible');
+  }, { once: true });
 }
 
-// ─── SELECT OPTION ─────────────────────────────────────────
-function selectOption(el) {
-  const qid = el.dataset.qid;
+// ─── SELECT OPTION ──────────────────────────────────────────
+function selectOption(el, qIndex) {
+  // Already answered
+  if (answers[qIndex] !== undefined) return;
+
   const pts = parseInt(el.dataset.pts);
+  answers[qIndex] = pts;
 
-  // Deselect siblings
-  el.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  // Highlight selected, dim others
+  const group = document.getElementById('optionsGroup');
+  group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
-
-  // Store answer
-  answers[qid] = pts;
-
-  // Mark card answered
-  document.getElementById(`card-${qid}`).classList.add('answered');
+  group.classList.add('locked');
 
   // Show reveal
-  const reveal = document.getElementById(`reveal-${qid}`);
-  reveal.classList.add('show');
+  document.getElementById('revealBox').classList.add('show');
 
-  // Update progress
+  // Show nav buttons
+  document.getElementById('navButtons').classList.add('show');
+
+  // Update progress fill
   updateProgress();
 }
 
-// ─── UPDATE PROGRESS ───────────────────────────────────────
-function updateProgress() {
-  const count = Object.keys(answers).length;
-  document.getElementById('progressCount').textContent = `${count} / ${totalQuestions}`;
-  document.getElementById('progressFill').style.width = `${(count / totalQuestions) * 100}%`;
-
-  const btn = document.getElementById('btnSubmit');
-  const hint = document.getElementById('submitHint');
-  if (count === totalQuestions) {
-    btn.disabled = false;
-    hint.textContent = 'All questions answered — let\'s see the damage.';
+// ─── NAVIGATION ─────────────────────────────────────────────
+function goNext() {
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    showQuestion(currentIndex, 'next');
+    updateProgress();
+    scrollToStage();
   } else {
-    btn.disabled = true;
-    hint.textContent = `Answer all 10 questions to unlock your score (${totalQuestions - count} remaining)`;
+    showResults();
   }
 }
 
-// ─── CALCULATE SCORE ───────────────────────────────────────
-function calculateScore() {
-  const maxPossible = questions.reduce((sum, q) => {
-    return sum + Math.max(...q.options.map(o => o.pts));
-  }, 0);
+function goBack() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    showQuestion(currentIndex, 'prev');
+    updateProgress();
+    scrollToStage();
+  }
+}
 
-  const rawScore = Object.values(answers).reduce((sum, pts) => sum + pts, 0);
-  const percentage = Math.round((rawScore / maxPossible) * 100);
+function scrollToStage() {
+  setTimeout(() => {
+    document.getElementById('progressWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
 
-  // Find tier
-  const tier = tiers.find(t => percentage <= t.max) || tiers[tiers.length - 1];
+// ─── RESULTS ────────────────────────────────────────────────
+function showResults() {
+  // Hide quiz elements
+  document.getElementById('questionStage').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
 
-  // Show results
+  const maxPossible = questions.reduce((sum, q) => sum + Math.max(...q.options.map(o => o.pts)), 0);
+  const rawScore    = Object.values(answers).reduce((sum, pts) => sum + pts, 0);
+  const percentage  = Math.round((rawScore / maxPossible) * 100);
+  const tier        = tiers.find(t => percentage <= t.max) || tiers[tiers.length - 1];
+
   const panel = document.getElementById('resultsPanel');
   panel.classList.add('show');
 
-  // Animate ring
+  // Animate ring (r=110, circumference ≈ 691)
+  const circumference = 2 * Math.PI * 110;
   const ring = document.getElementById('scoreRing');
-  const circumference = 2 * Math.PI * 120; // r=120
-  const offset = circumference - (percentage / 100) * circumference;
+  ring.style.strokeDasharray  = circumference;
+  ring.style.strokeDashoffset = circumference;
   ring.style.stroke = tier.color;
-  setTimeout(() => { ring.style.strokeDashoffset = offset; }, 100);
+  setTimeout(() => {
+    ring.style.strokeDashoffset = circumference - (percentage / 100) * circumference;
+  }, 100);
 
   // Animate number
   const numEl = document.getElementById('scoreNumber');
   numEl.style.color = tier.color;
   animateNumber(numEl, 0, percentage, 1500);
 
-  // Set text
   document.getElementById('resultTitle').textContent = tier.title;
-  document.getElementById('resultTitle').style.color = tier.color;
-  document.getElementById('resultDesc').textContent = tier.desc;
+  document.getElementById('resultTitle').style.color  = tier.color;
+  document.getElementById('resultDesc').textContent   = tier.desc;
 
-  // Scroll to results
-  setTimeout(() => {
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 300);
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ─── ANIMATE NUMBER ────────────────────────────────────────
 function animateNumber(el, from, to, duration) {
   const start = performance.now();
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+  (function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
     el.textContent = Math.round(from + (to - from) * eased);
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
+    if (t < 1) requestAnimationFrame(step);
+  })(performance.now());
 }
 
-// ─── RETAKE ────────────────────────────────────────────────
+// ─── RETAKE ─────────────────────────────────────────────────
 function retake() {
   Object.keys(answers).forEach(k => delete answers[k]);
-  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
-  document.querySelectorAll('.reveal-box').forEach(r => r.classList.remove('show'));
+  currentIndex = 0;
+
   document.getElementById('resultsPanel').classList.remove('show');
-  document.getElementById('scoreRing').style.strokeDashoffset = 753;
+  document.getElementById('questionStage').style.display = '';
+  document.getElementById('progressWrap').style.display = '';
+
+  buildStepDots();
+  showQuestion(0, 'none');
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── SHARE ─────────────────────────────────────────────────
+// ─── SHARE ──────────────────────────────────────────────────
 function shareResult() {
   const score = document.getElementById('scoreNumber').textContent;
   const text = `My Ref-Abuse-Score is ${score}%! 😬⚽ Find out yours at refishumanfc.com — because refs are human too. #RefIsHuman #RespectTheCall`;
   if (navigator.share) {
-    navigator.share({ title: 'My Ref-Abuse-Score', text: text, url: 'https://www.refishumanfc.com/abuseScore.html' });
+    navigator.share({ title: 'My Ref-Abuse-Score', text, url: 'https://www.refishumanfc.com/abuseScore.html' });
   } else {
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.querySelector('.btn-share');
@@ -964,9 +1025,8 @@ function shareResult() {
   }
 }
 
-// ─── INIT ──────────────────────────────────────────────────
-renderQuestions();
+// ─── START ──────────────────────────────────────────────────
+init();
 </script>
-
 </body>
 </html>
