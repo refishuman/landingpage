@@ -1,618 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ref-Abuse-Score — Ref is Human FC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --yellow: #FFD700;
-            --yellow-dark: #E6C200;
-            --red: #E63946;
-            --red-dark: #C1121F;
-            --green: #2DC653;
-            --green-dark: #1B9E3E;
-            --dark: #0D1117;
-            --dark-card: #161B22;
-            --dark-border: #30363D;
-            --dark-hover: #1C2129;
-            --text: #E6EDF3;
-            --text-muted: #8B949E;
-            --accent: #FFD700;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ref-Abuse-Score — Ref is Human FC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #FFD700;
+      --yellow-dark: #E6C200;
+      --red: #E63946;
+      --red-dark: #C1121F;
+      --green: #2DC653;
+      --green-dark: #1B9E3E;
+      --dark: #0D1117;
+      --dark-card: #161B22;
+      --dark-border: #30363D;
+      --dark-hover: #1C2129;
+      --text: #E6EDF3;
+      --text-muted: #8B949E;
+      --accent: #FFD700;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* ── Nav ── */
-        .nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 1rem 2rem;
-            background: rgba(13,17,23,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--dark-border);
-        }
-        .nav-brand {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700; font-size: 1.2rem;
-            color: var(--yellow);
-            text-decoration: none;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .nav-brand span { color: var(--text); }
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-        }
-        .nav-link:hover { color: var(--yellow); }
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(13, 17, 23, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--dark-border);
+    }
 
-        /* ── Hero ── */
-        .hero {
-            position: relative;
-            padding: 7rem 2rem 3rem;
-            text-align: center;
-            overflow: hidden;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 80px;
-            background: linear-gradient(to top, var(--dark), transparent);
-        }
-        .hero-bg {
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(ellipse at 50% 30%, rgba(255,215,0,0.08) 0%, transparent 60%),
-                        radial-gradient(ellipse at 80% 60%, rgba(230,57,70,0.06) 0%, transparent 50%);
-            animation: slowDrift 20s ease-in-out infinite alternate;
-            z-index: -1;
-        }
-        @keyframes slowDrift {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-2%, 1%) rotate(1deg); }
-        }
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.4rem, 6vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.05;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-        }
-        .hero h1 .highlight { color: var(--yellow); }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 560px;
-            margin: 0 auto 1.2rem;
-            line-height: 1.7;
-        }
-        .hero-stat {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--red);
-            font-weight: 600;
-        }
-        .hero-stat::before { content: '⚠'; font-size: 1rem; }
+    .nav-brand {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--yellow);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-        /* ── Quiz Shell ── */
-        .quiz-shell {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 1.5rem 5rem;
-        }
+    .nav-brand span {
+      color: var(--text);
+    }
 
-        /* ── Progress ── */
-        .progress-wrap {
-            position: sticky;
-            top: 60px;
-            z-index: 50;
-            background: rgba(13,17,23,0.95);
-            backdrop-filter: blur(8px);
-            padding: 1rem 0 0.8rem;
-            margin-bottom: 2rem;
-        }
-        .progress-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.6rem;
-        }
-        .progress-label {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-        .progress-count {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
-            color: var(--yellow);
-            font-weight: 600;
-        }
-        .progress-track {
-            width: 100%;
-            height: 4px;
-            background: var(--dark-border);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--yellow);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        /* Step dots */
-        .step-dots {
-            display: flex;
-            gap: 5px;
-            margin-top: 0.6rem;
-        }
-        .step-dot {
-            flex: 1;
-            height: 3px;
-            border-radius: 2px;
-            background: var(--dark-border);
-            transition: background 0.4s;
-        }
-        .step-dot.done { background: var(--green-dark); }
-        .step-dot.active { background: var(--yellow); }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
 
-        /* ── Question Stage ── */
-        .question-stage {
-            position: relative;
-            min-height: 400px;
-            overflow: hidden; /* clips slide animations */
-        }
+    .nav-link:hover {
+      color: var(--yellow);
+    }
 
-        /* ── Question Card ── */
-        .question-card {
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
-            border-radius: 8px;
-            padding: 2.5rem 2rem 2rem;
-            position: absolute;
-            width: 100%;
-            top: 0; left: 0;
-        }
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        /* Entry animations */
-        .question-card.enter-from-right {
-            animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .question-card.enter-from-left {
-            animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .question-card.exit-to-left {
-            animation: slideOutLeft 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .question-card.exit-to-right {
-            animation: slideOutRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        /* Static visible state (after animation, or initial) */
-        .question-card.visible {
-            position: relative;
-            animation: none;
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, var(--dark), transparent);
+    }
 
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideOutLeft {
-            from { opacity: 1; transform: translateX(0); }
-            to   { opacity: 0; transform: translateX(-60px); }
-        }
-        @keyframes slideOutRight {
-            from { opacity: 1; transform: translateX(0); }
-            to   { opacity: 0; transform: translateX(60px); }
-        }
+    .hero-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 50% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 60%, rgba(230, 57, 70, 0.06) 0%, transparent 50%);
+      animation: slowDrift 20s ease-in-out infinite alternate;
+      z-index: -1;
+    }
 
-        .q-number {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--yellow);
-            margin-bottom: 0.5rem;
-        }
-        .q-tag {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--dark-border);
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            margin-left: 0.6rem;
-            vertical-align: middle;
-        }
-        .q-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.6rem;
-            color: #fff;
-        }
-        .q-scenario {
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.65;
-            padding-left: 1rem;
-            border-left: 2px solid var(--dark-border);
-            margin-bottom: 1.8rem;
-        }
+    @keyframes slowDrift {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
 
-        /* ── Options ── */
-        .options { display: flex; flex-direction: column; gap: 0.6rem; }
-        .option {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.9rem;
-            padding: 1rem 1.2rem;
-            border: 1px solid var(--dark-border);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-            user-select: none;
-        }
-        .option:hover {
-            border-color: var(--yellow);
-            background: rgba(255,215,0,0.03);
-        }
-        .option.selected {
-            border-color: var(--yellow);
-            background: rgba(255,215,0,0.08);
-            box-shadow: inset 3px 0 0 var(--yellow);
-            cursor: default;
-        }
-        /* Lock other options once one is selected */
-        .options.locked .option:not(.selected) {
-            opacity: 0.45;
-            cursor: default;
-            pointer-events: none;
-        }
-        .option-letter {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--yellow);
-            min-width: 1.5rem;
-            height: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--dark-border);
-            border-radius: 3px;
-            flex-shrink: 0;
-            margin-top: 1px;
-            transition: all 0.2s;
-        }
-        .option.selected .option-letter {
-            background: var(--yellow);
-            color: var(--dark);
-            border-color: var(--yellow);
-        }
-        .option-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: var(--text);
-        }
+      100% {
+        transform: translate(-2%, 1%) rotate(1deg);
+      }
+    }
 
-        /* ── Reveal Box ── */
-        .reveal-box {
-            margin-top: 1.4rem;
-            padding: 1rem 1.2rem;
-            background: rgba(230,57,70,0.06);
-            border: 1px solid rgba(230,57,70,0.2);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            display: none;
-        }
-        .reveal-box.show {
-            display: block;
-            animation: fadeUp 0.35s ease;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .reveal-box strong { color: var(--red); font-weight: 700; }
-        .reveal-box .rap-tag {
-            display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            background: rgba(230,57,70,0.15);
-            color: var(--red);
-            padding: 0.15rem 0.5rem;
-            border-radius: 2px;
-            margin-right: 0.4rem;
-        }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
 
-        /* ── Navigation Buttons ── */
-        .nav-buttons {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1.5rem;
-            gap: 0.8rem;
-        }
-        .nav-buttons.show { display: flex; animation: fadeUp 0.3s ease; }
+    .hero h1 .highlight {
+      color: var(--yellow);
+    }
 
-        .btn-back {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--dark-border);
-            padding: 0.75rem 1.4rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-        .btn-back:hover { color: var(--text); border-color: var(--text-muted); }
-        .btn-back:disabled { opacity: 0.2; cursor: default; }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 1.2rem;
+      line-height: 1.7;
+    }
 
-        .btn-next {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--yellow);
-            color: var(--dark);
-            border: none;
-            padding: 0.85rem 2.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            flex: 1;
-        }
-        .btn-next:hover {
-            background: #fff;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(255,215,0,0.2);
-        }
+    .hero-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--red);
+      font-weight: 600;
+    }
 
-        /* ── Results ── */
-        .results {
-            display: none;
-            text-align: center;
-            padding: 2rem 1.5rem 3rem;
-        }
-        .results.show { display: block; animation: fadeUp 0.6s ease; }
+    .hero-stat::before {
+      content: '⚠';
+      font-size: 1rem;
+    }
 
-        .score-ring-wrap {
-            position: relative;
-            width: 240px;
-            height: 240px;
-            margin: 0 auto 2rem;
-        }
-        .score-ring-wrap svg {
-            width: 100%; height: 100%;
-            transform: rotate(-90deg);
-        }
-        .score-ring-bg {
-            fill: none;
-            stroke: var(--dark-border);
-            stroke-width: 8;
-        }
-        .score-ring-fill {
-            fill: none;
-            stroke: var(--yellow);
-            stroke-width: 8;
-            stroke-linecap: round;
-            stroke-dasharray: 690;
-            stroke-dashoffset: 690;
-            transition: stroke-dashoffset 2s cubic-bezier(0.22, 1, 0.36, 1),
-                        stroke 0.5s;
-        }
-        .score-center {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        .score-number {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--yellow);
-        }
-        .score-percent {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
-            color: var(--yellow);
-        }
-        .score-label {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-top: 0.2rem;
-        }
-        .result-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 0.75rem;
-        }
-        .result-desc {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 0 auto 2rem;
-            line-height: 1.7;
-        }
-        .result-card-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            max-width: 460px;
-            margin: 0 auto 2rem;
-            text-align: left;
-        }
-        .result-stat-card {
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
-            border-radius: 6px;
-            padding: 1.2rem;
-        }
-        .result-stat-card .stat-num {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--red);
-        }
-        .result-stat-card .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-top: 0.2rem;
-        }
-        .result-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
-        .btn-retake {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: transparent;
-            color: var(--yellow);
-            border: 1px solid var(--yellow);
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-retake:hover { background: var(--yellow); color: var(--dark); }
-        .btn-share {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--yellow);
-            color: var(--dark);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-share:hover { background: #fff; transform: translateY(-1px); }
+    /* ── Quiz Shell ── */
+    .quiz-shell {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+    }
 
-        /* ── Footer ── */
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--dark-border);
-        }
-        .footer a { color: var(--yellow); text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
+    /* ── Progress ── */
+    .progress-wrap {
+      position: sticky;
+      top: 60px;
+      z-index: 50;
+      background: rgba(13, 17, 23, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 1rem 0 0.8rem;
+      margin-bottom: 2rem;
+    }
 
-        /* ── Responsive ── */
-        @media (max-width: 640px) {
-            .hero { padding: 6rem 1.2rem 2.5rem; }
-            .quiz-shell { padding: 0 1rem 4rem; }
-            .question-card { padding: 1.8rem 1.4rem 1.6rem; }
-            .result-card-row { grid-template-columns: 1fr; }
-            .nav { padding: 0.8rem 1.2rem; }
-        }
-    </style>
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .progress-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .progress-count {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: var(--dark-border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--yellow);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Step dots */
+    .step-dots {
+      display: flex;
+      gap: 5px;
+      margin-top: 0.6rem;
+    }
+
+    .step-dot {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--dark-border);
+      transition: background 0.4s;
+    }
+
+    .step-dot.done {
+      background: var(--green-dark);
+    }
+
+    .step-dot.active {
+      background: var(--yellow);
+    }
+
+    /* ── Question Stage ── */
+    .question-stage {
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+      /* clips slide animations */
+    }
+
+    /* ── Question Card ── */
+    .question-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem 2rem;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    /* Entry animations */
+    .question-card.enter-from-right {
+      animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .question-card.enter-from-left {
+      animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .question-card.exit-to-left {
+      animation: slideOutLeft 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .question-card.exit-to-right {
+      animation: slideOutRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Static visible state (after animation, or initial) */
+    .question-card.visible {
+      position: relative;
+      animation: none;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+    }
+
+    @keyframes slideOutRight {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+    }
+
+    .q-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .q-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--dark-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-left: 0.6rem;
+      vertical-align: middle;
+    }
+
+    .q-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .q-scenario {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      padding-left: 1rem;
+      border-left: 2px solid var(--dark-border);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── Options ── */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--dark-border);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .option:hover {
+      border-color: var(--yellow);
+      background: rgba(255, 215, 0, 0.03);
+    }
+
+    .option.selected {
+      border-color: var(--yellow);
+      background: rgba(255, 215, 0, 0.08);
+      box-shadow: inset 3px 0 0 var(--yellow);
+      cursor: default;
+    }
+
+    /* Lock other options once one is selected */
+    .options.locked .option:not(.selected) {
+      opacity: 0.45;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .option-letter {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--yellow);
+      min-width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.2s;
+    }
+
+    .option.selected .option-letter {
+      background: var(--yellow);
+      color: var(--dark);
+      border-color: var(--yellow);
+    }
+
+    .option-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    /* ── Reveal Box ── */
+    .reveal-box {
+      margin-top: 1.4rem;
+      padding: 1rem 1.2rem;
+      background: rgba(230, 57, 70, 0.06);
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .reveal-box.show {
+      display: block;
+      animation: fadeUp 0.35s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-box strong {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .reveal-box .rap-tag {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(230, 57, 70, 0.15);
+      color: var(--red);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-right: 0.4rem;
+    }
+
+    /* ── Navigation Buttons ── */
+    .nav-buttons {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      gap: 0.8rem;
+    }
+
+    .nav-buttons.show {
+      display: flex;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .btn-back {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--dark-border);
+      padding: 0.75rem 1.4rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-back:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    .btn-back:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+
+    .btn-next {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: 0.85rem 2.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      flex: 1;
+    }
+
+    .btn-next:hover {
+      background: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(255, 215, 0, 0.2);
+    }
+
+    /* ── Results ── */
+    .results {
+      display: none;
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .results.show {
+      display: block;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .score-ring-wrap {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 2rem;
+    }
+
+    .score-ring-wrap svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--dark-border);
+      stroke-width: 8;
+    }
+
+    .score-ring-fill {
+      fill: none;
+      stroke: var(--yellow);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 690;
+      stroke-dashoffset: 690;
+      transition: stroke-dashoffset 2s cubic-bezier(0.22, 1, 0.36, 1),
+        stroke 0.5s;
+    }
+
+    .score-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .score-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--yellow);
+    }
+
+    .score-percent {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      color: var(--yellow);
+    }
+
+    .score-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .result-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .result-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .result-card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      text-align: left;
+    }
+
+    .result-stat-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 6px;
+      padding: 1.2rem;
+    }
+
+    .result-stat-card .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .result-stat-card .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: 0.2rem;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-retake {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--yellow);
+      border: 1px solid var(--yellow);
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-retake:hover {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    .btn-share {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-share:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .footer a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 6rem 1.2rem 2.5rem;
+      }
+
+      .quiz-shell {
+        padding: 0 1rem 4rem;
+      }
+
+      .question-card {
+        padding: 1.8rem 1.4rem 1.6rem;
+      }
+
+      .result-card-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 0.8rem 1.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="nav">
+  <nav class="nav">
     <a href="https://www.refishumanfc.com" class="nav-brand">Ref is Human <span>FC ⚽</span></a>
     <a href="https://www.refishumanfc.com" class="nav-link">← Back to Home</a>
-</nav>
+  </nav>
 
-<section class="hero">
+  <section class="hero">
     <div class="hero-bg"></div>
-    <h2>What's Your<br></h2><h1><span class="highlight">Ref-Abuse-Score </span>?</h1>
-    <p>10 questions to find out where you land on the referee abuse spectrum <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 58" width="26" height="15" style="vertical-align:middle;margin-right:4px;"><path d="M10,50 A40,40 0 0,1 50,10" fill="none" stroke="#22c55e" stroke-width="11" stroke-linecap="butt"/><path d="M50,10 A40,40 0 0,1 84,30" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt"/><path d="M84,30 A40,40 0 0,1 90,50" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt"/><line x1="50" y1="50" x2="73" y2="27" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#1f2937"/></svg></p>
+    <h2>What's Your<br></h2>
+    <h1><span class="highlight">Ref-Abuse-Score </span>?</h1>
+    <p>10 questions to find out where you land on the referee abuse spectrum <svg xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 58" width="26" height="15" style="vertical-align:middle;margin-right:4px;">
+        <path d="M10,50 A40,40 0 0,1 50,10" fill="none" stroke="#22c55e" stroke-width="11" stroke-linecap="butt" />
+        <path d="M50,10 A40,40 0 0,1 84,30" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt" />
+        <path d="M84,30 A40,40 0 0,1 90,50" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt" />
+        <line x1="50" y1="50" x2="73" y2="27" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="5" fill="#1f2937" />
+      </svg></p>
     <div class="hero-stat">80% of new referees quit within 2 years because of people like… well, let's find out.</div>
-</section>
+  </section>
 
-<div class="quiz-shell">
+  <div class="quiz-shell">
 
     <!-- Progress -->
     <div class="progress-wrap" id="progressWrap">
-        <div class="progress-meta">
-            <span class="progress-label">Question</span>
-            <span class="progress-count" id="progressCount">1 / 10</span>
-        </div>
-        <div class="progress-track">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="step-dots" id="stepDots"></div>
+      <div class="progress-meta">
+        <span class="progress-label">Question</span>
+        <span class="progress-count" id="progressCount">1 / 10</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="step-dots" id="stepDots"></div>
     </div>
 
     <!-- One question at a time -->
@@ -620,20 +823,20 @@
 
     <!-- Results -->
     <div class="results" id="resultsPanel">
-        <div class="score-ring-wrap">
-            <svg viewBox="0 0 240 240">
-                <circle class="score-ring-bg" cx="120" cy="120" r="110" />
-                <circle class="score-ring-fill" id="scoreRing" cx="120" cy="120" r="110" />
-            </svg>
-            <div class="score-center">
-                <div class="score-number" id="scoreNumber">0</div>
-                <div class="score-percent">%</div>
-                <div class="score-label">Ref-Abuse-Score</div>
-            </div>
+      <div class="score-ring-wrap">
+        <svg viewBox="0 0 240 240">
+          <circle class="score-ring-bg" cx="120" cy="120" r="110" />
+          <circle class="score-ring-fill" id="scoreRing" cx="120" cy="120" r="110" />
+        </svg>
+        <div class="score-center">
+          <div class="score-number" id="scoreNumber">0</div>
+          <div class="score-percent">%</div>
+          <div class="score-label">Ref-Abuse-Score</div>
         </div>
-        <div class="result-title" id="resultTitle"></div>
-        <div class="result-desc" id="resultDesc"></div>
-        <!--div class="result-card-row">
+      </div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-desc" id="resultDesc"></div>
+      <!--div class="result-card-row">
             <div class="result-stat-card">
                 <div class="stat-num">72%</div>
                 <div class="stat-label">of youth soccer referees are under 19 years old</div>
@@ -643,220 +846,83 @@
                 <div class="stat-label">of new referees quit within their first two years</div>
             </div>
         </div-->
-        <div class="result-actions">
-            <button class="btn-retake" onclick="retake()">Retake Quiz</button>
-            <button class="btn-share" onclick="shareResult()">Share My Score</button>
-        </div>
+      <div class="result-actions">
+        <button class="btn-retake" onclick="retake()">Retake Quiz</button>
+        <button class="btn-share" onclick="shareResult()">Share My Score</button>
+      </div>
     </div>
-</div>
+  </div>
 
-<footer class="footer">
-    <p>Inspired by the <a href="https://www.ussoccer.com/rap" target="_blank">U.S. Soccer Referee Abuse Prevention (RAP) Policy 531-9</a> &amp; the "Respect the Call" initiative.</p>
-    <p style="margin-top:0.4rem;">© 2025 <a href="https://www.refishumanfc.com">Ref is Human FC</a> — Education, Humor &amp; Heart.</p>
-</footer>
+  <footer class="footer">
+    <p>Inspired by the <a href="https://www.ussoccer.com/rap" target="_blank">U.S. Soccer Referee Abuse Prevention (RAP)
+        Policy 531-9</a> &amp; the "Respect the Call" initiative.</p>
+    <p style="margin-top:0.4rem;">© 2025 <a href="https://www.refishumanfc.com">Ref is Human FC</a> — Education, Humor
+      &amp; Heart.</p>
+  </footer>
 
-<script>
-// ─── DATA ───────────────────────────────────────────────────
-const questions = [
-  {
-    id: 1,
-    tag: "RAP Non-Physical Level 1",
-    title: "The Offside Trigger",
-    scenario: "The referee calls offside on what you're SURE was a perfectly timed run. Your kid had a clear breakaway. You…",
-    options: [
-      { letter: "A", text: "Groan internally and mutter \"come on…\" under your breath.", pts: 0 },
-      { letter: "B", text: "Stand up and yell \"THAT WAS ONSIDE!\" loud enough for three fields to hear.", pts: 10 },
-      { letter: "C", text: "Cup your hands and shout \"Did you forget your glasses, ref?!\"", pts: 25 },
-      { letter: "D", text: "Launch a detailed play-by-play roasting the ref's every call like you're hosting a podcast from the sideline.", pts: 40 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 1 — Verbal Taunting</span> "Did you forget your glasses?" is a textbook example of Level 1 abuse under U.S. Soccer's RAP policy — <strong>minimum 2-game suspension</strong>. Also, the ref you're yelling at has a 72% chance of being under 19 years old. So… you may be roasting a high schooler.`
-  },
-  {
-    id: 2,
-    tag: "RAP Physical Level 2",
-    title: "The Post-Game Parking Lot",
-    scenario: "Your kid's team just lost 2-1 on a controversial penalty call. The final whistle blew 5 minutes ago. You…",
-    options: [
-      { letter: "A", text: "Tell your kid \"great effort\" and head to get ice cream. Life goes on.", pts: 0 },
-      { letter: "B", text: "Linger near the field packing up chairs extra slowly, making sure the ref feels the weight of your disapproving head-shake.", pts: 10 },
-      { letter: "C", text: "Wait by your car for a \"calm, adult conversation\" with the referee about that penalty call.", pts: 35 },
-      { letter: "D", text: "Follow the referee to their car to deliver your full halftime analysis in person.", pts: 50 }
-    ],
-    reveal: `<span class="rap-tag">RAP Physical Level 2 — Confrontation</span> "Following the referee to their car" is explicitly listed as Physical Level 2 abuse — <strong>minimum 10-game suspension</strong>. In one documented case, parents confronted a ref so aggressively in a parking lot that he reached for softball bats in self-defense. Over ice cream, nobody reaches for weapons.`
-  },
-  {
-    id: 3,
-    tag: "RAP Non-Physical Level 3",
-    title: "The Social Media Referee Critic",
-    scenario: "Someone posts a video clip of a controversial call from your kid's game on the league's Facebook group. You…",
-    options: [
-      { letter: "A", text: "Keep scrolling. You have a life outside youth soccer. (Allegedly.)", pts: 0 },
-      { letter: "B", text: "Comment \"terrible call 🤦\" and move on with your day.", pts: 5 },
-      { letter: "C", text: "Share the video with a 4-paragraph essay tagging the league, demanding accountability.", pts: 30 },
-      { letter: "D", text: "Track down the referee's personal social media and post the clip on their page with a detailed performance review.", pts: 50 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 3 — Threats &amp; Cyberbullying</span> Posting attacks on a referee's personal social media is classified as Level 3 abuse — the same tier as parking-lot threats. <strong>Minimum 6-game and/or 6–24 month suspension.</strong> After Euro 2004, referee Urs Meier received 16,000 threatening emails and needed police protection. Let that sink in.`
-  },
-  {
-    id: 4,
-    tag: "RAP Non-Physical Level 1",
-    title: "The Selective Hearing Test",
-    scenario: "It's the third foul called on your team this half, but you haven't seen a single one called the other way. You…",
-    options: [
-      { letter: "A", text: "Consider that maybe, just maybe, your perspective from behind the cooler isn't as accurate as the referee's on-field view.", pts: 0 },
-      { letter: "B", text: "Say to the parent next to you: \"This ref is calling it a bit one-sided, huh?\"", pts: 5 },
-      { letter: "C", text: "Yell \"CALL IT BOTH WAYS, REF!\" loud enough to briefly pause play on the adjacent field.", pts: 15 },
-      { letter: "D", text: "Shout \"What's the other team paying you?!\" and wait for laughs that never come.", pts: 30 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 1 — Verbal Taunting</span> "What's the other team paying you?" is cited in the RAP program as a direct example of abuse. Research also shows that parents' <strong>lack of knowledge of the Laws of the Game</strong> is a top driver of confrontation. Most "missed calls" aren't missed at all — you just don't know the rule.`
-  },
-  {
-    id: 5,
-    tag: "RAP Non-Physical Level 2",
-    title: "The Emotional Thermometer",
-    scenario: "It's a tied game, 5 minutes left. A call goes against your team. Rate your most likely PEAK reaction:",
-    options: [
-      { letter: "A", text: "One sarcastic clap. Then you sit back down like a functioning adult.", pts: 5 },
-      { letter: "B", text: "Stand up, throw your arms out, and yell \"OH COME ON!\" while spilling your coffee.", pts: 10 },
-      { letter: "C", text: "Pace the sideline yelling things your mother would not approve of.", pts: 30 },
-      { letter: "D", text: "March toward the referee screaming obscenities, veins fully visible. Your Fitbit thinks you're doing HIIT.", pts: 50 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 2 — Harassment / Intimidation</span> Profanity-laden outbursts directed at a referee are Level 2 abuse — <strong>minimum 4-game suspension</strong>. The RAP program warns that unchecked verbal abuse "takes an emotional toll and has the potential to escalate into physically dangerous situations." Your Fitbit was right to be concerned.`
-  },
-  {
-    id: 6,
-    tag: "Youth Referee Awareness",
-    title: "The Youth Ref Reality Check",
-    scenario: "A referee makes a bad call at your 10-year-old's game. Before you react, do you consider how old the referee might be?",
-    options: [
-      { letter: "A", text: "Yes — that ref looks about 14, so I keep my mouth completely shut and let them learn.", pts: 0 },
-      { letter: "B", text: "I notice they're young, so I downgrade from yelling to aggressive sighing.", pts: 5 },
-      { letter: "C", text: "Age doesn't matter — a bad call is a bad call, and someone needs to tell them.", pts: 25 },
-      { letter: "D", text: "Wait, these referees are kids?! I thought they were just short adults who like whistles.", pts: 15 }
-    ],
-    reveal: `<span class="rap-tag">Youth Referee Data</span> <strong>72% of U.S. youth soccer referees are under 19.</strong> In Minnesota, 69% are under 14. In Tennessee, 60% of 3,500 referees are minors. Under the RAP policy, abuse targeting minor referees carries <strong>TRIPLE</strong> the standard penalty. You may literally be screaming at a 13-year-old who's doing this for pizza money.`
-  },
-  {
-    id: 7,
-    tag: "RAP Non-Physical Level 2",
-    title: "The Halftime Expert",
-    scenario: "You're coaching and the ref has missed several calls in the first half. Halftime arrives. You…",
-    options: [
-      { letter: "A", text: "Remind your players to focus on what they can control — which is not the referee.", pts: 0 },
-      { letter: "B", text: "Calmly approach the ref: \"Hey, can you watch for contact in the box second half?\"", pts: 5 },
-      { letter: "C", text: "Stand directly in the ref's walking path and say \"We need to talk\" with the energy of a disappointed principal.", pts: 25 },
-      { letter: "D", text: "Get in the ref's personal space and loudly list every first-half mistake so both teams' parents can enjoy the show.", pts: 40 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 2 — Intimidation</span> Using body language to make a referee feel physically unsafe — blocking their path, invading their space — is Level 2 Harassment/Intimidation. <strong>Minimum 4-game suspension for coaches.</strong> Research also shows that when coaches model disrespect, spectators and players follow. Your sideline energy is contagious — in the worst way.`
-  },
-  {
-    id: 8,
-    tag: "RAP Non-Physical Level 3",
-    title: "The Red Card Meltdown",
-    scenario: "Your star player gets a red card you believe is completely unjustified. In the heat of the moment, which of these has ever crossed your mind — even if you didn't say it out loud?",
-    options: [
-      { letter: "A", text: "\"I disagree, but the ref's decision is final. Let's regroup.\"", pts: 0 },
-      { letter: "B", text: "\"This ref is having an absolutely terrible game.\"", pts: 5 },
-      { letter: "C", text: "\"You're gonna REGRET that call, ref!\"", pts: 35 },
-      { letter: "D", text: "\"I'll see you in the parking lot.\" (Said coolly, like a movie villain.)", pts: 50 }
-    ],
-    reveal: `<span class="rap-tag">RAP Level 3 — Threats</span> Both "You're gonna regret that" and "I'll see you in the parking lot" are specifically cited as Level 3 abuse — <strong>minimum 6-game and/or 6–24 month suspension</strong>. Threats can also lead to criminal charges. More than 20 U.S. states now have specific laws criminalizing sports official abuse. Your parking-lot tough talk could come with a court date.`
-  },
-  {
-    id: 9,
-    tag: "Behavioral Self-Assessment",
-    title: "The Sideline Identity",
-    scenario: "Be brutally honest. Which sideline archetype describes you best?",
-    options: [
-      { letter: "A", text: "\"The Silent Supporter\" — you clap, cheer your kid's name, and bring top-tier snacks. Refs don't know you exist.", pts: 0 },
-      { letter: "B", text: "\"The Anxious Commentator\" — you narrate the entire game under your breath, occasionally spilling into audible territory.", pts: 10 },
-      { letter: "C", text: "\"The Assistant Referee\" — you call offside from 40 yards away, signal throw-ins, and helpfully correct the ref on every decision.", pts: 25 },
-      { letter: "D", text: "\"The Main Character\" — by halftime, more people are watching you than the actual game.", pts: 40 }
-    ],
-    reveal: `<span class="rap-tag">Referee Retention Data</span> <strong>80% of new referees quit within 2 years</strong>, and unruly spectators are the #1 reason cited. The irony is staggering: the people who make the game possible (refs) are driven out by the people who can't play the game without them. If you're "The Main Character," the sequel is called "Game Canceled Due to No Refs."`
-  },
-  {
-    id: 10,
-    tag: "Pattern Recognition",
-    title: "The Morning After",
-    scenario: "After a game where you were… let's say 'vocal' toward the referee, the next morning you…",
-    options: [
-      { letter: "A", text: "Feel fine. You clapped, you cheered, you kept it clean. No regrets.", pts: 0 },
-      { letter: "B", text: "Feel a twinge of \"maybe I was a bit much\" and quietly resolve to dial it back.", pts: 5 },
-      { letter: "C", text: "Retell the story at work like a war hero: \"You should've HEARD this ref…\" — expecting validation.", pts: 20 },
-      { letter: "D", text: "Already composing a formal league complaint email at 7 AM. Subject line: \"Urgent — Referee Incompetence.\"", pts: 35 }
-    ],
-    reveal: `<span class="rap-tag">Self-Reflection Check</span> <strong>90% of referees say abuse has gotten worse</strong> in the past 5 years. If your Monday morning starts with a referee complaint email, consider this: would you behave the same way toward your kid's teacher? Their pediatrician? The person refereeing your kid's game deserves the same respect — and statistically, they might BE a kid themselves.`
-  }
-];
+  <script>
+    // ─── DATA ───────────────────────────────────────────────────
+    let questions = [];
+    let tiers = [];
 
-const tiers = [
-  { max: 10,  color: "#2DC653", title: "🟢 The Referee's Dream",      desc: "You're the rarest species in youth soccer: a supportive, respectful sideline presence. Referees don't know your name — and that's the highest compliment. Keep being the example everyone else needs." },
-  { max: 25,  color: "#7EC850", title: "🟡 Mostly Harmless",           desc: "You have your moments — an eye-roll here, a dramatic sigh there — but you catch yourself before crossing the line. The ref might notice you, but they're not worried about you. Room for improvement, but you're not the problem." },
-  { max: 45,  color: "#FFD700", title: "🟡 Yellow Card Territory",      desc: "You're edging into dissent. Your sideline behavior is noticeable and occasionally disruptive. The ref is aware of your presence — and not in a good way. Under the RAP policy, some of your habits would trigger formal warnings. Time to recalibrate." },
-  { max: 65,  color: "#FF8C00", title: "🟠 Red Card Energy",            desc: "You're in official abuse territory under U.S. Soccer's Referee Abuse Prevention policy. Your behavior would earn game suspensions. The ref remembers your face — and tells other refs about you. You're part of the reason 80% of new refs quit." },
-  { max: 85,  color: "#E63946", title: "🔴 Parking Lot Problems",       desc: "You ARE the referee crisis. Your behavior falls into Level 2–3 of the RAP framework — the kind that causes refs to walk away from the sport permanently. Games get canceled because of people with your score. This is your wake-up call." },
-  { max: 100, color: "#8B0000", title: "⛔ Lifetime Ban Loading…",      desc: "Under the RAP policy, you'd face 6–24 month suspensions or a lifetime ban. You represent the extreme end of the abuse spectrum. You are actively making youth soccer worse for every child, referee, and family. Seriously — get help, attend a referee game, and start over." }
-];
+    // ─── STATE ──────────────────────────────────────────────────
+    let currentIndex = 0;
+    const answers = {}; // { questionIndex: pts }
 
-// ─── STATE ──────────────────────────────────────────────────
-let currentIndex = 0;
-const answers = {}; // { questionIndex: pts }
-
-// ─── SHUFFLE OPTIONS (once, at load time) ───────────────────
-const LETTERS = ['A', 'B', 'C', 'D'];
-function shuffleOptions() {
-  questions.forEach(q => {
-    for (let i = q.options.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    // ─── SHUFFLE OPTIONS (once, at load time) ───────────────────
+    const LETTERS = ['A', 'B', 'C', 'D'];
+    function shuffleOptions() {
+      questions.forEach(q => {
+        for (let i = q.options.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+        }
+        q.options.forEach((opt, i) => { opt.letter = LETTERS[i]; });
+      });
     }
-    q.options.forEach((opt, i) => { opt.letter = LETTERS[i]; });
-  });
-}
 
-// ─── INIT ───────────────────────────────────────────────────
-function init() {
-  shuffleOptions();
-  buildStepDots();
-  showQuestion(0, 'none');
-  updateProgress();
-}
+    // ─── INIT ───────────────────────────────────────────────────
+    function init() {
+      shuffleOptions();
+      buildStepDots();
+      showQuestion(0, 'none');
+      updateProgress();
+    }
 
-// ─── STEP DOTS ──────────────────────────────────────────────
-function buildStepDots() {
-  const container = document.getElementById('stepDots');
-  container.innerHTML = questions.map((_, i) =>
-    `<div class="step-dot" id="dot-${i}"></div>`
-  ).join('');
-}
+    // ─── STEP DOTS ──────────────────────────────────────────────
+    function buildStepDots() {
+      const container = document.getElementById('stepDots');
+      container.innerHTML = questions.map((_, i) =>
+        `<div class="step-dot" id="dot-${i}"></div>`
+      ).join('');
+    }
 
-function updateStepDots() {
-  questions.forEach((_, i) => {
-    const dot = document.getElementById(`dot-${i}`);
-    if (i < currentIndex) dot.className = 'step-dot done';
-    else if (i === currentIndex) dot.className = 'step-dot active';
-    else dot.className = 'step-dot';
-  });
-}
+    function updateStepDots() {
+      questions.forEach((_, i) => {
+        const dot = document.getElementById(`dot-${i}`);
+        if (i < currentIndex) dot.className = 'step-dot done';
+        else if (i === currentIndex) dot.className = 'step-dot active';
+        else dot.className = 'step-dot';
+      });
+    }
 
-// ─── PROGRESS ───────────────────────────────────────────────
-function updateProgress() {
-  const answered = Object.keys(answers).length;
-  const display  = Math.min(currentIndex + 1, questions.length);
-  document.getElementById('progressCount').textContent = `${display} / ${questions.length}`;
-  document.getElementById('progressFill').style.width  = `${(answered / questions.length) * 100}%`;
-  updateStepDots();
-}
+    // ─── PROGRESS ───────────────────────────────────────────────
+    function updateProgress() {
+      const answered = Object.keys(answers).length;
+      const display = Math.min(currentIndex + 1, questions.length);
+      document.getElementById('progressCount').textContent = `${display} / ${questions.length}`;
+      document.getElementById('progressFill').style.width = `${(answered / questions.length) * 100}%`;
+      updateStepDots();
+    }
 
-// ─── RENDER ONE QUESTION ────────────────────────────────────
-function showQuestion(index, direction) {
-  const stage = document.getElementById('questionStage');
-  const q = questions[index];
-  const isAnswered = answers[index] !== undefined;
+    // ─── RENDER ONE QUESTION ────────────────────────────────────
+    function showQuestion(index, direction) {
+      const stage = document.getElementById('questionStage');
+      const q = questions[index];
+      const isAnswered = answers[index] !== undefined;
 
-  // Build card HTML
-  const cardHTML = `
+      // Build card HTML
+      const cardHTML = `
     <div class="question-card" id="qcard">
       <div class="q-number">Question ${q.id} <span class="q-tag">${q.tag}</span></div>
       <div class="q-title">${q.title}</div>
@@ -882,164 +948,172 @@ function showQuestion(index, direction) {
     </div>
   `;
 
-  if (direction === 'none') {
-    // Initial render — no animation
-    stage.innerHTML = cardHTML;
-    document.getElementById('qcard').classList.add('visible');
-    return;
-  }
+      if (direction === 'none') {
+        // Initial render — no animation
+        stage.innerHTML = cardHTML;
+        document.getElementById('qcard').classList.add('visible');
+        return;
+      }
 
-  // Animate out existing card
-  const existing = stage.querySelector('.question-card');
-  if (existing) {
-    existing.classList.remove('visible');
-    existing.classList.add(direction === 'next' ? 'exit-to-left' : 'exit-to-right');
-    existing.addEventListener('animationend', () => existing.remove(), { once: true });
-  }
+      // Animate out existing card
+      const existing = stage.querySelector('.question-card');
+      if (existing) {
+        existing.classList.remove('visible');
+        existing.classList.add(direction === 'next' ? 'exit-to-left' : 'exit-to-right');
+        existing.addEventListener('animationend', () => existing.remove(), { once: true });
+      }
 
-  // Inject and animate in new card
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = cardHTML;
-  const newCard = wrapper.firstElementChild;
-  newCard.classList.add(direction === 'next' ? 'enter-from-right' : 'enter-from-left');
-  stage.appendChild(newCard);
+      // Inject and animate in new card
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = cardHTML;
+      const newCard = wrapper.firstElementChild;
+      newCard.classList.add(direction === 'next' ? 'enter-from-right' : 'enter-from-left');
+      stage.appendChild(newCard);
 
-  // After entry animation ends, switch to static visible class
-  newCard.addEventListener('animationend', () => {
-    newCard.classList.remove('enter-from-right', 'enter-from-left');
-    newCard.classList.add('visible');
-  }, { once: true });
-}
+      // After entry animation ends, switch to static visible class
+      newCard.addEventListener('animationend', () => {
+        newCard.classList.remove('enter-from-right', 'enter-from-left');
+        newCard.classList.add('visible');
+      }, { once: true });
+    }
 
-// ─── SELECT OPTION ──────────────────────────────────────────
-function selectOption(el, qIndex) {
-  // Already answered
-  if (answers[qIndex] !== undefined) return;
+    // ─── SELECT OPTION ──────────────────────────────────────────
+    function selectOption(el, qIndex) {
+      // Already answered
+      if (answers[qIndex] !== undefined) return;
 
-  const pts = parseInt(el.dataset.pts);
-  answers[qIndex] = pts;
+      const pts = parseInt(el.dataset.pts);
+      answers[qIndex] = pts;
 
-  // Highlight selected, dim others
-  const group = document.getElementById('optionsGroup');
-  group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  group.classList.add('locked');
+      // Highlight selected, dim others
+      const group = document.getElementById('optionsGroup');
+      group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      group.classList.add('locked');
 
-  // Show reveal
-  document.getElementById('revealBox').classList.add('show');
+      // Show reveal
+      document.getElementById('revealBox').classList.add('show');
 
-  // Show nav buttons
-  document.getElementById('navButtons').classList.add('show');
+      // Show nav buttons
+      document.getElementById('navButtons').classList.add('show');
 
-  // Update progress fill
-  updateProgress();
-}
+      // Update progress fill
+      updateProgress();
+    }
 
-// ─── NAVIGATION ─────────────────────────────────────────────
-function goNext() {
-  if (currentIndex < questions.length - 1) {
-    currentIndex++;
-    showQuestion(currentIndex, 'next');
-    updateProgress();
-    scrollToStage();
-  } else {
-    showResults();
-  }
-}
+    // ─── NAVIGATION ─────────────────────────────────────────────
+    function goNext() {
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        showQuestion(currentIndex, 'next');
+        updateProgress();
+        scrollToStage();
+      } else {
+        showResults();
+      }
+    }
 
-function goBack() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    showQuestion(currentIndex, 'prev');
-    updateProgress();
-    scrollToStage();
-  }
-}
+    function goBack() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showQuestion(currentIndex, 'prev');
+        updateProgress();
+        scrollToStage();
+      }
+    }
 
-function scrollToStage() {
-  setTimeout(() => {
-    document.getElementById('progressWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 80);
-}
+    function scrollToStage() {
+      setTimeout(() => {
+        document.getElementById('progressWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
 
-// ─── RESULTS ────────────────────────────────────────────────
-function showResults() {
-  // Hide quiz elements
-  document.getElementById('questionStage').style.display = 'none';
-  document.getElementById('progressWrap').style.display = 'none';
+    // ─── RESULTS ────────────────────────────────────────────────
+    function showResults() {
+      // Hide quiz elements
+      document.getElementById('questionStage').style.display = 'none';
+      document.getElementById('progressWrap').style.display = 'none';
 
-  const maxPossible = questions.reduce((sum, q) => sum + Math.max(...q.options.map(o => o.pts)), 0);
-  const rawScore    = Object.values(answers).reduce((sum, pts) => sum + pts, 0);
-  const percentage  = Math.round((rawScore / maxPossible) * 100);
-  const tier        = tiers.find(t => percentage <= t.max) || tiers[tiers.length - 1];
+      const maxPossible = questions.reduce((sum, q) => sum + Math.max(...q.options.map(o => o.pts)), 0);
+      const rawScore = Object.values(answers).reduce((sum, pts) => sum + pts, 0);
+      const percentage = Math.round((rawScore / maxPossible) * 100);
+      const tier = tiers.find(t => percentage <= t.max) || tiers[tiers.length - 1];
 
-  const panel = document.getElementById('resultsPanel');
-  panel.classList.add('show');
+      const panel = document.getElementById('resultsPanel');
+      panel.classList.add('show');
 
-  // Animate ring (r=110, circumference ≈ 691)
-  const circumference = 2 * Math.PI * 110;
-  const ring = document.getElementById('scoreRing');
-  ring.style.strokeDasharray  = circumference;
-  ring.style.strokeDashoffset = circumference;
-  ring.style.stroke = tier.color;
-  setTimeout(() => {
-    ring.style.strokeDashoffset = circumference - (percentage / 100) * circumference;
-  }, 100);
+      // Animate ring (r=110, circumference ≈ 691)
+      const circumference = 2 * Math.PI * 110;
+      const ring = document.getElementById('scoreRing');
+      ring.style.strokeDasharray = circumference;
+      ring.style.strokeDashoffset = circumference;
+      ring.style.stroke = tier.color;
+      setTimeout(() => {
+        ring.style.strokeDashoffset = circumference - (percentage / 100) * circumference;
+      }, 100);
 
-  // Animate number
-  const numEl = document.getElementById('scoreNumber');
-  numEl.style.color = tier.color;
-  animateNumber(numEl, 0, percentage, 1500);
+      // Animate number
+      const numEl = document.getElementById('scoreNumber');
+      numEl.style.color = tier.color;
+      animateNumber(numEl, 0, percentage, 1500);
 
-  document.getElementById('resultTitle').textContent = tier.title;
-  document.getElementById('resultTitle').style.color  = tier.color;
-  document.getElementById('resultDesc').textContent   = tier.desc;
+      document.getElementById('resultTitle').textContent = tier.title;
+      document.getElementById('resultTitle').style.color = tier.color;
+      document.getElementById('resultDesc').textContent = tier.desc;
 
-  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-function animateNumber(el, from, to, duration) {
-  const start = performance.now();
-  (function step(now) {
-    const t = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(from + (to - from) * eased);
-    if (t < 1) requestAnimationFrame(step);
-  })(performance.now());
-}
+    function animateNumber(el, from, to, duration) {
+      const start = performance.now();
+      (function step(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(from + (to - from) * eased);
+        if (t < 1) requestAnimationFrame(step);
+      })(performance.now());
+    }
 
-// ─── RETAKE ─────────────────────────────────────────────────
-function retake() {
-  Object.keys(answers).forEach(k => delete answers[k]);
-  currentIndex = 0;
+    // ─── RETAKE ─────────────────────────────────────────────────
+    function retake() {
+      Object.keys(answers).forEach(k => delete answers[k]);
+      currentIndex = 0;
 
-  document.getElementById('resultsPanel').classList.remove('show');
-  document.getElementById('questionStage').style.display = '';
-  document.getElementById('progressWrap').style.display = '';
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.getElementById('questionStage').style.display = '';
+      document.getElementById('progressWrap').style.display = '';
 
-  buildStepDots();
-  showQuestion(0, 'none');
-  updateProgress();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+      buildStepDots();
+      showQuestion(0, 'none');
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-// ─── SHARE ──────────────────────────────────────────────────
-function shareResult() {
-  const score = document.getElementById('scoreNumber').textContent;
-  const text = `My Ref-Abuse-Score is ${score}%! 😬⚽ Find out yours at refishumanfc.com — because refs are human too. #RefIsHuman #RespectTheCall`;
-  if (navigator.share) {
-    navigator.share({ title: 'My Ref-Abuse-Score', text, url: 'https://www.refishumanfc.com/abuseScore.html' });
-  } else {
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelector('.btn-share');
-      btn.textContent = 'COPIED!';
-      setTimeout(() => { btn.textContent = 'SHARE MY SCORE'; }, 2000);
-    });
-  }
-}
+    // ─── SHARE ──────────────────────────────────────────────────
+    function shareResult() {
+      const score = document.getElementById('scoreNumber').textContent;
+      const text = `My Ref-Abuse-Score is ${score}%! 😬⚽ Find out yours at refishumanfc.com — because refs are human too. #RefIsHuman #RespectTheCall`;
+      if (navigator.share) {
+        navigator.share({ title: 'My Ref-Abuse-Score', text, url: 'https://www.refishumanfc.com/abuseScore.html' });
+      } else {
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.querySelector('.btn-share');
+          btn.textContent = 'COPIED!';
+          setTimeout(() => { btn.textContent = 'SHARE MY SCORE'; }, 2000);
+        });
+      }
+    }
 
-// ─── START ──────────────────────────────────────────────────
-init();
-</script>
+    // ─── START ──────────────────────────────────────────────────
+    fetch('assets/QAdata.json')
+      .then(response => response.json())
+      .then(data => {
+        questions = data.questions;
+        tiers = data.tiers;
+        init();
+      })
+      .catch(err => console.error('Error loading QAdata:', err));
+  </script>
 </body>
+
 </html>
