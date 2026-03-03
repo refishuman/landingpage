@@ -373,21 +373,21 @@
 
     .q-title {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.75rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.75rem;
       color: #fff;
     }
 
     .q-scenario {
       font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.65;
-      padding-left: 1rem;
-      border-left: 2px solid var(--dark-border);
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      padding-left: 1.1rem;
+      border-left: 3px solid var(--yellow);
       margin-bottom: 1.8rem;
     }
 
@@ -862,12 +862,19 @@
 
   <script>
     // ─── DATA ───────────────────────────────────────────────────
+    let allQuestions = [];
     let questions = [];
     let tiers = [];
 
     // ─── STATE ──────────────────────────────────────────────────
     let currentIndex = 0;
     const answers = {}; // { questionIndex: pts }
+
+    // ─── RANDOM SAMPLE ──────────────────────────────────────────
+    function sampleQuestions(pool, n) {
+      const shuffled = [...pool].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, n);
+    }
 
     // ─── SHUFFLE OPTIONS (once, at load time) ───────────────────
     const LETTERS = ['A', 'B', 'C', 'D'];
@@ -924,7 +931,7 @@
       // Build card HTML
       const cardHTML = `
     <div class="question-card" id="qcard">
-      <div class="q-number">Question ${q.id} <span class="q-tag">${q.tag}</span></div>
+      <div class="q-number">Question ${index + 1} <span class="q-tag">${q.tag}</span></div>
       <div class="q-title">${q.title}</div>
       <div class="q-scenario">${q.scenario}</div>
       <div class="options${isAnswered ? ' locked' : ''}" id="optionsGroup">
@@ -1079,6 +1086,9 @@
       Object.keys(answers).forEach(k => delete answers[k]);
       currentIndex = 0;
 
+      questions = sampleQuestions(allQuestions, 10);
+      shuffleOptions();
+
       document.getElementById('resultsPanel').classList.remove('show');
       document.getElementById('questionStage').style.display = '';
       document.getElementById('progressWrap').style.display = '';
@@ -1108,8 +1118,9 @@
     fetch('assets/QAdata.json')
       .then(response => response.json())
       .then(data => {
-        questions = data.questions;
+        allQuestions = data.questions;
         tiers = data.tiers;
+        questions = sampleQuestions(allQuestions, 10);
         init();
       })
       .catch(err => console.error('Error loading QAdata:', err));
