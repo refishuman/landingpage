@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ref Abuse in the Media – Ref is Human FC</title>
+  <style>
+    body { font-family: system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background: #f4f4f4; }
+
+    header {
+      background: linear-gradient(rgba(80, 10, 10, 0.88), rgba(20, 10, 10, 0.92)),
+                  url('https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 60px 1.5rem;
+    }
+    header h1 { margin: 0 0 0.5rem; font-size: 2.6rem; }
+    header p { margin: 0; font-size: 1.15rem; opacity: 0.88; max-width: 700px; margin: 0.5rem auto 0; }
+
+    nav {
+      background: #7f1d1d;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav a { color: #fecaca; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    nav a:hover { color: white; text-decoration: underline; }
+    nav .home-link { color: white; font-size: 0.9rem; }
+
+    .intro {
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+      padding: 1.5rem 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border-left: 5px solid #dc2626;
+    }
+    .intro p { margin: 0; color: #444; font-size: 1.05rem; }
+
+    .section-title {
+      max-width: 1100px;
+      margin: 2.5rem auto 0.5rem;
+      padding: 0 1.5rem;
+      font-size: 1.4rem;
+      color: #7f1d1d;
+      font-weight: 700;
+      border-bottom: 2px solid #fca5a5;
+      padding-bottom: 0.4rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      background: #111;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-info {
+      padding: 1rem 1.1rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .video-info h3 {
+      margin: 0;
+      font-size: 0.97rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+    .video-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .tag-policy    { background: #dbeafe; color: #1e40af; }
+    .tag-safety    { background: #fef9c3; color: #854d0e; }
+    .tag-incident  { background: #fee2e2; color: #991b1b; }
+    .tag-shortage  { background: #f3e8ff; color: #6b21a8; }
+    .tag-abuse     { background: #fce7f3; color: #9d174d; }
+    .tag-positive  { background: #dcfce7; color: #166534; }
+
+    .watch-link {
+      margin-top: auto;
+      padding-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #dc2626;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .watch-link:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #1a1a1a;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    footer a { color: #fca5a5; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.9rem; }
+      .video-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ref Abuse in the Media</h1>
+  <p>Real cases of referee abuse reported by news outlets and documented on camera — a reminder of why this issue demands action.</p>
+</header>
+
+<nav>
+  <a class="home-link" href="https://www.refishumanfc.com">← Ref is Human FC</a>
+  <a href="#incidents">Incidents</a>
+  <a href="#systemic">Systemic Problem</a>
+  <a href="#pushback">Pushback</a>
+</nav>
+
+<div class="intro">
+  <p>Below is a curated collection of news videos and media coverage highlighting the reality of referee abuse in soccer. From youth leagues to national coverage, these examples show the human cost of unchecked behavior on the sidelines.</p>
+</div>
+
+<!-- Section 1: Incidents -->
+<h2 class="section-title" id="incidents">Documented Incidents</h2>
+<div class="video-grid">
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/v5RIb8PaKk4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-incident">Physical Assault</span>
+      <h3>Dad Tackles Referee During Soccer Game After Controversial Call</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">A shocking on-field assault that turned into a police investigation.</p>
+      <a class="watch-link" href="https://youtu.be/v5RIb8PaKk4?si=FZXSAx_zi5J0krXJ" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/2dB0iMy4KAI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-incident">Ejection</span>
+      <h3>Ref Throws Parent Out of Game!</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">A referee stands their ground and removes an abusive parent from the sidelines.</p>
+      <a class="watch-link" href="https://youtu.be/2dB0iMy4KAI?si=FAqK9xWBphTqJCLJ" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 2: Systemic Problem -->
+<h2 class="section-title" id="systemic">The Systemic Problem</h2>
+<div class="video-grid">
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/cmJ3TAqvpQ0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-policy">Policy</span>
+      <h3>UYSA Enforces Zero-Tolerance Abuse Policy Amid Referee Shortage</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">Utah Youth Soccer Association responds to the abuse crisis with a firm policy stance.</p>
+      <a class="watch-link" href="https://youtu.be/cmJ3TAqvpQ0?si=obtZ7iKS7PGB6ZCl" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/ToB_t4sIiKo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-safety">Safety Fears</span>
+      <h3>Football Referees Tell of Safety Fears at Grassroots Level</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">BBC News investigates the growing safety crisis for referees at the grassroots level.</p>
+      <a class="watch-link" href="https://youtu.be/ToB_t4sIiKo?si=QBhk-uQLkayDh4gy" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/aNx8o_HZcpk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-shortage">Referee Shortage</span>
+      <h3>Refs Quitting As Parents Keep Behaving Badly</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">Referees are walking away from the game — and parent behavior is a leading cause.</p>
+      <a class="watch-link" href="https://youtu.be/aNx8o_HZcpk?si=bVbfW6RQ6IggQ9to" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/VpP173NYgRk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-abuse">Verbal Abuse</span>
+      <h3>Referees Are FED UP With Obnoxious Parents</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">Referees speak out about the toll of repeated verbal abuse from spectators.</p>
+      <a class="watch-link" href="https://youtu.be/VpP173NYgRk?si=8ojrn2wolF_dSp0P" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 3: Pushback & Positive Stories -->
+<h2 class="section-title" id="pushback">Referees Fighting Back</h2>
+<div class="video-grid">
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/upVqE4hI1SM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-positive">Pushback</span>
+      <h3>Referee Pushes Back Against Parent Verbal Abuse During Games</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">A referee reclaims their authority and sets a boundary against ongoing verbal abuse.</p>
+      <a class="watch-link" href="https://youtu.be/upVqE4hI1SM?si=hpWB68DM_ufQ3Dft" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/HRv2zZ97jpc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-info">
+      <span class="video-tag tag-positive">Positive Story</span>
+      <h3>Referee Combating Bullying Making National News</h3>
+      <p style="font-size:0.85rem;color:#666;margin:0;">A referee's stand against bullying earns national media attention and inspires others.</p>
+      <a class="watch-link" href="https://youtu.be/HRv2zZ97jpc?si=V7CY6zHwXBrYWBXf" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 – <a href="https://www.refishumanfc.com">Ref is Human FC</a> · Fighting referee abuse with education, humor, and heart.
+</footer>
+
+</body>
+</html>
