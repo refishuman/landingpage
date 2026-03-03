@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RefAbuseScore — Ref is Human FC</title>
+    <title>Ref-Abuse-Score — Ref is Human FC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -580,7 +580,7 @@
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-badge">Powered by U.S. Soccer RAP Data</div>
-    <h1>What's Your<br><span class="highlight">RefAbuseScore</span>?</h1>
+    <h1>What's Your<br><span class="highlight">Ref-Abuse-Score</span>?</h1>
     <p>10 questions. Brutally honest answers. Find out where you land on the referee abuse spectrum — from model citizen to parking-lot menace.</p>
     <div class="hero-stat">80% of new referees quit within 2 years because of people like… well, let's find out.</div>
 </section>
@@ -605,7 +605,7 @@
     <!-- Submit -->
     <div class="submit-wrap">
         <button class="btn-submit" id="btnSubmit" disabled onclick="calculateScore()">
-            Calculate My RefAbuseScore
+            Calculate My Ref-Abuse-Score
         </button>
         <div class="submit-hint" id="submitHint">Answer all 10 questions to unlock your score</div>
     </div>
@@ -620,7 +620,7 @@
             <div class="score-center">
                 <div class="score-number" id="scoreNumber">0</div>
                 <div class="score-percent">%</div>
-                <div class="score-label">RefAbuseScore</div>
+                <div class="score-label">Ref-Abuse-Score</div>
             </div>
         </div>
         <div class="result-title" id="resultTitle"></div>
@@ -952,9 +952,9 @@ function retake() {
 // ─── SHARE ─────────────────────────────────────────────────
 function shareResult() {
   const score = document.getElementById('scoreNumber').textContent;
-  const text = `My RefAbuseScore is ${score}%! 😬⚽ Find out yours at refishumanfc.com — because refs are human too. #RefIsHuman #RespectTheCall`;
+  const text = `My Ref-Abuse-Score is ${score}%! 😬⚽ Find out yours at refishumanfc.com — because refs are human too. #RefIsHuman #RespectTheCall`;
   if (navigator.share) {
-    navigator.share({ title: 'My RefAbuseScore', text: text, url: 'https://www.refishumanfc.com/abuseScore.html' });
+    navigator.share({ title: 'My Ref-Abuse-Score', text: text, url: 'https://www.refishumanfc.com/abuseScore.html' });
   } else {
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.querySelector('.btn-share');
