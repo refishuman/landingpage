@@ -948,7 +948,9 @@
       const percentage = Math.round((rawScore / maxPossible) * 100);
       const tier = tiers.find(t => percentage <= t.max) || tiers[tiers.length - 1];
 
+      history.pushState(null, '', '#resultsCalculated');
       if (window.umami) umami.track('score-generated', { score: percentage, tier: tier.title });
+      
 
       const panel = document.getElementById('resultsPanel');
       panel.classList.add('show');
