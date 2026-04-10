@@ -31,31 +31,40 @@
             border-radius: 20px;
         }
 
-        .level-1 .level-badge { background-color: #d1fae5; color: #065f46; }
-        .level-2 .level-badge { background-color: #dbeafe; color: #1e40af; }
-        .level-3 .level-badge { background-color: #fef3c7; color: #92400e; }
-        .level-4 .level-badge { background-color: #fce7f3; color: #9d174d; }
+        /* Level 1 – grey */
+        .level-1 .level-badge { background-color: #e5e7eb; color: #374151; }
+        /* Level 2 – orange */
+        .level-2 .level-badge { background-color: #ffedd5; color: #9a3412; }
+        /* Level 3 – red */
+        .level-3 .level-badge { background-color: #fee2e2; color: #991b1b; }
+        /* Level 4 – purple */
+        .level-4 .level-badge { background-color: #ede9fe; color: #5b21b6; }
 
         .level-card {
-            background: white;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.07);
             margin-bottom: 40px;
             overflow: hidden;
         }
 
+        /* Level card background tints */
+        .level-1 { background-color: #f9fafb; }
+        .level-2 { background-color: #fff8f3; }
+        .level-3 { background-color: #fff5f5; }
+        .level-4 { background-color: #faf5ff; }
+
         .level-header {
             padding: 20px 28px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
             display: flex;
             align-items: center;
             gap: 14px;
         }
 
-        .level-1 .level-header { border-left: 6px solid #10b981; }
-        .level-2 .level-header { border-left: 6px solid #3b82f6; }
-        .level-3 .level-header { border-left: 6px solid #f59e0b; }
-        .level-4 .level-header { border-left: 6px solid #ec4899; }
+        .level-1 .level-header { background-color: #e5e7eb; border-left: 6px solid #6b7280; }
+        .level-2 .level-header { background-color: #fed7aa; border-left: 6px solid #ea580c; }
+        .level-3 .level-header { background-color: #fecaca; border-left: 6px solid #dc2626; }
+        .level-4 .level-header { background-color: #ddd6fe; border-left: 6px solid #7c3aed; }
 
         .level-header h2 {
             margin: 0;
@@ -71,8 +80,8 @@
 
         .resource-item {
             padding: 24px 28px;
-            border-right: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
+            border-right: 1px solid rgba(0,0,0,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.07);
         }
 
         .resource-item:last-child { border-right: none; }
@@ -148,7 +157,7 @@
         </p>
         <h1 class="display-5 fw-bold mb-3">Code of Conduct Classes</h1>
         <p class="lead mb-0" style="max-width:620px; margin:0 auto; opacity:0.88;">
-            Four structured courses to help fans, parents, and coaches become true champions of respect and fair play.
+            4 Code of Conduct Courses to Help Reduce Referee Abuse.
         </p>
     </div>
 </header>
@@ -172,19 +181,33 @@
 
 <div class="container py-5">
 
-    <p class="text-muted mb-5" style="max-width:700px;">
-        Complete all four levels to earn your <strong>Ref Champion</strong> certification. Start with Level 1. 
-    </p>
+    <div class="row align-items-center mb-5 g-4">
+        <div class="col-md-5">
+            <img src="assets/4levels_of_abuse.png" alt="4 Levels of Referee Abuse" class="img-fluid rounded shadow-sm">
+        </div>
+        <div class="col-md-7">
+            <h4 class="fw-bold mb-3">Four Levels of Referee Abuse</h4>
+            <p class="text-muted mb-3">
+                Not all abusive behaviour looks the same. The picture on the left breaks down referee abuse into four distinct levels — from subtle disrespect to outright discrimination.
+            </p>
+            <p class="text-muted mb-3">
+                We have created one Code of Conduct course for each of these levels. Each course includes a slide deck based on the official <a href="https://www.ussoccer.com/rap">US Soccer Abuse Policy 531.9</a>, a video overview, and a final exam. Work through them in order to build a complete understanding of what referee abuse is, why it happens, and how to stop it.
+            </p>
+            <p class="text-muted mb-0">
+                Complete all four levels to earn your <strong>Ref Defender</strong> certificate of completion.
+            </p>
+        </div>
+    </div>
 
     <!-- Level 1 -->
     <div class="level-card level-1" id="level-1">
         <div class="level-header">
             <span class="level-badge">Level 1</span>
-            <h2>Understanding Referee Abuse</h2>
+            <h2>Understanding Referee Abuse: Taunting and Minor Touching.</h2>
         </div>
         <div class="resource-grid">
             <div class="resource-item">
-                <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div>
+                <!-- <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div> -->
                 <h5>Level 1 Slide Deck</h5>
                 <p>Rules according to Referee Abuse Policy 531-9</p>
                 <a href="assets/CodeOfConduct1.pdf" target="_blank" class="btn-resource btn-slides">
@@ -192,7 +215,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div>
+                <!-- <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div> -->
                 <h5>Video Overview</h5>
                 <p>A narrated walkthrough of the Level 1 slide deck.</p>
                 <a href="assets/video_level1_codeOfConduct1.mp4" target="_blank" class="btn-resource btn-video">
@@ -200,7 +223,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div>
+                <!-- <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div> -->
                 <h5>Final Exam</h5>
                 <p>Test your understanding of Level 1 concepts.</p>
                 <a href="#" class="btn-resource btn-exam">
@@ -215,11 +238,11 @@
     <div class="level-card level-2" id="level-2">
         <div class="level-header">
             <span class="level-badge">Level 2</span>
-            <h2>This is not passion. It's harassment!</h2>
+            <h2>Intentional Contact and Harassment.</h2>
         </div>
         <div class="resource-grid">
             <div class="resource-item">
-                <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div>
+                <!-- <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div> -->
                 <h5>Level 2 Slide Deck</h5>
                 <p>Rules according to Referee Abuse Policy 531-9</p>
                 <a href="assets/CodeOfConduct2.pdf" target="_blank" class="btn-resource btn-slides">
@@ -227,7 +250,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div>
+                <!-- <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div> -->
                 <h5>Video Overview</h5>
                 <p>A narrated walkthrough of the Level 2 slide deck</p>
                 <a href="assets/video_level2_codeOfConduct2.mp4" target="_blank" class="btn-resource btn-video">
@@ -235,7 +258,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div>
+                <!-- <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div> -->
                 <h5>Final Exam</h5>
                 <p>Demonstrate your understanding of Level 3 concepts.</p>
                 <a href="#" class="btn-resource btn-exam">
@@ -250,11 +273,11 @@
     <div class="level-card level-3" id="level-3">
         <div class="level-header">
             <span class="level-badge">Level 3</span>
-            <h2>This is not disagreement. It's violence!</h2>
+            <h2>Threats, Violence and Assault against Referees.</h2>
         </div>
         <div class="resource-grid">
             <div class="resource-item">
-                <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div>
+                <!-- <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div> -->
                 <h5>Level 3 Slide Deck</h5>
                 <p>Rules according to Referee Abuse Policy 531-9</p>
                 <a href="assets/CodeOfConduct3.pdf" target="_blank" class="btn-resource btn-slides">
@@ -262,7 +285,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div>
+                <!-- <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div> -->
                 <h5>Video Overview</h5>
                 <p>A narrated walkthrough of the Level 3 slide deck</p>
                 <a href="assets/video_level3_codeOfConduct3.mp4" target="_blank" class="btn-resource btn-video">
@@ -270,7 +293,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div>
+                <!-- <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div> -->
                 <h5>Final Exam</h5>
                 <p>Show your understanding of Level 3 concepts.</p>
                 <a href="#" class="btn-resource btn-exam">
@@ -285,11 +308,11 @@
     <div class="level-card level-4" id="level-4">
         <div class="level-header">
             <span class="level-badge">Level 4</span>
-            <h2>No excuses.This is discrimination!</h2>
+            <h2>No excuses.This is just discrimination.</h2>
         </div>
         <div class="resource-grid">
             <div class="resource-item">
-                <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div>
+                <!-- <div class="resource-icon icon-slides"><i class="fas fa-file-powerpoint"></i></div> -->
                 <h5>Level 4 Slide Deck</h5>
                 <p>Rules according to Referee Abuse Policy 531-9</p>
                 <a href="assets/CodeOfConduct4.pdf" target="_blank" class="btn-resource btn-slides">
@@ -297,7 +320,7 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div>
+                <!-- <div class="resource-icon icon-video"><i class="fas fa-play-circle"></i></div> -->
                 <h5>Video Overview</h5>
                 <p>A narrated walkthrough of the Level 4 slide deck</p>
                 <a href="assets/video_level4_codeOfConduct4.mp4" target="_blank" class="btn-resource btn-video">
@@ -305,9 +328,9 @@
                 </a>
             </div>
             <div class="resource-item">
-                <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div>
+                <!-- <div class="resource-icon icon-exam"><i class="fas fa-clipboard-check"></i></div> -->
                 <h5>Final Exam</h5>
-                <p>Complete the final assessment and earn your official <strong>Ref Defender</strong> certificate of completion.</p>
+                <p>Complete the final assessment and earn your <strong>Ref Defender</strong> certificate of completion.</p>
                 <a href="#" class="btn-resource btn-exam">
                     <i class="fas fa-pencil-alt"></i> Take the Exam
                     <span class="coming-soon-pill">Coming Soon</span>
