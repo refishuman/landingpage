@@ -1021,7 +1021,7 @@
     }
 
     // ─── START ──────────────────────────────────────────────────
-    fetch('assets/QAdata.json')
+    fetch('assets/QAdata40.json')
       .then(response => response.json())
       .then(data => {
         allQuestions = data.questions;
@@ -1029,7 +1029,7 @@
         questions = sampleQuestions(allQuestions, 10);
         init();
       })
-      .catch(err => console.error('Error loading QAdata:', err));
+      .catch(err => console.error('Error loading QAdata40:', err));
   </script>
 </body>
 
