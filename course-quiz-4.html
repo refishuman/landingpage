@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 4 Final Exam – Code of Conduct | Ref is Human FC</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="bc8e6bb5-e925-4eac-9449-5e3f2846fee5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; }
+
+        .hero-section {
+            background: linear-gradient(rgba(30, 5, 60, 0.90), rgba(20, 5, 40, 0.93)),
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 0;
+            border-bottom: 5px solid #7c3aed;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            padding: 32px;
+            margin-bottom: 24px;
+            border-left: 6px solid #7c3aed;
+        }
+
+        .question-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7c3aed;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.15s, background-color 0.15s;
+            background: #faf5ff;
+        }
+
+        .answer-option:hover { border-color: #7c3aed; background: #ede9fe; }
+
+        .answer-option input[type="radio"] { margin-top: 2px; accent-color: #7c3aed; flex-shrink: 0; }
+
+        .answer-option label { cursor: pointer; font-size: 0.93rem; margin: 0; }
+
+        /* Result states */
+        .answer-option.correct   { border-color: #16a34a; background: #f0fdf4; }
+        .answer-option.incorrect { border-color: #dc2626; background: #fef2f2; }
+        .answer-option.missed    { border-color: #16a34a; background: #dcfce7; }
+
+        .progress-bar-wrap {
+            background: #e5e7eb;
+            border-radius: 99px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #7c3aed;
+            border-radius: 99px;
+            transition: width 0.4s ease;
+        }
+
+        #result-panel {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .result-score {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .result-pass  { color: #16a34a; }
+        .result-fail  { color: #dc2626; }
+
+        .result-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .badge-pass { background: #dcfce7; color: #166534; }
+        .badge-fail { background: #fee2e2; color: #991b1b; }
+
+        .btn-submit {
+            background-color: #7c3aed;
+            color: white;
+            border: none;
+            padding: 12px 36px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover { background-color: #6d28d9; }
+        .btn-submit:disabled { background-color: #9ca3af; cursor: not-allowed; }
+
+        .btn-retake {
+            background-color: #7c3aed;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-retake:hover { background-color: #6d28d9; color: white; }
+
+        .feedback-icon { font-size: 0.85rem; margin-left: 6px; }
+
+        footer a { color: #ffdd00; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<header class="hero-section text-center">
+    <div class="container">
+        <p class="mb-2" style="opacity:0.7; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase;">
+            <a href="https://www.refishumanfc.com" style="color:#ffdd00; text-decoration:none;">Ref is Human FC</a>
+            &nbsp;›&nbsp;
+            <a href="code-of-conduct.html" style="color:#c4b5fd; text-decoration:none;">Code of Conduct</a>
+            &nbsp;›&nbsp; Level 4 Exam
+        </p>
+        <h1 class="display-5 fw-bold mb-2">Level 4 Final Exam</h1>
+        <p class="lead mb-0" style="max-width:560px; margin:0 auto; opacity:0.88;">
+            No Excuses. This is Discrimination.
+        </p>
+        <p class="mt-2" style="opacity:0.6; font-size:0.85rem;">Based on U.S. Soccer Policy 531-9 &nbsp;·&nbsp; 10 randomly selected questions</p>
+    </div>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="https://www.refishumanfc.com">Ref is Human FC</a>
+        <div class="ms-auto">
+            <a class="btn btn-sm btn-outline-light" href="code-of-conduct.html">
+                <i class="fas fa-arrow-left me-1"></i> Back to Courses
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5" style="max-width: 780px;">
+
+    <!-- Progress -->
+    <div class="mb-4">
+        <div class="d-flex justify-content-between mb-1" style="font-size:0.82rem; color:#6b7280;">
+            <span id="progress-label">0 of 10 answered</span>
+            <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+        </div>
+    </div>
+
+    <!-- Questions -->
+    <form id="quiz-form" novalidate></form>
+
+    <!-- Submit button -->
+    <div class="text-center mt-4" id="submit-wrap">
+        <button class="btn-submit" id="submit-btn" onclick="submitQuiz()" disabled>
+            <i class="fas fa-check-circle me-2"></i>Submit Answers
+        </button>
+        <p class="text-muted mt-2" style="font-size:0.8rem;">Answer all 10 questions to submit.</p>
+    </div>
+
+    <!-- Result panel -->
+    <div id="result-panel">
+        <div class="result-score" id="result-score"></div>
+        <div class="result-badge" id="result-badge"></div>
+        <p class="fs-5 mb-4" id="result-message"></p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="course-quiz-4.html" class="btn-retake">
+                <i class="fas fa-redo me-1"></i> Retake with New Questions
+            </a>
+            <a href="code-of-conduct.html" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-1"></i> Back to Courses
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer class="bg-dark text-white py-5">
+    <div class="container text-center">
+        <p class="mb-1 fw-bold"><a href="https://www.refishumanfc.com">Ref is Human FC</a></p>
+        <p class="small text-secondary mb-0">Fighting referee abuse with education, humor, and heart.</p>
+    </div>
+</footer>
+
+<script>
+const ALL_QUESTIONS = [{"id":1,"question":"What makes Level 4 Abuse distinct from Levels 1–3 under Policy 531-9?","answers":[{"label":"A","text":"It only applies to physical contact that causes injury"},{"label":"B","text":"It attacks who the referee IS — their identity — rather than what they decided on the field","correct":true},{"label":"C","text":"It requires a prior Level 3 offense before it can be charged"},{"label":"D","text":"It applies only to professional matches, not youth soccer"}]},{"id":2,"question":"What is the minimum suspension for a Level 4 discriminatory offense under Policy 531-9?","answers":[{"label":"A","text":"6 games plus 6–12 months"},{"label":"B","text":"10 games plus 12–24 months","correct":true},{"label":"C","text":"12 games plus 6–24 months"},{"label":"D","text":"Immediate lifetime ban for any first offense"}]},{"id":3,"question":"Does a racial or ethnic slur only violate Policy 531-9 if it is shouted loudly in front of witnesses?","answers":[{"label":"A","text":"Yes — the slur must be audible to others to constitute an offense"},{"label":"B","text":"Yes — it must be caught on video to be penalized"},{"label":"C","text":"No — it applies whether spoken on the field, from the sideline, or said under one's breath","correct":true},{"label":"D","text":"Only if the referee directly reports hearing it"}]},{"id":4,"question":"Which of the following is explicitly listed as a protected characteristic under Policy 531-9 Level 4?","answers":[{"label":"A","text":"A referee's years of experience"},{"label":"B","text":"A referee's assignment to a specific match"},{"label":"C","text":"A referee's nationality, social origin, language, and religion","correct":true},{"label":"D","text":"A referee's uniform color or badge level"}]},{"id":5,"question":"A spectator mocks a referee's accent to discredit a call. Under Policy 531-9, this is:","answers":[{"label":"A","text":"Level 2 Abuse — Personal Attack"},{"label":"B","text":"Level 1 Abuse — Taunting Behavior"},{"label":"C","text":"Level 4 Abuse — Discriminatory Language Based on National Origin or Language","correct":true},{"label":"D","text":"Not covered — accent-based comments are not explicitly named in the policy"}]},{"id":6,"question":"Saying a female referee 'doesn't understand the game' to question her call is classified as what under Policy 531-9?","answers":[{"label":"A","text":"Level 1 Abuse — Questioning Competence"},{"label":"B","text":"An opinion about officiating quality, not covered by the policy"},{"label":"C","text":"Level 4 Abuse — Harmful or Sexist Stereotype","correct":true},{"label":"D","text":"Level 2 Abuse — Personal Attack"}]},{"id":7,"question":"Does Policy 531-9's Level 4 cover only spoken words, or also non-verbal discriminatory acts?","answers":[{"label":"A","text":"Only spoken words are covered"},{"label":"B","text":"Only written communications such as social media posts"},{"label":"C","text":"Both words and non-verbal discriminatory acts, including gestures and physical expressions","correct":true},{"label":"D","text":"Only actions that involve physical contact with the referee"}]},{"id":8,"question":"How does Policy 531-9 evaluate a discriminatory gesture directed at a referee?","answers":[{"label":"A","text":"Gestures are not penalized unless accompanied by verbal abuse"},{"label":"B","text":"The policy evaluates the meaning and intent of the gesture, not just the medium","correct":true},{"label":"C","text":"Gestures carry a lesser penalty than spoken slurs"},{"label":"D","text":"Only gestures made on the field of play are covered"}]},{"id":9,"question":"Casually calling a referee 'blind' in a context that targets a perceived disability — rather than expressing frustration — is classified as what?","answers":[{"label":"A","text":"Acceptable venting — the policy distinguishes between frustration and discrimination"},{"label":"B","text":"Level 1 Abuse — Mocking Abilities"},{"label":"C","text":"Level 4 Abuse — Discriminatory Language Based on Disability","correct":true},{"label":"D","text":"Level 2 Abuse — Degrading Language"}]},{"id":10,"question":"What is the penalty for a second Level 4 offense under Policy 531-9?","answers":[{"label":"A","text":"The same 10-game minimum as the first offense"},{"label":"B","text":"An automatic lifetime ban"},{"label":"C","text":"20 games plus an extended time ban","correct":true},{"label":"D","text":"15 games plus a 12-month ban"}]},{"id":11,"question":"What is the consequence for a third Level 4 offense?","answers":[{"label":"A","text":"A 2-year suspension with a reinstatement review"},{"label":"B","text":"Automatic lifetime ban from all U.S. Soccer-affiliated activity as participant or spectator","correct":true},{"label":"C","text":"Referral to a national disciplinary panel for a custom ruling"},{"label":"D","text":"A 30-game suspension plus a 24-month ban"}]},{"id":12,"question":"What automatic penalty multiplier applies when a Level 4 offense targets a referee who is under 18?","answers":[{"label":"A","text":"Double the standard penalty"},{"label":"B","text":"Triple the standard penalty","correct":true},{"label":"C","text":"The standard penalty applies — age is not a factor at Level 4"},{"label":"D","text":"An additional 12-month ban is added to the standard suspension"}]},{"id":13,"question":"Beyond the soccer penalty, what broader legal risk does the course identify for discriminatory conduct?","answers":[{"label":"A","text":"No legal risk — Policy 531-9 is the only applicable framework"},{"label":"B","text":"Only liability if the discrimination is recorded on video"},{"label":"C","text":"Discriminatory conduct in public settings may violate civil rights law depending on jurisdiction and circumstances","correct":true},{"label":"D","text":"Legal risk applies only if the offender is a paid league official"}]},{"id":14,"question":"According to the course, what message does discriminatory sideline behavior send to young players from the same background as the targeted referee?","answers":[{"label":"A","text":"That the game has high standards everyone must meet"},{"label":"B","text":"That this game may not be for you","correct":true},{"label":"C","text":"That referees need thicker skin to work in competitive environments"},{"label":"D","text":"That passion for the sport can sometimes go too far"}]},{"id":15,"question":"What does the course recommend if you hear another spectator make a discriminatory comment at a youth match?","answers":[{"label":"A","text":"Ignore it — it is not your responsibility to police other adults"},{"label":"B","text":"Record it on your phone and post it online"},{"label":"C","text":"Speak up — say something like 'That's not okay here' and report it to the league in writing","correct":true},{"label":"D","text":"Alert the referee immediately so they can issue a formal warning"}]}];
+
+const TOTAL = 10;
+let questions = [];
+let answered = 0;
+
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function buildQuiz() {
+    questions = shuffle(ALL_QUESTIONS).slice(0, TOTAL);
+    const form = document.getElementById('quiz-form');
+    form.innerHTML = '';
+    answered = 0;
+    updateProgress();
+
+    questions.forEach((q, idx) => {
+        const shuffledAnswers = shuffle(q.answers);
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = `q-card-${idx}`;
+
+        const answersHtml = shuffledAnswers.map(a => `
+            <div class="answer-option" id="opt-${idx}-${a.label}">
+                <input type="radio" name="q${idx}" id="a-${idx}-${a.label}" value="${a.label}" data-correct="${!!a.correct}" onchange="onAnswer(${idx})">
+                <label for="a-${idx}-${a.label}">${a.text}</label>
+            </div>
+        `).join('');
+
+        card.innerHTML = `
+            <div class="question-number">Question ${idx + 1} of ${TOTAL}</div>
+            <div class="question-text">${q.question}</div>
+            ${answersHtml}
+        `;
+        form.appendChild(card);
+    });
+}
+
+function onAnswer(idx) {
+    const radios = document.querySelectorAll(`input[name="q${idx}"]`);
+    const wasAnswered = radios[0].dataset.counted === 'true';
+    if (!wasAnswered) {
+        answered++;
+        radios.forEach(r => r.dataset.counted = 'true');
+        updateProgress();
+    }
+    document.getElementById('submit-btn').disabled = (answered < TOTAL);
+}
+
+function updateProgress() {
+    const pct = Math.round((answered / TOTAL) * 100);
+    document.getElementById('progress-label').textContent = `${answered} of ${TOTAL} answered`;
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function submitQuiz() {
+    let correct = 0;
+
+    questions.forEach((q, idx) => {
+        const radios = document.querySelectorAll(`input[name="q${idx}"]`);
+        let selectedCorrect = false;
+
+        radios.forEach(r => {
+            if (r.checked && r.dataset.correct === 'true') selectedCorrect = true;
+            r.disabled = true;
+        });
+
+        if (selectedCorrect) correct++;
+
+        radios.forEach(r => {
+            const opt = document.getElementById(`opt-${idx}-${r.value}`);
+            if (r.dataset.correct === 'true' && r.checked) {
+                opt.classList.add('correct');
+                opt.querySelector('label').innerHTML += ' <span class="feedback-icon text-success"><i class="fas fa-check-circle"></i></span>';
+            } else if (r.checked && r.dataset.correct !== 'true') {
+                opt.classList.add('incorrect');
+                opt.querySelector('label').innerHTML += ' <span class="feedback-icon text-danger"><i class="fas fa-times-circle"></i></span>';
+            } else if (r.dataset.correct === 'true') {
+                opt.classList.add('missed');
+                opt.querySelector('label').innerHTML += ' <span class="feedback-icon text-success" style="font-size:0.78rem;">(correct answer)</span>';
+            }
+        });
+    });
+
+    const pct = Math.round((correct / TOTAL) * 100);
+    const pass = pct >= 80;
+
+    document.getElementById('submit-wrap').style.display = 'none';
+
+    const panel = document.getElementById('result-panel');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    document.getElementById('result-score').textContent = pct + '%';
+    document.getElementById('result-score').className = 'result-score ' + (pass ? 'result-pass' : 'result-fail');
+
+    const badge = document.getElementById('result-badge');
+    badge.textContent = pass ? 'Level 4 Passed' : 'Level 4 Not Passed';
+    badge.className = 'result-badge ' + (pass ? 'badge-pass' : 'badge-fail');
+
+    const msg = document.getElementById('result-message');
+    if (pass) {
+        msg.innerHTML = `<strong>Congratulations!</strong> You answered ${correct} out of ${TOTAL} questions correctly. You have successfully completed all four Code of Conduct courses and earned your <strong>Ref Defender</strong> certificate of completion.`;
+    } else {
+        msg.innerHTML = `You answered ${correct} out of ${TOTAL} questions correctly. A score of 80% or higher is required to pass. Please review the Level 4 material and retake the quiz.`;
+    }
+
+    document.getElementById('progress-label').textContent = `${TOTAL} of ${TOTAL} answered`;
+    document.getElementById('progress-pct').textContent = '100%';
+    document.getElementById('progress-bar').style.width = '100%';
+}
+
+buildQuiz();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

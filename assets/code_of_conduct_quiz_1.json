@@ -1,0 +1,257 @@
+{
+  "title": "Code of Conduct Lesson #1 — Youth Soccer Referee Abuse (Level 1)",
+  "source": "Based on U.S. Soccer Policy 531-9, effective March 2025",
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What percentage of new referees quit within 2–3 years?",
+      "answers": [
+        { "label": "A", "text": "25%" },
+        { "label": "B", "text": "50%", "correct": true },
+        { "label": "C", "text": "75%" },
+        { "label": "D", "text": "90%" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "According to the data in the course, what is the #1 reason referees cite for quitting?",
+      "answers": [
+        { "label": "A", "text": "Low pay" },
+        { "label": "B", "text": "Long travel distances" },
+        { "label": "C", "text": "Verbal abuse from adults", "correct": true },
+        { "label": "D", "text": "Difficult game schedules" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "How many calls are ever changed by yelling or threatening a referee?",
+      "answers": [
+        { "label": "A", "text": "A few, if the argument is convincing enough" },
+        { "label": "B", "text": "Only calls made in the final minutes" },
+        { "label": "C", "text": "Calls can be changed if a coach formally protests" },
+        { "label": "D", "text": "Zero — no calls are ever changed by yelling or threats", "correct": true }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Under U.S. Soccer Policy 531-9, what is the minimum suspension for Non-Physical (Verbal) Level 1 Abuse?",
+      "answers": [
+        { "label": "A", "text": "1-game suspension" },
+        { "label": "B", "text": "2-game suspension", "correct": true },
+        { "label": "C", "text": "3-game suspension" },
+        { "label": "D", "text": "5-game suspension" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is the minimum penalty for Physical Level 1 Abuse (minor or slight touching)?",
+      "answers": [
+        { "label": "A", "text": "2-game suspension and a warning" },
+        { "label": "B", "text": "1-game suspension plus a fine" },
+        { "label": "C", "text": "3 games plus a ban of 1–6 months", "correct": true },
+        { "label": "D", "text": "Immediate lifetime ban" }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is an example of Non-Physical Level 1 Abuse?",
+      "answers": [
+        { "label": "A", "text": "Raising your hand to get the referee's attention" },
+        { "label": "B", "text": "Asking your coach to communicate with the referee" },
+        { "label": "C", "text": "Saying 'Do you even know the rules?'", "correct": true },
+        { "label": "D", "text": "Applauding a referee's correct call" }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "According to Policy 531-9, which of the following physical actions constitutes abuse?",
+      "answers": [
+        { "label": "A", "text": "Shaking the referee's hand after the match" },
+        { "label": "B", "text": "Tapping the referee's shoulder to get their attention", "correct": true },
+        { "label": "C", "text": "Waving at the referee from the sideline" },
+        { "label": "D", "text": "Pointing at the scoreboard" }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Saying 'Are you blind? That was clearly offside!' is an example of which type of abuse?",
+      "answers": [
+        { "label": "A", "text": "Physical Level 1 Abuse" },
+        { "label": "B", "text": "Non-Physical Level 1 Abuse — Mocking Abilities", "correct": true },
+        { "label": "C", "text": "Level 2 Abuse" },
+        { "label": "D", "text": "Acceptable emotional expression" }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "What does Policy 531-9 say about comments intended as jokes that undermine a referee's authority?",
+      "answers": [
+        { "label": "A", "text": "Jokes are exempt if there is no hostile intent" },
+        { "label": "B", "text": "Only repeated jokes are penalized" },
+        { "label": "C", "text": "The policy applies to intent AND impact — jokes are not exempt", "correct": true },
+        { "label": "D", "text": "Jokes are only penalized if the referee files a formal complaint" }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Saying 'What's the other team paying you?' is classified as which type of abuse?",
+      "answers": [
+        { "label": "A", "text": "Physical Level 1 Abuse" },
+        { "label": "B", "text": "Non-Physical Level 1 Abuse — Accusations of Bias", "correct": true },
+        { "label": "C", "text": "Non-Physical Level 1 Abuse — Mocking Abilities" },
+        { "label": "D", "text": "Not abuse — expressing an opinion is protected speech" }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "Does Policy 531-9 cover non-verbal gestures, such as an exaggerated eye-roll after a call?",
+      "answers": [
+        { "label": "A", "text": "No, only spoken words are covered" },
+        { "label": "B", "text": "Only if the gesture is caught on video" },
+        { "label": "C", "text": "Yes, 'insinuating behavior' including gestures is covered", "correct": true },
+        { "label": "D", "text": "Only coaches are held to that standard, not spectators" }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Which of the following gestures would NOT constitute Level 1 Abuse under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "A theatrical head-in-hands gesture to shame the referee" },
+        { "label": "B", "text": "A thumbs-down signal directed at the referee" },
+        { "label": "C", "text": "An exaggerated eye-roll after a call" },
+        { "label": "D", "text": "Clapping enthusiastically to encourage your own team", "correct": true }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Under Policy 531-9, what happens to penalties on a second offense?",
+      "answers": [
+        { "label": "A", "text": "The penalty stays the same" },
+        { "label": "B", "text": "The person receives a formal written warning" },
+        { "label": "C", "text": "The punishment doubles", "correct": true },
+        { "label": "D", "text": "The case is referred to national review" }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "What is the consequence for a third offense under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "A 10-game suspension" },
+        { "label": "B", "text": "A 1-year ban from all matches" },
+        { "label": "C", "text": "Mandatory referee training course" },
+        { "label": "D", "text": "Lifetime ban from all U.S. Soccer-affiliated matches", "correct": true }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "Does the lifetime ban for a third offense apply only to players?",
+      "answers": [
+        { "label": "A", "text": "Yes, only registered players can be banned" },
+        { "label": "B", "text": "No, it applies to coaches, parents, and spectators as well", "correct": true },
+        { "label": "C", "text": "It applies only to coaches and players, not spectators" },
+        { "label": "D", "text": "It applies only to team officials, not individual parents" }
+      ]
+    },
+    {
+      "id": 16,
+      "question": "What automatic multiplier applies when the offense is committed against a referee who is under 18?",
+      "answers": [
+        { "label": "A", "text": "Double the penalty" },
+        { "label": "B", "text": "Triple the penalty", "correct": true },
+        { "label": "C", "text": "The standard penalty applies — age is not a factor" },
+        { "label": "D", "text": "The penalty is increased by one game" }
+      ]
+    },
+    {
+      "id": 17,
+      "question": "Which is the correct way to get a referee's attention without violating Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Tap the referee on the shoulder firmly but briefly" },
+        { "label": "B", "text": "Grab the referee's jersey and wait for them to turn around" },
+        { "label": "C", "text": "Raise your hand and wait for a stoppage in play", "correct": true },
+        { "label": "D", "text": "Step onto the field to speak with the referee directly" }
+      ]
+    },
+    {
+      "id": 18,
+      "question": "Who is the appropriate person to seek a rules clarification from a referee during or after a match?",
+      "answers": [
+        { "label": "A", "text": "Any parent who witnessed the disputed call" },
+        { "label": "B", "text": "The team captain on the field" },
+        { "label": "C", "text": "The coach, through the correct channel after play stops", "correct": true },
+        { "label": "D", "text": "A spectator designated by the team" }
+      ]
+    },
+    {
+      "id": 19,
+      "question": "Does Policy 531-9 provide a grace period or warning for first-time offenders?",
+      "answers": [
+        { "label": "A", "text": "Yes, everyone gets one free warning regardless of offense" },
+        { "label": "B", "text": "Yes, but only for physical abuse offenses" },
+        { "label": "C", "text": "No grace period — the full minimum penalty applies, except one warning per league for minor offenses", "correct": true },
+        { "label": "D", "text": "Yes, a one-game warning is always given before a suspension" }
+      ]
+    },
+    {
+      "id": 20,
+      "question": "Saying 'You suck! You're the worst ref we've ever had' is classified as what under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Acceptable expression of frustration" },
+        { "label": "B", "text": "Level 2 Abuse, requiring a separate hearing" },
+        { "label": "C", "text": "Non-Physical Level 1 Abuse — Dismissive and Degrading Language", "correct": true },
+        { "label": "D", "text": "Physical Level 1 Abuse because of the aggressive tone" }
+      ]
+    },
+    {
+      "id": 21,
+      "question": "What effect does spectator abuse of referees have on children watching?",
+      "answers": [
+        { "label": "A", "text": "No effect — children understand adults express frustration differently" },
+        { "label": "B", "text": "It teaches children that disrespect toward officials is acceptable", "correct": true },
+        { "label": "C", "text": "It motivates children to become better players" },
+        { "label": "D", "text": "It has only an effect if the child is on the field" }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "Which of the following IS considered an acceptable way to express disagreement with a referee call?",
+      "answers": [
+        { "label": "A", "text": "Shouting 'That call is ridiculous!' from the sideline" },
+        { "label": "B", "text": "Giving a loud, sarcastic clap directed at the referee" },
+        { "label": "C", "text": "Saying 'Tough call, ref' and moving on", "correct": true },
+        { "label": "D", "text": "Repeatedly questioning the same call from the sideline" }
+      ]
+    },
+    {
+      "id": 23,
+      "question": "What does the course recommend if you witness referee abuse from another spectator?",
+      "answers": [
+        { "label": "A", "text": "Ignore it — it's not your responsibility" },
+        { "label": "B", "text": "Confront the abusive spectator loudly" },
+        { "label": "C", "text": "Record it on your phone and post it online" },
+        { "label": "D", "text": "Report the abuse — the policy only works if abuse is reported", "correct": true }
+      ]
+    },
+    {
+      "id": 24,
+      "question": "What does the course identify as the key reason perceived referee bias 'rarely holds up on review'?",
+      "answers": [
+        { "label": "A", "text": "Referees are always neutral and never make mistakes" },
+        { "label": "B", "text": "Referees cannot see everything from one angle", "correct": true },
+        { "label": "C", "text": "Video review always proves parents wrong" },
+        { "label": "D", "text": "Bias claims are inadmissible without video evidence" }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "Which of the following best summarizes the core message of Code of Conduct Lesson #1?",
+      "answers": [
+        { "label": "A", "text": "Referees should expect criticism as part of their job" },
+        { "label": "B", "text": "Only physical contact with a referee constitutes punishable abuse" },
+        { "label": "C", "text": "Verbal and physical abuse of referees carries real penalties, drives officials away, and harms youth soccer for everyone", "correct": true },
+        { "label": "D", "text": "Parents should stay silent during matches to avoid any risk of suspension" }
+      ]
+    }
+  ]
+}

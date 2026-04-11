@@ -1,0 +1,257 @@
+{
+  "title": "Code of Conduct Lesson #2 — Youth Soccer Referee Abuse (Level 2)",
+  "source": "Based on U.S. Soccer Policy 531-9, effective March 2025",
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the minimum suspension for Non-Physical Level 2 Abuse?",
+      "answers": [
+        { "label": "A", "text": "2-game suspension" },
+        { "label": "B", "text": "3-game suspension" },
+        { "label": "C", "text": "4-game suspension", "correct": true },
+        { "label": "D", "text": "6-game suspension" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the minimum penalty for Physical Level 2 Abuse?",
+      "answers": [
+        { "label": "A", "text": "4 games plus a warning" },
+        { "label": "B", "text": "6 games plus 1–6 months ban" },
+        { "label": "C", "text": "10 games plus 6–24 months ban", "correct": true },
+        { "label": "D", "text": "Immediate lifetime ban" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "How does Level 2 Abuse differ from Level 1 Abuse in terms of verbal behavior?",
+      "answers": [
+        { "label": "A", "text": "Level 2 covers only physical contact; Level 1 covers all verbal behavior" },
+        { "label": "B", "text": "Level 2 involves expletives, personal attacks, intimidation, and relentless pressure, while Level 1 covers insults, mocking, and dismissive gestures", "correct": true },
+        { "label": "C", "text": "Level 2 is only triggered when a referee files a formal complaint" },
+        { "label": "D", "text": "There is no meaningful distinction — both levels carry the same penalty" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Shouting 'That call was complete $#@%!' at a referee is classified as what under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Level 1 Non-Physical Abuse" },
+        { "label": "B", "text": "Level 2 Non-Physical Abuse — Using Expletives at the Referee", "correct": true },
+        { "label": "C", "text": "Acceptable emotional expression in a competitive setting" },
+        { "label": "D", "text": "Level 2 Physical Abuse" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Does it matter how loudly a personal attack with profanity is delivered when applying Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Yes — only statements loud enough to be heard by others are penalized" },
+        { "label": "B", "text": "Yes — volume determines whether it is Level 1 or Level 2" },
+        { "label": "C", "text": "No — it constitutes abusive language regardless of volume", "correct": true },
+        { "label": "D", "text": "Only if a minor referee is within earshot" }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What type of Level 2 Abuse is described by storming toward a referee from 20 yards away while shouting?",
+      "answers": [
+        { "label": "A", "text": "Physical Level 2 Abuse — Shoving" },
+        { "label": "B", "text": "Non-Physical Level 2 Abuse — Intimidating Body Language", "correct": true },
+        { "label": "C", "text": "Level 1 Non-Physical Abuse — Mocking" },
+        { "label": "D", "text": "Not abuse — no physical contact was made" }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Under Policy 531-9, can moving aggressively toward a referee without making contact constitute Level 2 Abuse?",
+      "answers": [
+        { "label": "A", "text": "No — only actual physical contact triggers a penalty" },
+        { "label": "B", "text": "Only if the referee formally reports feeling threatened" },
+        { "label": "C", "text": "Yes — closing space rapidly or positioning your body in a threatening way qualifies", "correct": true },
+        { "label": "D", "text": "Only if the approach is combined with verbal profanity" }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "A parent makes complaints about every single call for 20+ minutes during a U10 match. How does Policy 531-9 classify this?",
+      "answers": [
+        { "label": "A", "text": "Acceptable, as long as no single comment is abusive on its own" },
+        { "label": "B", "text": "Level 1 Abuse because no profanity was used" },
+        { "label": "C", "text": "Level 2 Abuse — Harassment Through Escalating Intensity", "correct": true },
+        { "label": "D", "text": "Not covered by Policy 531-9 — cumulative behavior is not penalized" }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Is harassment under Policy 531-9 always triggered by a single dramatic incident?",
+      "answers": [
+        { "label": "A", "text": "Yes — only a single clearly abusive incident qualifies" },
+        { "label": "B", "text": "No — cumulative relentless pressure over a match is also explicitly covered as Level 2 Abuse", "correct": true },
+        { "label": "C", "text": "Only if the referee requests a formal review" },
+        { "label": "D", "text": "Yes — pattern-based abuse requires a separate Level 3 classification" }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Saying 'I'm going to report you to the league and make sure you never referee again' during a match is classified as what?",
+      "answers": [
+        { "label": "A", "text": "A legitimate exercise of league rights" },
+        { "label": "B", "text": "Level 1 Abuse — Accusations of Bias" },
+        { "label": "C", "text": "Level 2 Abuse — Retaliation and Threatening Consequences", "correct": true },
+        { "label": "D", "text": "Not abuse — reporting a referee is always permitted" }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What is the appropriate channel for raising genuine concerns about a referee's conduct?",
+      "answers": [
+        { "label": "A", "text": "Confront the referee directly at the end of the match" },
+        { "label": "B", "text": "Post about it on social media so the league is aware" },
+        { "label": "C", "text": "Report it through your league after the game through official channels", "correct": true },
+        { "label": "D", "text": "Gather other parents to present a group complaint during the match" }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "A spectator lightly shoves a referee, insisting they 'barely pushed him.' How does Policy 531-9 treat this?",
+      "answers": [
+        { "label": "A", "text": "As Level 1 Physical Abuse, since the contact was light" },
+        { "label": "B", "text": "As Level 2 Physical Abuse — intentional confrontation, regardless of force", "correct": true },
+        { "label": "C", "text": "Not covered unless the referee falls or is injured" },
+        { "label": "D", "text": "The intent must be assessed before a penalty is assigned" }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Following a referee to the parking lot after the match to 'have a word' is classified as what under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Acceptable, as long as no threatening language is used" },
+        { "label": "B", "text": "Level 1 Physical Abuse" },
+        { "label": "C", "text": "Level 2 Physical Abuse — Intimidation and Intentional Confrontation", "correct": true },
+        { "label": "D", "text": "Only an offense if the referee files a formal report" }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "Why is following a referee to the parking lot considered a Level 2 Physical Abuse offense even if nothing is said?",
+      "answers": [
+        { "label": "A", "text": "Because it delays the referee's departure from the venue" },
+        { "label": "B", "text": "Because it constitutes stalking behavior and creates genuine fear for personal safety", "correct": true },
+        { "label": "C", "text": "Because the referee is no longer on duty and cannot defend themselves" },
+        { "label": "D", "text": "It is only an offense if the referee is a minor" }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "A parent throws a water bottle on the ground — not at the referee — in frustration after a call. Is this covered by Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "No — the object was not thrown at the referee, so no offense occurred" },
+        { "label": "B", "text": "Only if the bottle lands within 5 feet of the referee" },
+        { "label": "C", "text": "Yes — throwing objects near the referee is Level 2 Physical Abuse regardless of intent", "correct": true },
+        { "label": "D", "text": "Only if it occurs during active play" }
+      ]
+    },
+    {
+      "id": 16,
+      "question": "Which of the following actions is explicitly listed as Physical Level 2 Abuse in Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Tapping the referee's shoulder to get their attention" },
+        { "label": "B", "text": "Giving a thumbs-down gesture at the referee" },
+        { "label": "C", "text": "Forcefully grabbing the referee's arm", "correct": true },
+        { "label": "D", "text": "Repeatedly calling out 'terrible call' from the sideline" }
+      ]
+    },
+    {
+      "id": 17,
+      "question": "What does Policy 531-9 prescribe for a second Level 2 Non-Physical offense?",
+      "answers": [
+        { "label": "A", "text": "The same 4-game minimum as the first offense" },
+        { "label": "B", "text": "8 games — double the first-offense minimum", "correct": true },
+        { "label": "C", "text": "An automatic lifetime ban" },
+        { "label": "D", "text": "A formal hearing with no automatic game suspension" }
+      ]
+    },
+    {
+      "id": 18,
+      "question": "What happens to the Physical Level 2 penalty (10 games) on a second offense?",
+      "answers": [
+        { "label": "A", "text": "It increases to 15 games" },
+        { "label": "B", "text": "It increases to 20 games", "correct": true },
+        { "label": "C", "text": "It stays at 10 games but the ban length doubles" },
+        { "label": "D", "text": "It triggers an automatic lifetime ban" }
+      ]
+    },
+    {
+      "id": 19,
+      "question": "What is the consequence for a third Level 2 offense under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "A 2-year ban from all U.S. Soccer-affiliated matches" },
+        { "label": "B", "text": "A 10-game suspension plus a 24-month ban" },
+        { "label": "C", "text": "Lifetime ban from all U.S. Soccer-affiliated matches, including as a spectator", "correct": true },
+        { "label": "D", "text": "Referral to a national disciplinary board for further review" }
+      ]
+    },
+    {
+      "id": 20,
+      "question": "What automatic penalty multiplier applies when a Level 2 offense is committed against a referee who is a minor?",
+      "answers": [
+        { "label": "A", "text": "The penalty doubles" },
+        { "label": "B", "text": "The penalty triples", "correct": true },
+        { "label": "C", "text": "The standard penalty applies — the referee's age is not a factor" },
+        { "label": "D", "text": "The offender receives an additional written warning" }
+      ]
+    },
+    {
+      "id": 21,
+      "question": "The course states that a 4-game suspension harms not just the offender. What broader family impact is highlighted?",
+      "answers": [
+        { "label": "A", "text": "The offender's family must pay a fine to the league" },
+        { "label": "B", "text": "The offender is removed from 4 matches their child plays, affecting the whole family", "correct": true },
+        { "label": "C", "text": "Other family members may also face temporary bans" },
+        { "label": "D", "text": "The child may be suspended from the team by association" }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "According to the course, what do young players learn when adults use expletives at referees?",
+      "answers": [
+        { "label": "A", "text": "That referees should be held to a high standard" },
+        { "label": "B", "text": "That emotional regulation is optional for adults", "correct": true },
+        { "label": "C", "text": "That passion for the game is important" },
+        { "label": "D", "text": "That rules exist and must be enforced" }
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Which technique does the course recommend to manage frustration before reacting to a call?",
+      "answers": [
+        { "label": "A", "text": "Immediately speak to the referee to clarify the call" },
+        { "label": "B", "text": "Use a 5-second pause before reacting", "correct": true },
+        { "label": "C", "text": "Ask another spectator whether the call was correct" },
+        { "label": "D", "text": "Signal to the coach to dispute the call on your behalf" }
+      ]
+    },
+    {
+      "id": 24,
+      "question": "The course recommends 'keeping it internal.' What does this mean in practice?",
+      "answers": [
+        { "label": "A", "text": "Discuss concerns only with other parents, never with the coach" },
+        { "label": "B", "text": "File all complaints internally with the league rather than speaking publicly" },
+        { "label": "C", "text": "Muttering under your breath is fine — directing comments at the referee at any volume is not", "correct": true },
+        { "label": "D", "text": "Keep all opinions to yourself and never react to any call" }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "What simple act of sportsmanship does the course encourage toward referees after every match, regardless of what happened during the game?",
+      "answers": [
+        { "label": "A", "text": "Submitting written feedback about the referee's performance to the league" },
+        { "label": "B", "text": "Applauding the referee as they leave the field" },
+        { "label": "C", "text": "Thanking the referee for their time", "correct": true },
+        { "label": "D", "text": "Asking the referee to review any disputed calls before leaving" }
+      ]
+    }
+  ]
+}

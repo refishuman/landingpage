@@ -1,0 +1,257 @@
+{
+  "title": "Code of Conduct Lesson #3 — Youth Soccer Referee Abuse (Level 3)",
+  "source": "Based on U.S. Soccer Policy 531-9, effective March 2025",
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What makes Level 3 Abuse fundamentally different from Levels 1 and 2?",
+      "answers": [
+        { "label": "A", "text": "It only applies to registered coaches, not spectators" },
+        { "label": "B", "text": "It is no longer just a soccer matter — it can result in criminal charges, civil lawsuits, and permanent lifetime bans", "correct": true },
+        { "label": "C", "text": "It requires a formal hearing before any penalty is issued" },
+        { "label": "D", "text": "It only applies when physical contact causes a visible injury" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the minimum suspension for Non-Physical Level 3 Abuse (threats and derogatory behavior)?",
+      "answers": [
+        { "label": "A", "text": "4 games" },
+        { "label": "B", "text": "6 games plus 6–24 months ban", "correct": true },
+        { "label": "C", "text": "10 games plus a 12-month ban" },
+        { "label": "D", "text": "Immediate lifetime ban" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What is the minimum suspension for Physical Level 3 Abuse (violent contact or assault)?",
+      "answers": [
+        { "label": "A", "text": "6 games plus 6–24 months" },
+        { "label": "B", "text": "10 games plus a 24-month ban" },
+        { "label": "C", "text": "12 games, up to a lifetime ban", "correct": true },
+        { "label": "D", "text": "8 games plus a 12-month ban" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Saying 'I'll see you in the parking lot after this game' to a referee is classified as what?",
+      "answers": [
+        { "label": "A", "text": "Level 2 Non-Physical Abuse — Retaliation Threat" },
+        { "label": "B", "text": "An acceptable expression of frustration if no action follows" },
+        { "label": "C", "text": "Level 3 Non-Physical Abuse — Threat of Physical Violence", "correct": true },
+        { "label": "D", "text": "Not covered by Policy 531-9 unless spoken on the field" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Under Policy 531-9, does physical contact need to occur for a Level 3 threat penalty to apply?",
+      "answers": [
+        { "label": "A", "text": "Yes — no penalty is issued unless the threat is acted upon" },
+        { "label": "B", "text": "Only if the threat is witnessed by a match official" },
+        { "label": "C", "text": "No — the threat itself is the violation, regardless of whether any contact occurs", "correct": true },
+        { "label": "D", "text": "Only if the threat is made in writing or on video" }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Saying 'I'm going to shove that card down your throat!' to a referee is classified as what level of abuse?",
+      "answers": [
+        { "label": "A", "text": "Level 1 — Dismissive Language" },
+        { "label": "B", "text": "Level 2 — Personal Attack with Profanity" },
+        { "label": "C", "text": "Level 3 — Threatening to Inflict Physical Harm", "correct": true },
+        { "label": "D", "text": "Not abuse — hyperbolic expressions are not penalized" }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Does Policy 531-9 cover online attacks and social media harassment of referees?",
+      "answers": [
+        { "label": "A", "text": "No — only in-person conduct at or near the match venue is covered" },
+        { "label": "B", "text": "Only if the referee is a minor" },
+        { "label": "C", "text": "Yes — cyberbullying and doxing are explicitly named as Level 3 Non-Physical Abuse", "correct": true },
+        { "label": "D", "text": "Only if the post includes the referee's personal information" }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "What is 'doxing' as described in the context of this policy?",
+      "answers": [
+        { "label": "A", "text": "Filming a referee during a match without permission" },
+        { "label": "B", "text": "Publishing someone's personal information (such as home address or phone number) online", "correct": true },
+        { "label": "C", "text": "Submitting a false misconduct report to the league" },
+        { "label": "D", "text": "Recording a referee's name and number to file a post-game complaint" }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "A parent posts a referee's home address on Facebook along with accusations of bias. Under Policy 531-9, this is:",
+      "answers": [
+        { "label": "A", "text": "Outside the scope of Policy 531-9 since it occurred off the field" },
+        { "label": "B", "text": "Level 2 Abuse — Retaliation" },
+        { "label": "C", "text": "Level 3 Non-Physical Abuse — Cyberbullying and Doxing", "correct": true },
+        { "label": "D", "text": "Permissible as long as the information is publicly available" }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Intentionally kicking a referee in the shin — even lightly — is classified as what?",
+      "answers": [
+        { "label": "A", "text": "Level 1 Physical Abuse — Minor Touching" },
+        { "label": "B", "text": "Level 2 Physical Abuse — Intentional Confrontation" },
+        { "label": "C", "text": "Level 3 Physical Abuse — Violent Contact", "correct": true },
+        { "label": "D", "text": "Not covered unless the kick causes visible injury" }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "In addition to the soccer penalty, what legal classification may apply to kicking a referee?",
+      "answers": [
+        { "label": "A", "text": "A civil infraction, resulting in a fine" },
+        { "label": "B", "text": "Assault under criminal law", "correct": true },
+        { "label": "C", "text": "Trespassing, since the referee is on an official facility" },
+        { "label": "D", "text": "No legal classification — sports disputes are handled internally" }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "What does the course state about punching a referee?",
+      "answers": [
+        { "label": "A", "text": "It is Level 2 Abuse if the punch does not make full contact" },
+        { "label": "B", "text": "It is assault under criminal law and the most severe category of physical abuse under Policy 531-9", "correct": true },
+        { "label": "C", "text": "It is only penalized if the referee sustains an injury requiring medical attention" },
+        { "label": "D", "text": "It carries the same penalty as a level 2 shove if no injury results" }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Why is placing hands on or near a referee's neck treated with exceptional severity under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Because the neck is a sensitive area — the policy distinguishes it from other physical contact" },
+        { "label": "B", "text": "Because grabbing the neck is considered a form of Level 2 intimidation" },
+        { "label": "C", "text": "Because strangulation is a felony in most U.S. states, and a lifetime ban is the expected outcome", "correct": true },
+        { "label": "D", "text": "Because referees are trained to report neck contact specifically" }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "Can claiming 'I wasn't choking him — I just grabbed his collar' reduce the penalty for placing hands on a referee's neck?",
+      "answers": [
+        { "label": "A", "text": "Yes — stated intent is considered in determining the penalty level" },
+        { "label": "B", "text": "Yes — if witnesses confirm the grip was brief" },
+        { "label": "C", "text": "No — no framing of intent changes what the action is under Policy 531-9", "correct": true },
+        { "label": "D", "text": "Only if the referee does not pursue criminal charges" }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "What distinguishes throwing an object near a referee (Level 2) from throwing an object at a referee (Level 3)?",
+      "answers": [
+        { "label": "A", "text": "The size and weight of the object thrown" },
+        { "label": "B", "text": "Whether the object actually makes contact with the referee" },
+        { "label": "C", "text": "The intent to strike — throwing to intimidate is Level 2; throwing to hit is Level 3", "correct": true },
+        { "label": "D", "text": "The location on the field where the throw occurs" }
+      ]
+    },
+    {
+      "id": 16,
+      "question": "A water bottle is thrown in anger and strikes the referee. Under Policy 531-9, the minimum penalty is:",
+      "answers": [
+        { "label": "A", "text": "4 games plus a formal warning" },
+        { "label": "B", "text": "10 games plus 6–24 months" },
+        { "label": "C", "text": "12 games, up to a lifetime ban", "correct": true },
+        { "label": "D", "text": "6 games plus 6–24 months" }
+      ]
+    },
+    {
+      "id": 17,
+      "question": "How does Policy 531-9 treat deliberately kicking a ball at a referee after the whistle?",
+      "answers": [
+        { "label": "A", "text": "As Level 1 Abuse — dismissive behavior" },
+        { "label": "B", "text": "As Level 2 Abuse — use of object in a non-striking manner" },
+        { "label": "C", "text": "As Level 3 Abuse — use of object in a striking manner", "correct": true },
+        { "label": "D", "text": "Not as abuse if the player claims the kick was not directed at anyone" }
+      ]
+    },
+    {
+      "id": 18,
+      "question": "When a ball is kicked near a referee after the whistle and the referee is hit, how is intent assessed?",
+      "answers": [
+        { "label": "A", "text": "Intent is solely determined by the player's own statement" },
+        { "label": "B", "text": "Intent is determined by officials, witnesses, and video footage — claimed intent rarely overrides context", "correct": true },
+        { "label": "C", "text": "The benefit of the doubt is always given to the player" },
+        { "label": "D", "text": "Only repeat offenders have their intent scrutinized" }
+      ]
+    },
+    {
+      "id": 19,
+      "question": "Beyond a suspension, what financial consequences can a referee physically assaulted at a youth match pursue?",
+      "answers": [
+        { "label": "A", "text": "None — soccer matches are voluntary activities that limit liability" },
+        { "label": "B", "text": "Only reimbursement of any equipment damaged during the incident" },
+        { "label": "C", "text": "A civil lawsuit for assault, battery, emotional distress, and potentially punitive damages", "correct": true },
+        { "label": "D", "text": "Only medical costs if the injury required hospitalization" }
+      ]
+    },
+    {
+      "id": 20,
+      "question": "What does 'medical liability' mean in the context of Level 3 Abuse, as described in the course?",
+      "answers": [
+        { "label": "A", "text": "The offender must complete a health and wellness course" },
+        { "label": "B", "text": "The offender may be held responsible for all medical costs if the referee is injured, including emergency care, rehabilitation, and lost wages", "correct": true },
+        { "label": "C", "text": "The league is responsible for covering the referee's medical bills" },
+        { "label": "D", "text": "Medical costs are covered by U.S. Soccer's liability insurance" }
+      ]
+    },
+    {
+      "id": 21,
+      "question": "What does a permanent lifetime ban mean in practice under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "The person cannot coach but may still attend matches as a spectator" },
+        { "label": "B", "text": "The person is banned for 10 years with a possible reinstatement review" },
+        { "label": "C", "text": "No games, no sidelines, no tournaments — not even as a spectator, across all U.S. Soccer-affiliated activity forever", "correct": true },
+        { "label": "D", "text": "The person is banned from the specific league where the offense occurred" }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "What happens to a Level 3 penalty on a second offense?",
+      "answers": [
+        { "label": "A", "text": "The standard penalty applies — no automatic increase" },
+        { "label": "B", "text": "The punishment doubles (e.g., 6 games becomes 12; 12 games becomes 24)", "correct": true },
+        { "label": "C", "text": "An automatic lifetime ban is triggered on the second offense" },
+        { "label": "D", "text": "The offender is referred to national arbitration" }
+      ]
+    },
+    {
+      "id": 23,
+      "question": "What does the policy state about reinstatement after a third-offense automatic lifetime ban?",
+      "answers": [
+        { "label": "A", "text": "Reinstatement is possible after 5 years with good behavior" },
+        { "label": "B", "text": "Reinstatement may be granted after a formal appeal to U.S. Soccer" },
+        { "label": "C", "text": "No reinstatement pathway is described — it is automatic and unconditional", "correct": true },
+        { "label": "D", "text": "Reinstatement is at the discretion of the local league president" }
+      ]
+    },
+    {
+      "id": 24,
+      "question": "What automatic multiplier applies when a Level 3 offense is committed against a referee who is under 18?",
+      "answers": [
+        { "label": "A", "text": "The penalty doubles" },
+        { "label": "B", "text": "The penalty triples", "correct": true },
+        { "label": "C", "text": "An additional 6-month ban is added" },
+        { "label": "D", "text": "The standard penalty applies — age is not a factor at Level 3" }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "The course warns that even saying 'I'll see you later' to a referee as a joke can be treated as a threat. Why?",
+      "answers": [
+        { "label": "A", "text": "Because any post-match communication with a referee is prohibited" },
+        { "label": "B", "text": "Because the phrase is specifically listed as a Level 3 example in Policy 531-9" },
+        { "label": "C", "text": "Because what means nothing to the adult can mean everything to a teenage referee who hears it as a threat", "correct": true },
+        { "label": "D", "text": "Because ambiguous statements are always classified at the highest applicable abuse level" }
+      ]
+    }
+  ]
+}

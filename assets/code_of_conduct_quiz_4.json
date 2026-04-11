@@ -1,0 +1,157 @@
+{
+  "title": "Code of Conduct Lesson #4 — Youth Soccer Referee Abuse (Level 4: Discrimination)",
+  "source": "Based on U.S. Soccer Policy 531-9, effective March 2025",
+  "total_questions": 15,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What makes Level 4 Abuse distinct from Levels 1–3 under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "It only applies to physical contact that causes injury" },
+        { "label": "B", "text": "It attacks who the referee IS — their identity — rather than what they decided on the field", "correct": true },
+        { "label": "C", "text": "It requires a prior Level 3 offense before it can be charged" },
+        { "label": "D", "text": "It applies only to professional matches, not youth soccer" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the minimum suspension for a Level 4 discriminatory offense under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "6 games plus 6–12 months" },
+        { "label": "B", "text": "10 games plus 12–24 months", "correct": true },
+        { "label": "C", "text": "12 games plus 6–24 months" },
+        { "label": "D", "text": "Immediate lifetime ban for any first offense" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Does a racial or ethnic slur only violate Policy 531-9 if it is shouted loudly in front of witnesses?",
+      "answers": [
+        { "label": "A", "text": "Yes — the slur must be audible to others to constitute an offense" },
+        { "label": "B", "text": "Yes — it must be caught on video to be penalized" },
+        { "label": "C", "text": "No — it applies whether spoken on the field, from the sideline, or said under one's breath", "correct": true },
+        { "label": "D", "text": "Only if the referee directly reports hearing it" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is explicitly listed as a protected characteristic under Policy 531-9 Level 4?",
+      "answers": [
+        { "label": "A", "text": "A referee's years of experience" },
+        { "label": "B", "text": "A referee's assignment to a specific match" },
+        { "label": "C", "text": "A referee's nationality, social origin, language, and religion", "correct": true },
+        { "label": "D", "text": "A referee's uniform color or badge level" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "A spectator mocks a referee's accent to discredit a call. Under Policy 531-9, this is:",
+      "answers": [
+        { "label": "A", "text": "Level 2 Abuse — Personal Attack" },
+        { "label": "B", "text": "Level 1 Abuse — Taunting Behavior" },
+        { "label": "C", "text": "Level 4 Abuse — Discriminatory Language Based on National Origin or Language", "correct": true },
+        { "label": "D", "text": "Not covered — accent-based comments are not explicitly named in the policy" }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Saying a female referee 'doesn't understand the game' to question her call is classified as what under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "Level 1 Abuse — Questioning Competence" },
+        { "label": "B", "text": "An opinion about officiating quality, not covered by the policy" },
+        { "label": "C", "text": "Level 4 Abuse — Harmful or Sexist Stereotype", "correct": true },
+        { "label": "D", "text": "Level 2 Abuse — Personal Attack" }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Does Policy 531-9's Level 4 cover only spoken words, or also non-verbal discriminatory acts?",
+      "answers": [
+        { "label": "A", "text": "Only spoken words are covered" },
+        { "label": "B", "text": "Only written communications such as social media posts" },
+        { "label": "C", "text": "Both words and non-verbal discriminatory acts, including gestures and physical expressions", "correct": true },
+        { "label": "D", "text": "Only actions that involve physical contact with the referee" }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "How does Policy 531-9 evaluate a discriminatory gesture directed at a referee?",
+      "answers": [
+        { "label": "A", "text": "Gestures are not penalized unless accompanied by verbal abuse" },
+        { "label": "B", "text": "The policy evaluates the meaning and intent of the gesture, not just the medium", "correct": true },
+        { "label": "C", "text": "Gestures carry a lesser penalty than spoken slurs" },
+        { "label": "D", "text": "Only gestures made on the field of play are covered" }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Casually calling a referee 'blind' in a context that targets a perceived disability — rather than expressing frustration — is classified as what?",
+      "answers": [
+        { "label": "A", "text": "Acceptable venting — the policy distinguishes between frustration and discrimination" },
+        { "label": "B", "text": "Level 1 Abuse — Mocking Abilities" },
+        { "label": "C", "text": "Level 4 Abuse — Discriminatory Language Based on Disability", "correct": true },
+        { "label": "D", "text": "Level 2 Abuse — Degrading Language" }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "What is the penalty for a second Level 4 offense under Policy 531-9?",
+      "answers": [
+        { "label": "A", "text": "The same 10-game minimum as the first offense" },
+        { "label": "B", "text": "An automatic lifetime ban" },
+        { "label": "C", "text": "20 games plus an extended time ban", "correct": true },
+        { "label": "D", "text": "15 games plus a 12-month ban" }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What is the consequence for a third Level 4 offense?",
+      "answers": [
+        { "label": "A", "text": "A 2-year suspension with a reinstatement review" },
+        { "label": "B", "text": "Automatic lifetime ban from all U.S. Soccer-affiliated activity as participant or spectator", "correct": true },
+        { "label": "C", "text": "Referral to a national disciplinary panel for a custom ruling" },
+        { "label": "D", "text": "A 30-game suspension plus a 24-month ban" }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "What automatic penalty multiplier applies when a Level 4 offense targets a referee who is under 18?",
+      "answers": [
+        { "label": "A", "text": "Double the standard penalty" },
+        { "label": "B", "text": "Triple the standard penalty", "correct": true },
+        { "label": "C", "text": "The standard penalty applies — age is not a factor at Level 4" },
+        { "label": "D", "text": "An additional 12-month ban is added to the standard suspension" }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Beyond the soccer penalty, what broader legal risk does the course identify for discriminatory conduct?",
+      "answers": [
+        { "label": "A", "text": "No legal risk — Policy 531-9 is the only applicable framework" },
+        { "label": "B", "text": "Only liability if the discrimination is recorded on video" },
+        { "label": "C", "text": "Discriminatory conduct in public settings may violate civil rights law depending on jurisdiction and circumstances", "correct": true },
+        { "label": "D", "text": "Legal risk applies only if the offender is a paid league official" }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "According to the course, what message does discriminatory sideline behavior send to young players from the same background as the targeted referee?",
+      "answers": [
+        { "label": "A", "text": "That the game has high standards everyone must meet" },
+        { "label": "B", "text": "That this game may not be for you", "correct": true },
+        { "label": "C", "text": "That referees need thicker skin to work in competitive environments" },
+        { "label": "D", "text": "That passion for the sport can sometimes go too far" }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "What does the course recommend if you hear another spectator make a discriminatory comment at a youth match?",
+      "answers": [
+        { "label": "A", "text": "Ignore it — it is not your responsibility to police other adults" },
+        { "label": "B", "text": "Record it on your phone and post it online" },
+        { "label": "C", "text": "Speak up — say something like 'That's not okay here' and report it to the league in writing", "correct": true },
+        { "label": "D", "text": "Alert the referee immediately so they can issue a formal warning" }
+      ]
+    }
+  ]
+}
