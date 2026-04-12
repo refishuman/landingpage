@@ -342,7 +342,7 @@ function submitQuiz() {
 
     const msg = document.getElementById('result-message');
     if (pass) {
-        msg.innerHTML = `<strong>Congratulations!</strong> You answered ${correct} out of ${TOTAL} questions correctly. You have successfully completed all four Code of Conduct courses and earned your <strong>Ref Defender</strong> certificate of completion.`;
+        msg.innerHTML = `<strong>Congratulations!</strong> You answered ${correct} out of ${TOTAL} questions correctly. You have successfully completed all four Code of Conduct courses. <span style="font-size:0.7rem;font-weight:700;background:#fef9c3;color:#854d0e;padding:2px 8px;border-radius:10px;margin-left:4px;vertical-align:middle;">Coming Soon</span> You have earned your <strong>Ref Defender</strong> certificate of completion.`;
     } else {
         msg.innerHTML = `You answered ${correct} out of ${TOTAL} questions correctly. A score of 80% or higher is required to pass. Please review the Level 4 material and retake the quiz.`;
     }
