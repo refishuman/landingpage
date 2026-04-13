@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código de Conduta – Ref is Human FC</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="bc8e6bb5-e925-4eac-9449-5e3f2846fee5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .top-bar { background: linear-gradient(90deg, #1e293b, #0f172a); padding: 8px 0; border-bottom: 1px solid #1e293b; }
+        .hero-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1a1a2e 100%);
+            padding: 60px 0 40px; border-bottom: 3px solid #ffdd00; position: relative; overflow: hidden;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at center, rgba(255,221,0,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .level-card {
+            background: #1e293b; border-radius: 16px; margin-bottom: 2rem;
+            overflow: hidden; border: 1px solid #334155; box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+        .level-header {
+            padding: 1.5rem 2rem; display: flex; align-items: center;
+            gap: 1.2rem; border-bottom: 1px solid #334155;
+        }
+        .level-1 .level-header { background: linear-gradient(135deg, #1e3a5f, #1e293b); border-left: 5px solid #3b82f6; }
+        .level-2 .level-header { background: linear-gradient(135deg, #1e4a2e, #1e293b); border-left: 5px solid #22c55e; }
+        .level-3 .level-header { background: linear-gradient(135deg, #4a2a1e, #1e293b); border-left: 5px solid #f97316; }
+        .level-4 .level-header { background: linear-gradient(135deg, #4a1e1e, #1e293b); border-left: 5px solid #ef4444; }
+        .level-badge {
+            background: rgba(255,255,255,0.1); color: #e2e8f0; padding: 0.3rem 0.9rem;
+            border-radius: 999px; font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;
+        }
+        .level-header h2 { margin: 0; font-size: 1.2rem; color: #f1f5f9; font-weight: 600; }
+        .resource-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem; padding: 1.8rem 2rem;
+        }
+        .resource-item {
+            background: #0f172a; border-radius: 12px; padding: 1.4rem;
+            border: 1px solid #334155; display: flex; flex-direction: column; gap: 0.5rem;
+        }
+        .resource-item h5 { margin: 0; font-size: 0.95rem; color: #f1f5f9; font-weight: 600; }
+        .resource-item p { margin: 0; font-size: 0.82rem; color: #94a3b8; flex: 1; }
+        .btn-resource {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600;
+            text-decoration: none; transition: opacity 0.2s, transform 0.2s; margin-top: 0.5rem; width: fit-content;
+        }
+        .btn-resource:hover { opacity: 0.85; transform: translateY(-1px); }
+        .btn-slides { background-color: #2563eb; color: white; }
+        .btn-video  { background-color: #dc2626; color: white; }
+        .btn-exam   { background-color: #16a34a; color: white; }
+        .intro-block {
+            background: #1e293b; border-radius: 16px; padding: 2rem;
+            margin-bottom: 2rem; border: 1px solid #334155;
+        }
+        footer { background: #0a0f1e; border-top: 1px solid #1e293b; padding: 2rem 0; }
+        footer a { color: #94a3b8; text-decoration: none; }
+        footer a:hover { color: #f1f5f9; }
+        @media (max-width: 600px) { .resource-grid { grid-template-columns: 1fr; padding: 1.2rem; } .level-header { flex-wrap: wrap; } }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <p class="mb-2" style="opacity:0.7; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase;">
+                <a href="https://www.refishumanfc.com" style="color:#ffdd00; text-decoration:none;">Ref is Human FC</a>
+                &nbsp;›&nbsp; Educação &nbsp;›&nbsp; Código de Conduta
+            </p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fw-bold navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="https://www.refishumanfc.com">Ref is Human FC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="soccer-rules.html">Regras do Futebol</a></li>
+                    <li class="nav-item ms-3"><a class="nav-link fw-bold" href="../code-of-conduct.html" style="color:#ffdd00; font-size:1.4rem;">🇺🇸 EN</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="../es/code-of-conduct.html" style="color:#ffdd00; font-size:1.4rem;">🇪🇸 ES</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3" style="color:#ffdd00;">Cursos de Código de Conduta</h1>
+            <p class="lead mb-0" style="color:#94a3b8; max-width:600px; margin:0 auto;">Educação sobre o Abuso a Árbitros para Torcedores de Futebol</p>
+        </div>
+    </div>
+
+    <div class="container py-5">
+
+        <div class="row align-items-center mb-5 g-4">
+            <div class="col-md-5">
+                <img src="../assets/4levels_of_abuse.png" alt="Os 4 Níveis do Abuso a Árbitros" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-7">
+                <div class="intro-block">
+                    <h3 style="color:#ffdd00; margin-bottom:1rem;">Os 4 Níveis do Abuso</h3>
+                    <p style="color:white;">
+                        O abuso a árbitros não é um problema único. Vai desde linguagem desrespeitosa e provocações que cruzam a linha, até contato físico, ameaças e discriminação. A Política de Abuso a Árbitros 531-9 da US Soccer identifica quatro níveis distintos de abuso, cada um com suas próprias consequências.
+                    </p>
+                    <p style="color:white;" class="mb-3">
+                        Criamos um curso de Código de Conduta para cada um desses níveis. Cada curso inclui uma apresentação baseada na <a href="https://www.ussoccer.com/rap" style="color:#7dd3fc;">Política de Abuso a Árbitros 531.9 da US Soccer</a>, um resumo em vídeo e um exame final. Trabalhe-os em ordem para desenvolver uma compreensão completa do que é o abuso a árbitros, por que acontece e como pará-lo.
+                    </p>
+                    <p style="color:white;" class="mb-0">
+                        Conclua os quatro níveis para obter seu certificado de conclusão.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nível 1 -->
+        <div class="level-card level-1" id="nivel-1">
+            <div class="level-header">
+                <span class="level-badge">Nível 1</span>
+                <h2>Palavras, Linguagem e Provocações.</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h5>Apresentação Nível 1</h5>
+                    <p>Regras conforme a Política de Abuso a Árbitros 531-9</p>
+                    <a href="../assets/CodeOfConduct1.pdf" target="_blank" class="btn-resource btn-slides">
+                        <i class="fas fa-external-link-alt"></i> Ver Slides
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Resumo em Vídeo</h5>
+                    <p>Um guia narrado da apresentação do Nível 1.</p>
+                    <a href="https://youtu.be/2EcRc8HTIys?si=KAbOEeRM-P3t4Wd7" target="_blank" class="btn-resource btn-video">
+                        <i class="fas fa-play-circle"></i> Assistir Vídeo
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Teste seu Conhecimento</h5>
+                    <p>Avalie sua compreensão dos conceitos do Nível 1.</p>
+                    <a href="../course-quiz-1.html" class="btn-resource btn-exam">
+                        <i class="fas fa-pencil-alt"></i> Fazer o Exame
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nível 2 -->
+        <div class="level-card level-2" id="nivel-2">
+            <div class="level-header">
+                <span class="level-badge">Nível 2</span>
+                <h2>Contato Intencional e Assédio.</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h5>Apresentação Nível 2</h5>
+                    <p>Regras conforme a Política de Abuso a Árbitros 531-9</p>
+                    <a href="../assets/CodeOfConduct2.pdf" target="_blank" class="btn-resource btn-slides">
+                        <i class="fas fa-external-link-alt"></i> Ver Slides
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Resumo em Vídeo</h5>
+                    <p>Um guia narrado da apresentação do Nível 2.</p>
+                    <a href="https://youtu.be/zAoeUrNHQls?si=Zfk7laxYXU4yThC5" target="_blank" class="btn-resource btn-video">
+                        <i class="fas fa-play-circle"></i> Assistir Vídeo
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Teste seu Conhecimento</h5>
+                    <p>Demonstre sua compreensão dos conceitos do Nível 2.</p>
+                    <a href="../course-quiz-2.html" class="btn-resource btn-exam">
+                        <i class="fas fa-pencil-alt"></i> Fazer o Exame
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nível 3 -->
+        <div class="level-card level-3" id="nivel-3">
+            <div class="level-header">
+                <span class="level-badge">Nível 3</span>
+                <h2>Ameaças, Violência e Agressão contra Árbitros.</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h5>Apresentação Nível 3</h5>
+                    <p>Regras conforme a Política de Abuso a Árbitros 531-9</p>
+                    <a href="../assets/CodeOfConduct3.pdf" target="_blank" class="btn-resource btn-slides">
+                        <i class="fas fa-external-link-alt"></i> Ver Slides
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Resumo em Vídeo</h5>
+                    <p>Um guia narrado da apresentação do Nível 3.</p>
+                    <a href="https://youtu.be/uM8EKWwv-4k?si=6wYlk85CMfFurUCg" target="_blank" class="btn-resource btn-video">
+                        <i class="fas fa-play-circle"></i> Assistir Vídeo
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Teste seu Conhecimento</h5>
+                    <p>Demonstre sua compreensão dos conceitos do Nível 3.</p>
+                    <a href="../course-quiz-3.html" class="btn-resource btn-exam">
+                        <i class="fas fa-pencil-alt"></i> Fazer o Exame
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nível 4 -->
+        <div class="level-card level-4" id="nivel-4">
+            <div class="level-header">
+                <span class="level-badge">Nível 4</span>
+                <h2>Sem Desculpas. Isso é Simplesmente Discriminação.</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h5>Apresentação Nível 4</h5>
+                    <p>Regras conforme a Política de Abuso a Árbitros 531-9</p>
+                    <a href="../assets/CodeOfConduct4.pdf" target="_blank" class="btn-resource btn-slides">
+                        <i class="fas fa-external-link-alt"></i> Ver Slides
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Resumo em Vídeo</h5>
+                    <p>Um guia narrado da apresentação do Nível 4.</p>
+                    <a href="https://youtu.be/yVyXbHKhL3c?si=zx0Tu69qPQrFYkIY" target="_blank" class="btn-resource btn-video">
+                        <i class="fas fa-play-circle"></i> Assistir Vídeo
+                    </a>
+                </div>
+                <div class="resource-item">
+                    <h5>Teste seu Conhecimento</h5>
+                    <p>Demonstre sua compreensão dos conceitos do Nível 4.</p>
+                    <a href="../course-quiz-4.html" class="btn-resource btn-exam">
+                        <i class="fas fa-pencil-alt"></i> Fazer o Exame
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-1 fw-bold"><a href="https://www.refishumanfc.com">Ref is Human FC</a></p>
+            <p class="small text-secondary mb-0">Combatendo o abuso a árbitros com educação, humor e coração.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
