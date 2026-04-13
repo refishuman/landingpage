@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ref is Human FC</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="bc8e6bb5-e925-4eac-9449-5e3f2846fee5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .hero-section {
+            background: linear-gradient(135deg, rgba(33, 37, 41, 0.95), rgba(0, 0, 0, 0.8)),
+                        linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            color: white;
+            padding: 40px 0;
+            border-bottom: 5px solid #ffdd00;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-image {
+            max-width: 200px; height: auto; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(255, 221, 0, 0.3);
+            margin-bottom: 30px; transition: transform 0.3s ease;
+        }
+        .hero-image:hover { transform: scale(1.05); }
+        .hero-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><rect width="100" height="20" fill="%23ffdd00" opacity="0.1"/></svg>') repeat;
+            z-index: 1;
+        }
+        .card { transition: transform 0.2s; }
+        .card:hover { transform: scale(1.02); }
+        .socials a { transition: all 0.3s ease; }
+        .socials .fa-youtube { color: #FF0000; }
+        .socials .fa-instagram { color: #E4405F; }
+        .socials .fa-x-twitter { color: #1DA1F2; }
+        .socials .fa-tiktok { color: #00f2ea; }
+        .socials .fa-spotify { color: #1DB954; }
+        .socials a:hover { opacity: 0.8; }
+        .contact-btn {
+            transition: all 0.4s ease; border-width: 1px;
+            letter-spacing: 1px; font-weight: 300;
+        }
+        .contact-btn:hover {
+            background-color: white !important; color: #212529 !important;
+            transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+        .contact-cta h2 { letter-spacing: -1px; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section text-center" id="intro">
+        <div class="container">
+            <div class="hero-content">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-4 fw-bold mb-4">Ref is Human FC ⚽</h1>
+                        <p class="lead mb-4">Une communauté qui combat les abus envers les arbitres avec éducation, humour et cœur.</p>
+                        <p class="mb-4">Les abus envers les arbitres nuisent à tous sur le terrain. Ils rendent également de plus en plus difficile le recrutement et la fidélisation d'arbitres de qualité. L'objectif de notre communauté est de protéger les arbitres et de transformer les spectateurs en véritables champions du respect et du fair-play.</p>
+                        <a href="https://www.refishuman.com/abuseScore.html" class="btn btn-warning btn-sm px-4 py-2 fw-bold me-2 mb-2">Score d'Abus <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 58" width="26" height="15" style="vertical-align:middle;margin-right:4px;"><path d="M10,50 A40,40 0 0,1 50,10" fill="none" stroke="#22c55e" stroke-width="11" stroke-linecap="butt"/><path d="M50,10 A40,40 0 0,1 84,30" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt"/><path d="M84,30 A40,40 0 0,1 90,50" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt"/><line x1="50" y1="50" x2="73" y2="27" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#1f2937"/></svg></a>
+                        <a href="#contenu" class="btn btn-warning btn-sm px-4 py-2 fw-bold me-2 mb-2">Contenu</a>
+                        <a href="#education" class="btn btn-warning btn-sm px-4 py-2 fw-bold me-2 mb-2">Éducation</a>
+                        <a href="#coin-arbitre" class="btn btn-warning btn-sm px-4 py-2 fw-bold me-2 mb-2">Coin Arbitre</a>
+                        <a href="#nous" class="btn btn-warning btn-sm px-4 py-2 fw-bold me-2 mb-2">Qui sommes-nous</a>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../assets/ref-icon-yellow.jpg" alt="Ref is Human FC" class="hero-image img-fluid w-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg fw-bold navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="https://www.refishumanfc.com">Ref is Human FC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#contenu">Contenu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Éducation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#coin-arbitre">Coin Arbitre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nous">Qui sommes-nous</a></li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link fw-bold" href="../index.html" style="color:#ffdd00; font-size:1.4rem;">🇺🇸 EN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="../es/index.html" style="color:#ffdd00; font-size:1.4rem;">🇪🇸 ES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="../pt/index.html" style="color:#ffdd00; font-size:1.4rem;">🇧🇷 PT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="contenu" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Notre Contenu</h2>
+        </div>
+        <div class="row g-3 px-5 justify-content-center">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Score d'Abus <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 58" width="36" height="25" style="vertical-align:middle;"><path d="M10,50 A40,40 0 0,1 50,10" fill="none" stroke="#22c55e" stroke-width="11" stroke-linecap="butt"/><path d="M50,10 A40,40 0 0,1 84,30" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt"/><path d="M84,30 A40,40 0 0,1 90,50" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt"/><line x1="50" y1="50" x2="73" y2="27" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#1f2937"/></svg></h5>
+                        <p class="card-text">Calculez à quel point vous avez maltraité les arbitres</p>
+                        <a href="https://www.refishuman.com/abuseScore.html" class="btn btn-primary btn-sm mt-auto fw-bold">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ref is Human FC sur les Réseaux Sociaux</h5>
+                        <p class="card-text">Suivez-nous sur YouTube, Spotify et Instagram</p>
+                        <div class="socials mb-3">
+                            <a href="https://youtube.com/@ref.is.humanFC" aria-label="YouTube" class="mx-2 fs-1"><i class="fab fa-youtube" style="color:#FF0000;"></i></a>
+                            <a href="https://open.spotify.com/show/5DKSr5GEm0phm7Nq4pxY6c?si=2de874616a294e16" aria-label="Spotify" class="mx-2 fs-1"><i class="fab fa-spotify" style="color:#1DB954;"></i></a>
+                            <a href="https://instagram.com/ref.is.human.fc" aria-label="Instagram" class="mx-2 fs-1"><i class="fab fa-instagram" style="color:#E4405F;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Abus d'Arbitres dans les Médias</h5>
+                        <p class="card-text">De vrais exemples d'abus envers les arbitres couverts par les médias</p>
+                        <a href="https://www.refishuman.com/media-examples.html" class="btn btn-primary btn-sm mt-auto">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Éducation 👩‍🎓</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Cours de Code de Conduite<span class="badge bg-warning text-dark ms-2">Nouveau</span></h5>
+                            <p class="card-text">Cours guidés et quiz pour les supporters</p>
+                            <a href="https://www.refishuman.com/code-of-conduct.html" class="btn btn-success btn-sm mt-auto">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Apprendre les Règles du Football</h5>
+                            <p class="card-text">Vidéos et ressources pour apprendre les règles du beau jeu</p>
+                            <a href="soccer-rules.html" class="btn btn-info btn-sm text-white" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border: none;">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Ressources de Santé Mentale</h5>
+                            <p class="card-text">Soutien et conseils pour le bien-être des arbitres</p>
+                            <a href="mental-health-resources.html" class="btn btn-success btn-sm mt-auto">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coin-arbitre" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Coin des Arbitres</h2>
+            <p class="lead mb-4">Soutenir les arbitres par l'entraide, la communauté et le respect</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Amis &amp; Communauté 🤝</h5>
+                            <p class="card-text">Rejoignez des personnes partageant la même vision</p>
+                            <a href="community-support.html" class="btn btn-info btn-sm mt-auto">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Enquêtes sur les Salaires<span class="badge bg-warning text-dark ms-2">Bientôt disponible</span></h5>
+                            <p class="card-text">Rémunération des arbitres dans différentes ligues</p>
+                            <a href="https://www.refishuman.com/coming-soon.html" class="btn btn-danger btn-sm mt-auto">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Associations d'Arbitres Officielles</h5>
+                            <p class="card-text">Compilation avec recherche des associations officielles d'arbitres dans le monde</p>
+                            <a href="ref-associations.html" class="btn btn-primary btn-sm mt-auto">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nous" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Qui sommes-nous</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <div class="card h-100 shadow-sm border-0" style="border-left: 4px solid #ffdd00 !important;">
+                        <div class="card-body p-4">
+                            <h6 class="fw-bold mb-2">🎯 Notre Mission</h6>
+                            <p class="mb-0 small">Ref is Human FC est une communauté de passionnés de football qui a pour mission de mettre fin aux abus envers les arbitres. En alliant éducation, humour et technologie, nous œuvrons à protéger l'intégrité du beau jeu et à transformer tous les supporters en véritables champions du respect et du fair-play.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card h-100 shadow-sm border-0" style="border-left: 4px solid #ffdd00 !important;">
+                        <div class="card-body p-4">
+                            <h6 class="fw-bold mb-2"><img src="../assets/ref-icon-yellow.jpg" alt="Ref icon" style="width:22px;height:22px;object-fit:cover;border-radius:50%;vertical-align:middle;margin-right:6px;">Notre Histoire</h6>
+                            <p class="mb-0 small">Notre communauté a été créée par Mateus « Butterz » Carvalho, un lycéen de 16 ans et arbitre de football de longue date basé à San Diego, en Californie. À partir de ses expériences personnelles, Mateus a vu comment les comportements toxiques envers les officiels nuisent au sport dans son ensemble. Il a créé cette plateforme pour rappeler à tous que nos arbitres de football, s'ils ne sont pas parfaits, sont humains et méritent d'être traités avec respect.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <div class="contact-cta mb-5">
+                <h2 class="fw-light mb-3">Une question ou une histoire à partager ?</h2>
+                <p class="text-secondary mb-4">Nous serions ravis d'avoir votre retour.</p>
+                <a href="mailto:refishuman@gmail.com?subject=Message%20depuis%20Ref%20is%20Human%20FC"
+                   class="btn btn-outline-light btn-lg rounded-pill px-5 contact-btn">
+                   <i class="far fa-envelope me-2"></i> Nous contacter
+                </a>
+            </div>
+            <hr class="border-secondary opacity-25 mb-5">
+            <div class="socials mb-4">
+                <a href="https://youtube.com/@ref.is.humanFC" aria-label="YouTube" class="mx-3 fs-2"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/show/5DKSr5GEm0phm7Nq4pxY6c?si=2de874616a294e16" aria-label="Spotify" class="mx-3 fs-2"><i class="fab fa-spotify"></i></a>
+                <a href="https://instagram.com/ref.is.human.fc" aria-label="Instagram" class="mx-3 fs-2"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="footer-text mb-0 text-secondary small">&copy; 2025 Ref is Human FC</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
