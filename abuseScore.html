@@ -181,7 +181,7 @@
     .quiz-shell {
       position: relative;
       z-index: 1;
-      max-width: 700px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 1.5rem 5rem;
     }
@@ -449,6 +449,40 @@
       padding: 0.15rem 0.55rem;
       border-radius: 3px;
       margin-right: 0.4rem;
+    }
+
+    /* ── Two-column question layout ── */
+    .q-body {
+      display: flex;
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .q-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .q-aside {
+      width: 260px;
+      flex-shrink: 0;
+      display: none;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .q-aside.show {
+      display: flex;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .q-aside .reveal-box {
+      margin-top: 0;
+      display: block;
+    }
+
+    .q-aside .score-so-far {
+      margin-top: 0;
     }
 
     /* ── Running Score ── */
@@ -725,6 +759,8 @@
       .question-card { padding: 1.8rem 1.4rem 1.6rem; }
       .result-card-row { grid-template-columns: 1fr; }
       .nav { padding: 0.8rem 1.2rem; }
+      .q-body { flex-direction: column; }
+      .q-aside { width: 100%; }
     }
   </style>
 </head>
@@ -884,28 +920,34 @@
       const cardHTML = `
     <div class="question-card" id="qcard">
       <div class="q-number">Question ${index + 1} <span class="q-tag">${q.tag}</span></div>
-      <div class="q-title">${q.title}</div>
-      <div class="q-scenario">${q.scenario}</div>
-      <div class="options${isAnswered ? ' locked' : ''}" id="optionsGroup">
-        ${q.options.map((opt, i) => `
-          <div class="option${isAnswered && answers[index] === opt.pts ? ' selected' : ''}"
-               data-pts="${opt.pts}"
-               data-idx="${i}"
-               onclick="selectOption(this, ${index})">
-            <div class="option-letter">${opt.letter}</div>
-            <div class="option-text">${opt.text}</div>
+      <div class="q-body">
+        <div class="q-main">
+          <div class="q-title">${q.title}</div>
+          <div class="q-scenario">${q.scenario}</div>
+          <div class="options${isAnswered ? ' locked' : ''}" id="optionsGroup">
+            ${q.options.map((opt, i) => `
+              <div class="option${isAnswered && answers[index] === opt.pts ? ' selected' : ''}"
+                   data-pts="${opt.pts}"
+                   data-idx="${i}"
+                   onclick="selectOption(this, ${index})">
+                <div class="option-letter">${opt.letter}</div>
+                <div class="option-text">${opt.text}</div>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
-      </div>
-      <div class="reveal-box${isAnswered ? ' show' : ''}" id="revealBox">${q.reveal}</div>
-      <div class="score-so-far${isAnswered && index < questions.length - 1 ? ' show' : ''}" id="scoreSoFar">
-        Score so far: <span class="ssf-pct">${isAnswered && index < questions.length - 1 ? computeRunningScore(index) + '%' : ''}</span>
-      </div>
-      <div class="nav-buttons${isAnswered ? ' show' : ''}" id="navButtons">
-        <button class="btn-back" onclick="goBack()" ${index === 0 ? 'disabled' : ''}>← Back</button>
-        <button class="btn-next" onclick="goNext()">
-          ${index === questions.length - 1 ? 'See My Score →' : 'Next Question →'}
-        </button>
+          <div class="nav-buttons${isAnswered ? ' show' : ''}" id="navButtons">
+            <button class="btn-back" onclick="goBack()" ${index === 0 ? 'disabled' : ''}>← Back</button>
+            <button class="btn-next" onclick="goNext()">
+              ${index === questions.length - 1 ? 'See My Score →' : 'Next Question →'}
+            </button>
+          </div>
+        </div>
+        <div class="q-aside${isAnswered ? ' show' : ''}" id="qAside">
+          <div class="reveal-box show" id="revealBox">${q.reveal}</div>
+          <div class="score-so-far${isAnswered && index < questions.length - 1 ? ' show' : ''}" id="scoreSoFar">
+            Score so far: <span class="ssf-pct">${isAnswered && index < questions.length - 1 ? computeRunningScore(index) + '%' : ''}</span>
+          </div>
+        </div>
       </div>
     </div>
   `;
@@ -953,8 +995,8 @@
       el.classList.add('selected');
       group.classList.add('locked');
 
-      // Show reveal
-      document.getElementById('revealBox').classList.add('show');
+      // Show aside panel (reveal + score)
+      document.getElementById('qAside').classList.add('show');
 
       // Show nav buttons
       document.getElementById('navButtons').classList.add('show');
