@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-soft: var(--text-soft);
+
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  --color-button-text: var(--button-text);
+
+  --color-img-card-glow-1: var(--img-card-glow-1);
+  --color-img-card-glow-2: var(--img-card-glow-2);
+  --color-img-card-top: var(--img-card-top);
+  --color-img-card-mid: var(--img-card-mid);
+  --color-img-card-bottom: var(--img-card-bottom);
+  --color-img-card-inset-top: var(--img-card-inset-top);
+  --color-img-card-inset-bottom: var(--img-card-inset-bottom);
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+  --font-heading: "Rajdhani", sans-serif;
+  --font-body: "IBM Plex Mono", monospace;
+
+  --bg-img: url('./assets/imgs/bg-light.png');
+
+  --bg: #f4f7ef;
+  --bg-soft: #eaf0df;
+  --surface: #ffffff;
+  --surface-2: #eef5e6;
+  --border: #cfd8c2;
+
+  --primary: #78b800;
+  --primary-soft: #a6df2b;
+  --accent: #f2c400;
+
+  --text: #121820;
+  --text-muted: #5f6b75;
+  --text-soft: #34414c;
+
+  --danger: #d93636;
+  --warning: #c99a00;
+  --info: #6557d8;
+
+  --button-text: #ffffff;
+  --shadow: rgba(20, 35, 20, 0.16);
+
+  --img-card-glow-1: color-mix(in srgb, var(--surface) 18%, transparent);
+  --img-card-glow-2: color-mix(in srgb, var(--info) 14%, transparent);
+  --img-card-top: #ffffff;
+  --img-card-mid: var(--surface);
+  --img-card-bottom: var(--bg);
+  --img-card-inset-top: rgba(255, 255, 255, 0.75);
+  --img-card-inset-bottom: rgba(20, 35, 20, 0.10);
+}
+
+[data-theme="dark"] {
+  --bg: #050910;
+  --bg-soft: #08111c;
+  --surface: #0d1724;
+  --surface-2: #111f2f;
+  --border: #223041;
+
+  --bg-img: url('./assets/imgs/bg-dark.png');
+
+  --primary: #9dff00;
+  --primary-soft: #c8ff3d;
+  --accent: #f4d000;
+
+  --text: #f2f5f7;
+  --text-muted: #9aa6b2;
+  --text-soft: #c7d0d8;
+
+  --danger: #ff4d4d;
+  --warning: #ffd43b;
+  --info: #8b7cff;
+
+  --button-text: #061000;
+  --shadow: rgba(0, 0, 0, 0.45);
+
+  --img-card-glow-1: color-mix(in srgb, var(--primary) 10%, transparent);
+  --img-card-glow-2: color-mix(in srgb, var(--info) 12%, transparent);
+  --img-card-top: var(--surface-2);
+  --img-card-mid: var(--surface);
+  --img-card-bottom: var(--bg);
+  --img-card-inset-top: rgba(255, 255, 255, 0.08);
+  --img-card-inset-bottom: rgba(0, 0, 0, 0.22);
+}
