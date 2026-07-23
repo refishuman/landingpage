@@ -22,6 +22,14 @@
   --color-info: var(--info);
 
   --color-button-text: var(--button-text);
+
+  --color-img-card-glow-1: var(--img-card-glow-1);
+  --color-img-card-glow-2: var(--img-card-glow-2);
+  --color-img-card-top: var(--img-card-top);
+  --color-img-card-mid: var(--img-card-mid);
+  --color-img-card-bottom: var(--img-card-bottom);
+  --color-img-card-inset-top: var(--img-card-inset-top);
+  --color-img-card-inset-bottom: var(--img-card-inset-bottom);
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -107,6 +115,14 @@ h1, h2, h3, h4, h5, h6 {
 
   --button-text: #ffffff;
   --shadow: rgba(20, 35, 20, 0.16);
+
+  --img-card-glow-1: color-mix(in srgb, var(--surface) 18%, transparent);
+  --img-card-glow-2: color-mix(in srgb, var(--info) 14%, transparent);
+  --img-card-top: #ffffff;
+  --img-card-mid: var(--surface);
+  --img-card-bottom: var(--bg);
+  --img-card-inset-top: rgba(255, 255, 255, 0.75);
+  --img-card-inset-bottom: rgba(20, 35, 20, 0.10);
 }
 
 [data-theme="dark"] {
@@ -132,4 +148,12 @@ h1, h2, h3, h4, h5, h6 {
 
   --button-text: #061000;
   --shadow: rgba(0, 0, 0, 0.45);
+
+  --img-card-glow-1: color-mix(in srgb, var(--primary) 10%, transparent);
+  --img-card-glow-2: color-mix(in srgb, var(--info) 12%, transparent);
+  --img-card-top: var(--surface-2);
+  --img-card-mid: var(--surface);
+  --img-card-bottom: var(--bg);
+  --img-card-inset-top: rgba(255, 255, 255, 0.08);
+  --img-card-inset-bottom: rgba(0, 0, 0, 0.22);
 }

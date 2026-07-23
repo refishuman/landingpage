@@ -1,14 +1,16 @@
+import { Link } from 'react-router';
 import { IconZoomQuestion, IconBook, IconBrandSpotify, IconBook2, IconBallFootball, IconBrain, IconBrandYoutube, IconPlayerPlay, IconMail, IconBrandInstagram, IconArrowRight } from '@tabler/icons-react';
 import QuizImg from '../../assets/imgs/tension.png'
 import AboutUsImg from '../../assets/imgs/about-us.png'
 import RefCornerImg from '../../assets/imgs/ref-corner.png'
 
 export default function Info() {
-  const upperCard = "h-full border border-border rounded-lg p-4 pb-6"
-  const lowerCard = "h-full border border-border rounded-lg p-4"
-  const eduHubCard = "flex w-full items-center justify-center gap-4 rounded-lg border border-border p-3 text-center sm:gap-6 xl:w-[80%]"
-  const refCornerCard = "flex justify-center gap-2 rounded-lg border border-primary p-2 text-center"
+  const upperCard = "h-full border border-border rounded-lg p-4 pb-6 bg-surface"
+  const lowerCard = "h-full border border-border rounded-lg p-4 bg-surface"
+  const eduHubCard = "flex w-full items-center justify-center gap-4 rounded-lg border border-border p-3 text-center sm:gap-6 xl:w-[80%] transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/10"
+  const refCornerCard = "flex justify-center gap-2 rounded-lg border border-primary p-2 text-center transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/10"
   const stayConnectedIcons = "size-10 text-text sm:size-12"
+  const richImgBox = "relative overflow-hidden rounded-lg border border-border bg-[radial-gradient(circle_at_50%_0%,var(--img-card-glow-1),transparent_34%),radial-gradient(circle_at_80%_15%,var(--img-card-glow-2),transparent_28%),linear-gradient(180deg,var(--img-card-top)_0%,var(--img-card-mid)_42%,var(--img-card-bottom)_100%)] shadow-[inset_0_1px_0_var(--img-card-inset-top),inset_0_-24px_40px_var(--img-card-inset-bottom)]"
 
   return (
     <>
@@ -25,13 +27,15 @@ export default function Info() {
               >ABUSE QUIZ</h1>
             </div>
             <div className='flex flex-1 flex-col gap-4 sm:flex-row'>
-              <img className="aspect-square w-full rounded-lg border border-border object-cover sm:w-42 lg:w-44 2xl:w-50" src={QuizImg} alt="" />
+              <div className={`flex w-full sm:w-42 lg:w-44 2xl:w-50 ${richImgBox}`}>
+                <img className="h-full w-full object-cover" src={QuizImg} alt="" />
+              </div>
               <div className='flex flex-1 flex-col justify-between gap-4'>
                 <div className='flex flex-col gap-2'>
                   <p>Do you know what counts as referee abuse?</p>
                   <p>Take the quiz and see where you stand.</p>
                 </div>
-                <a href="" className='flex gap-2 bg-primary text-white p-2 rounded-lg font-bold justify-between' style={{ fontWeight: 700 }}> TAKE QUIZ <IconArrowRight stroke={2} /></a>
+                <Link to="/quiz" className='flex gap-2 bg-primary text-white p-2 rounded-lg justify-between transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg' style={{ fontWeight: 600 }}> TAKE QUIZ <IconArrowRight stroke={2} /></Link>
               </div>
             </div>
           </div>
@@ -48,18 +52,18 @@ export default function Info() {
               >EDUCATIONAL HUB</h1>
             </div>
             <div className='flex flex-col gap-4 items-center'>
-              <a href="" className={eduHubCard}>
+              <Link to="/education" className={eduHubCard}>
                 <IconBook2 stroke={1.5} className='size-8 text-accent' />
                 <h2>LEARN THE GAME</h2>
-              </a>
-              <a href="" className={eduHubCard}>
+              </Link>
+              <Link to="/education" className={eduHubCard}>
                 <IconBrain stroke={1.5} className='size-8 text-danger' />
                 <h2>MENTAL HEALTH</h2>
-              </a>
-              <a href="" className={eduHubCard}>
+              </Link>
+              <Link to="/education" className={eduHubCard}>
                 <IconPlayerPlay stroke={1.5} className='size-8 text-info' />
                 <h2>ABUSE VIDEOS</h2>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,24 +79,26 @@ export default function Info() {
               >REFEREE CORNER</h1>
             </div>
             <div className='flex flex-col gap-4 sm:flex-row'>
-              <img className="aspect-square w-full rounded-lg border border-border object-cover sm:w-42 lg:w-44 2xl:w-50" src={RefCornerImg} alt="" />
+              <div className={`flex w-full sm:w-42 lg:w-44 2xl:w-50 ${richImgBox}`}>
+                <img className="h-full w-full object-cover" src={RefCornerImg} alt="" />
+              </div>
               <div className='flex flex-1 flex-col justify-between gap-4'>
                 <div className='flex flex-col gap-2'>
                   <p>Want to join?</p>
                 </div>
               <div className='flex flex-col gap-4'>
-              <a href="" className={refCornerCard}>
+              <Link to="/ref-corner" className={refCornerCard}>
                 <i></i>
                 <h2>COMMUNITY</h2>
-              </a>
-              <a href="" className={refCornerCard}>
+              </Link>
+              <Link to="/ref-corner" className={refCornerCard}>
                 <i></i>
                 <h2>SALARY SURVEYS</h2>
-              </a>
-              <a href="" className={refCornerCard}>
+              </Link>
+              <Link to="/ref-corner" className={refCornerCard}>
                 <i></i>
                 <h2>ASSOCIATIONS</h2>
-              </a>
+              </Link>
             </div>
               </div>
             </div>
@@ -109,10 +115,12 @@ export default function Info() {
             >ABOUT US</h1>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <img className="aspect-[4/3] w-full rounded-lg border border-border object-cover sm:w-42 lg:w-44 2xl:w-50" src={AboutUsImg} alt="" />
+            <div className={`flex aspect-[4/3] w-full sm:w-42 lg:w-44 2xl:w-50 ${richImgBox}`}>
+              <img className="h-full w-full object-cover" src={AboutUsImg} alt="" />
+            </div>
             <div className='flex flex-1 flex-col justify-between gap-4'>
               <p>We're protecting referees through education and AI.</p>
-              <a href="" className='flex gap-2 bg-primary text-white p-2 rounded-lg font-bold justify-between' style={{ fontWeight: 700 }}> MORE INFO <IconArrowRight stroke={2} /></a>
+              <Link to="/about" className='flex gap-2 bg-primary text-white p-2 rounded-lg justify-between transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg' style={{ fontWeight: 600 }}> MORE INFO <IconArrowRight stroke={2} /></Link>
             </div>
           </div>
         </div>
@@ -126,18 +134,18 @@ export default function Info() {
             >STAY CONNECTED</h1>
           </div>
           <p>Get in touch with us on social media!</p>
-          <div className='grid grid-cols-4 gap-4 pt-8'>
-            <a href="">
-              <IconBrandInstagram stroke={1} className={stayConnectedIcons} />
+          <div className='w-full grid grid-cols-4 pt-8 place-items-center'>
+            <a href="" className='inline-flex transition duration-200 ease-out hover:text-primary hover:-translate-y-0.5 hover:scale-105 group'>
+              <IconBrandInstagram stroke={1} className={`${stayConnectedIcons} transition duration-200 ease-out group-hover:text-primary`} />
             </a>
-            <a href="">
-              <IconMail stroke={1} className={stayConnectedIcons}  />
+            <a href="" className='inline-flex transition duration-200 ease-out hover:text-primary hover:-translate-y-0.5 hover:scale-105 group'>
+              <IconMail stroke={1} className={`${stayConnectedIcons} transition duration-200 ease-out group-hover:text-primary`}  />
             </a>
-            <a href="">
-              <IconBrandYoutube stroke={1} className={stayConnectedIcons} />
+            <a href="" className='inline-flex transition duration-200 ease-out hover:text-primary hover:-translate-y-0.5 hover:scale-105 group'>
+              <IconBrandYoutube stroke={1} className={`${stayConnectedIcons} transition duration-200 ease-out group-hover:text-primary`} />
             </a>
-            <a href="">
-              <IconBrandSpotify stroke={1} className={stayConnectedIcons} />
+            <a href="" className='inline-flex transition duration-200 ease-out hover:text-primary hover:-translate-y-0.5 hover:scale-105 group'>
+              <IconBrandSpotify stroke={1} className={`${stayConnectedIcons} transition duration-200 ease-out group-hover:text-primary`} />
             </a>
           </div>
         </div>
@@ -150,12 +158,12 @@ export default function Info() {
             text-text'
             >SEND US A MESSAGE</h1>
           </div>
-          <div className='flex flex-col gap-4'>
-            <p>Have a question or a story to share? <br /> We'd love to hear from you!</p>
-            <a href="" className='flex border border-primary p-2 rounded-lg justify-between'>
-              <p>SEND EMAIL</p>
-              <IconArrowRight stroke={2} />
-            </a>
+          <p>Have a question or a story to share? </p>
+          <div className='pt-8'>
+            <Link to="/contact" className='flex border border-primary p-2 rounded-lg justify-between transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary/10 hover:shadow-lg hover:text-primary'>
+                <p>SEND EMAIL</p>
+                <IconArrowRight stroke={2} />
+            </Link>
           </div>
         </div>
       </section>
